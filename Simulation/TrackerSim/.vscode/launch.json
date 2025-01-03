@@ -10,10 +10,14 @@
             "type": "cppvsdbg",
             "request": "launch",
             "program": "${workspaceFolder}/build/Debug/TrackerSim.exe", // Path to executable
+            // "args": [
+            //     ">",
+            //     "${workspaceFolder}/log.txt"
+            // ],
             "args": [],
             "cwd": "${workspaceFolder}", // Working directory
             "stopAtEntry": true, // Stop at program entry
-            "console": "integratedTerminal" // Use VSCode terminal"
+            "console": "integratedTerminal", // Use VSCode terminal"
         }
     ]
 }
