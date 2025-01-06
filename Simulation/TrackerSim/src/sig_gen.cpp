@@ -25,6 +25,41 @@ uint8_t gps_l1ca_taps[] = {2, 6};
 #define CHIP_RATE_L1CA 1.023e6
 #define FREQ_L1CA 1.57542e9
 
+SignalFromFile::SignalFromFile()
+{
+}
+
+bool SignalFromFile::open(const char *filename)
+{
+    file = fopen(filename, "rb");
+    return file != NULL;
+}
+
+void SignalFromFile::close()
+{
+    if (file != NULL)
+    {
+        fclose(file);
+        file = NULL;
+    }
+}
+
+void SignalFromFile::generate(double *signal, long long size)
+{
+    for (long long i = 0; i < size; i += 8)
+    {
+        char byte;
+        if (fread(&byte, sizeof(char), 1, file) != 1)
+            break;
+        for (int j = 0; j < 8; j++)
+        {
+            if (i + j >= size)
+                break;
+            signal[i + j] = ((byte >> j) & 0x1) ? 1.0 : -1.0;
+        }
+    }
+}
+
 NoiseGen::NoiseGen(double fs, double fc, double bandwidth)
 {
     this->fs = fs;
@@ -38,7 +73,7 @@ void NoiseGen::generate(double *signal, long long size)
     // Thermal noise floor ~-174dBm / Hz
     // Noise power = -174 + 10 * log10(bandwidth) ~= -101dBm
     double noise_power_dbm = -174.0 + 10.0 * log10(bandwidth);
-    for (size_t i = 0; i < size; i++)
+    for (long long i = 0; i < size; i++)
     {
         // Generate Gaussian noise
         double noise_sample = noise(gen);

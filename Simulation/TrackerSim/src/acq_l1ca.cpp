@@ -10,41 +10,6 @@
 #define CHIP_RATE 1.023e6
 #define FREQ 1.57542e9
 
-const uint8_t l1_taps[32][2] = {
-    {2, 6},
-    {3, 7},
-    {4, 8},
-    {5, 9},
-    {1, 9},
-    {2, 10},
-    {1, 8},
-    {2, 9},
-    {3, 10},
-    {2, 3},
-    {3, 4},
-    {5, 6},
-    {6, 7},
-    {7, 8},
-    {8, 9},
-    {9, 10},
-    {1, 4},
-    {2, 5},
-    {3, 6},
-    {4, 7},
-    {5, 8},
-    {6, 9},
-    {1, 3},
-    {4, 6},
-    {5, 7},
-    {6, 8},
-    {7, 9},
-    {8, 10},
-    {1, 6},
-    {2, 7},
-    {3, 8},
-    {4, 9},
-};
-
 // Perform a fast fourier transform on the CA code
 fftw_complex *transform_code(int tap_idx, int len)
 {
@@ -199,7 +164,7 @@ int acquire_l1ca(int sv, uint8_t *signal_in, int len_ms, int start_ms)
 
     // Generate FFTs for the code and signal
     int len = int(len_ms * FS / 1000);
-    int start = int(start_ms * FS / 1000);
+    long long start = (long long)((long long)start_ms * FS / 1000);
     fftw_complex *code = transform_code(sv - 1, len);
     fftw_complex *signal = transform_signal(signal_in + start, len);
 

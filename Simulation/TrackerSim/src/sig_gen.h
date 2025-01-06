@@ -4,6 +4,19 @@
 #include <stdint.h>
 #include <random>
 
+class SignalFromFile
+{
+public:
+    SignalFromFile();
+
+    bool open(const char *filename);
+    void close();
+    void generate(double *signal, long long size);
+
+private:
+    FILE *file;
+};
+
 class NoiseGen
 {
 public:
