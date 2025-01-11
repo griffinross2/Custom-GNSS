@@ -15,6 +15,9 @@ public:
 
 private:
     FILE *file;
+    char byte;
+    long long nbyte;
+    int nbit;
 };
 
 class NoiseGen

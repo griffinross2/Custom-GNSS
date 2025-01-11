@@ -4,6 +4,7 @@
 #include <stdint.h>
 #include "tools.h"
 #include "filters.h"
+#include "ephm_l1ca.h"
 
 class GPSL1CATracker
 {
@@ -18,6 +19,11 @@ public:
     ~GPSL1CATracker();
 
     void track(uint8_t *signal, long long size);
+
+    double get_tx_time();
+    void get_satellite_ecef(double t, double *x, double *y, double *z);
+    double get_clock_correction(double t);
+    bool ready_to_solve();
 
 private:
     int sv;
@@ -34,7 +40,7 @@ private:
 
     // Code generator
     int start_chip;
-    CACodeGenerator *ca_code_early;
+    CACodeGenerator *code_gen;
 
     // Code generator outputs
     uint8_t code_early;
@@ -53,11 +59,12 @@ private:
     bool epoch_processed;
 
     // DLL filter
-    SecondOrderPLL *dll;
+    PLL *dll;
 
     // PLL filter
-    SecondOrderPLL *pll;
+    PLL *pll;
 
+    // Time
     long long ms_elapsed;
 
     // Prompt buffers
@@ -66,9 +73,29 @@ private:
     int prompt_len;
     int prompt_idx;
 
+    // Bit sync
+    int last_ip;
+    int bit_sync_count;
+    int bit_hist[20];
+    bool bit_synced;
+    int bit_ms;
+    int bit_sum;
+
+    // Bit buffer
+    uint8_t nav_buf[300];
+    int nav_count;
+
+    // Nav
+    bool nav_valid;
+    int last_z_count;
+
+    // Ephemeris
+    EphemerisL1CA ephm;
+
     // Private functions
     void update_sample(uint8_t signal_sample);
     void update_epoch();
+    void update_nav();
 };
 
 #endif // TRACK_L1CA_H

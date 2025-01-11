@@ -3,7 +3,18 @@
 
 // Reference: Understanding GPS/GNSS Principles and Applications by Elliott D. Kaplan (3rd Edition)
 
-class FirstOrderPLL
+class PLL
+{
+public:
+    PLL() {}
+    virtual double update(double input) { return 0; }
+    virtual double update(double input, double int_time) { return 0; }
+    virtual double update(double fll_input, double pll_input, double int_time) { return 0; }
+    virtual void set_bandwidth(double noise_bandwidth) {}
+    virtual void set_bandwidth(double noise_bandwidth_fll, double noise_bandwidth_pll) {}
+};
+
+class FirstOrderPLL : public PLL
 {
 public:
     FirstOrderPLL(double noise_bandwidth);
@@ -15,7 +26,7 @@ private:
     double w_0; // Natural frequency
 };
 
-class SecondOrderPLL
+class SecondOrderPLL : public PLL
 {
 public:
     SecondOrderPLL(double noise_bandwidth, double acc0 = 0.0);
@@ -30,7 +41,7 @@ private:
     double acc;   // Accumulator
 };
 
-class ThirdOrderPLL
+class ThirdOrderPLL : public PLL
 {
 public:
     ThirdOrderPLL(double noise_bandwidth, double acc0 = 0.0);
@@ -48,7 +59,7 @@ private:
     double acc2;  // Second Accumulator
 };
 
-class ThirdOrderFLLAssistedPLL
+class ThirdOrderFLLAssistedPLL : public PLL
 {
 public:
     ThirdOrderFLLAssistedPLL(double noise_bandwidth_fll, double noise_bandwidth_pll, double acc0 = 0.0);

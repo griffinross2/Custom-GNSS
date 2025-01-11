@@ -27,6 +27,10 @@ uint8_t gps_l1ca_taps[] = {2, 6};
 
 SignalFromFile::SignalFromFile()
 {
+    file = NULL;
+    byte = '\0';
+    nbyte = 0;
+    nbit = 0;
 }
 
 bool SignalFromFile::open(const char *filename)
@@ -46,17 +50,20 @@ void SignalFromFile::close()
 
 void SignalFromFile::generate(double *signal, long long size)
 {
-    for (long long i = 0; i < size; i += 8)
+    for (long long i = 0; i < size; i++)
     {
-        char byte;
-        if (fread(&byte, sizeof(char), 1, file) != 1)
-            break;
-        for (int j = 0; j < 8; j++)
+        // Top of byte
+        if (nbit == 0)
         {
-            if (i + j >= size)
+            if (fread(&byte, sizeof(char), 1, file) != 1)
                 break;
-            signal[i + j] = ((byte >> j) & 0x1) ? 1.0 : -1.0;
         }
+
+        // Get signal bit
+        signal[i] = ((byte >> nbit) & 0x1) ? 1.0 : -1.0;
+        nbit = (nbit + 1) % 8;
+        if (nbit == 0)
+            nbyte++;
     }
 }
 
