@@ -26,7 +26,6 @@ void EphemerisL1CA::process_message(uint8_t *message)
         bytes_to_number(&a_f1, message + 248, 16, 16, 1);
         bytes_to_number(&a_f0, message + 270, 32, 22, 1);
         frames_received.subframe_1 = true;
-        printf("sf1\n");
     }
     else if (subframe_id == 0x2)
     {
@@ -51,7 +50,6 @@ void EphemerisL1CA::process_message(uint8_t *message)
         root_A = (root_A_up << 24) | root_A_dn;
         bytes_to_number(&t_oe, message + 270, 16, 16, 0);
         frames_received.subframe_2 = true;
-        printf("sf2\n");
     }
     else if (subframe_id == 0x3)
     {
@@ -76,7 +74,6 @@ void EphemerisL1CA::process_message(uint8_t *message)
         bytes_to_number(&omega_dot, message + 240, 32, 24, 1);
         bytes_to_number(&IDOT, message + 278, 16, 14, 1);
         frames_received.subframe_3 = true;
-        printf("sf3\n");
     }
     else if (subframe_id == 0x4)
     {
@@ -93,7 +90,6 @@ void EphemerisL1CA::process_message(uint8_t *message)
             bytes_to_number(&beta_2, message + 128, 8, 8, 1);
             bytes_to_number(&beta_3, message + 136, 8, 8, 1);
             frames_received.subframe_4 = true;
-            printf("sf4\n");
         }
     }
 }

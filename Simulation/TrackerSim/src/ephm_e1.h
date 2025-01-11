@@ -15,18 +15,17 @@ public:
     double time_from_epoch(double t, double t_epoch);
     double eccentric_anomaly(double t_k);
 
-    void inc_time() { tGST = (tGST + 1) % ((uint32_t)4096 * 604800); }
+    void inc_time();
     uint32_t get_time() { return tGST; }
-    bool ephm_valid() { return pages_received.page_0 && pages_received.page_1 &&
-                               pages_received.page_2 && pages_received.page_3 &&
-                               pages_received.page_4 && pages_received.page_5 &&
-                               pages_received.page_10 && time_received; }
+    bool ephm_valid() { return pages_received.page_1 && pages_received.page_2 &&
+                               pages_received.page_3 && pages_received.page_4 &&
+                               pages_received.page_5 && pages_received.page_10 &&
+                               time_received; }
 
 private:
     // Flags
     struct
     {
-        bool page_0 : 1;
         bool page_1 : 1;
         bool page_2 : 1;
         bool page_3 : 1;

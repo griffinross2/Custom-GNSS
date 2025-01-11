@@ -37,8 +37,8 @@ public:
     double get_clock_correction(double t);
     double get_tx_time();
     bool ready_to_solve();
-
-    double get_cn0_avg() { return cn0_sum / cn0_count; }
+    double get_cn0() { return cn0; }
+    int get_sv() { return sv; }
 
 private:
     int sv;
@@ -123,10 +123,6 @@ private:
     int pilot_secondary_chip;
     int pilot_secondary_pol;
 
-    // CN0 logging
-    double cn0_sum;
-    long long cn0_count;
-
     // Nav data
     uint8_t nav_buf[250];
     uint8_t page_data[128];
@@ -138,6 +134,9 @@ private:
 
     // Emphemeris
     EphemerisE1B ephm;
+
+    // SNR
+    double cn0;
 
     // Private functions
     void update_sample(uint8_t signal_sample);

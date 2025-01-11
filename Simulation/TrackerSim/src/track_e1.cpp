@@ -108,14 +108,13 @@ GalileoE1Tracker::GalileoE1Tracker(int sv, double fs, double fc, double doppler,
     pilot_secondary_chip = 0;
     pilot_secondary_pol = 0;
 
-    // CN0 logging
-    cn0_sum = 0;
-    cn0_count = 0;
-
     // Nav data
     nav_count = 0;
     last_page = -1;
     last_page_half = 0;
+
+    // SNR
+    cn0 = 0;
 }
 
 GalileoE1Tracker::~GalileoE1Tracker()
@@ -208,16 +207,15 @@ void GalileoE1Tracker::update_epoch()
     prompt_len += (prompt_len >= PROMPT_LEN) ? 0 : 1;
     prompt_idx = (prompt_idx + 1) % PROMPT_LEN;
 
-    double snr = 0;
-    snr = cn0_svn_estimator(ip_buffer, qp_buffer, prompt_len, (double)CODE_LENGTH / CHIP_RATE);
+    cn0 = cn0_svn_estimator(ip_buffer, qp_buffer, prompt_len, (double)CODE_LENGTH / CHIP_RATE);
 
     // Promotion to fine tracking
-    if (snr <= 35.0)
+    if (cn0 <= 35.0)
     {
         half_el_spacing = 0.25;
         discriminator_factor = 1.0;
     }
-    else if (snr >= 35.0)
+    else if (cn0 >= 35.0)
     {
         half_el_spacing = 1.0 / 12.0;
         discriminator_factor = 1.0;
@@ -225,7 +223,7 @@ void GalileoE1Tracker::update_epoch()
 
     // Reduce pll bandwidth when achieving lock
     // Helps keep lock for weak signals
-    if (snr >= 27.0)
+    if (cn0 >= 27.0)
     {
         pll->set_bandwidth(25.0, 25.0);
     }
@@ -235,7 +233,7 @@ void GalileoE1Tracker::update_epoch()
     }
 
     // Pilot tracking state
-    if (snr >= 35.0)
+    if (cn0 >= 35.0)
     {
         if (pilot_state == E1_PILOT_NO_LOCK)
         {
@@ -307,7 +305,7 @@ void GalileoE1Tracker::update_epoch()
 
     // Compute the frequency error
     double carrier_discriminator_fll = 0;
-    if (snr < 30.0 && ip != 0 && ip_buffer[(prompt_idx - 2 + PROMPT_LEN) % PROMPT_LEN] != 0)
+    if (cn0 < 30.0 && ip != 0 && ip_buffer[(prompt_idx - 2 + PROMPT_LEN) % PROMPT_LEN] != 0)
     {
         carrier_discriminator_fll = (atan((double)qp / ip) - atan((double)qp_buffer[(prompt_idx - 2 + PROMPT_LEN) % PROMPT_LEN] / ip_buffer[(prompt_idx - 2 + PROMPT_LEN) % PROMPT_LEN]));
     }
@@ -346,7 +344,7 @@ void GalileoE1Tracker::update_epoch()
     code_rate = (CHIP_RATE + code_error) / fs;
 
     // Carrier aiding
-    if (snr > 30.0)
+    if (cn0 > 30.0)
     {
         code_rate += carrier_error * CHIP_RATE / FREQ_E1 / fs; // + 0.002;
     }
@@ -372,9 +370,6 @@ void GalileoE1Tracker::update_epoch()
         }
     }
 
-    cn0_sum += snr;
-    cn0_count++;
-
     // Recover bit
     nav_buf[nav_count] = ip_data > 0 ? 1 : 0;
     nav_count++;
@@ -382,7 +377,7 @@ void GalileoE1Tracker::update_epoch()
     // printf("%.0f,%.0f,%.0f,%.0f,%.0f,", sqrt(ive * ive + qve * qve), sqrt(ie * ie + qe * qe), sqrt(ip * ip + qp * qp), sqrt(il * il + ql * ql), sqrt(ivl * ivl + qvl * qvl));
     // printf("%.8f,%.8f,", code_error, carrier_error);
     // printf("%.8f,%.8f,", code_rate * fs, carrier_rate * fs / 4);
-    // printf("%d,%d,%d,%d,%0.1f\n", ip, qp, ip_data, qp_data, snr);
+    // printf("%d,%d,%d,%d,%0.1f\n", ip, qp, ip_data, qp_data, cn0);
 
     // Reset the accumulators
     ive = 0;
@@ -456,7 +451,10 @@ void GalileoE1Tracker::update_nav()
         return;
     }
 
-    // Confirm page type is within range
+    // Increment tGST
+    ephm.inc_time();
+
+    // Get page
     last_page_half = decoded_bits[0];
     if (last_page_half == 0)
     {
@@ -492,16 +490,15 @@ void GalileoE1Tracker::update_nav()
 
             // Save navigation information
             if (crc_ok)
+            {
                 ephm.process_message(page_data, last_page);
+            }
         }
     }
 
     // Message found
     printf("Galileo E1 PRN %d found %s half of page %d at %lld ms\n", sv, last_page_half ? "2nd" : "1st", last_page, ms_elapsed);
     nav_count = 0;
-
-    // Increment tGST
-    ephm.inc_time();
 }
 
 void GalileoE1Tracker::track(uint8_t *signal, long long size)

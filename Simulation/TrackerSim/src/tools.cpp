@@ -3,11 +3,11 @@
 #include <string.h>
 #include <math.h>
 
-CACodeGenerator::CACodeGenerator(uint8_t tap1, uint8_t tap2, int chip)
+CACodeGenerator::CACodeGenerator(uint8_t tap1, uint8_t tap2, int chip_start)
 {
     this->tap1 = tap1;
     this->tap2 = tap2;
-    this->chip = chip;
+    this->chip = 0;
 
     // Initial conditions
     for (int i = 0; i < 11; i++)
@@ -17,8 +17,9 @@ CACodeGenerator::CACodeGenerator(uint8_t tap1, uint8_t tap2, int chip)
     }
 
     // Wind to the initial chip
-    for (int i = 0; i < chip; i++)
+    for (int i = 0; i < chip_start; i++)
     {
+        // Update chip
         clock_chip();
     }
 }
@@ -44,10 +45,10 @@ uint8_t CACodeGenerator::get_chip()
     return g1[10] ^ g2[tap1] ^ g2[tap2];
 }
 
-GalileoE1CodeGenerator::GalileoE1CodeGenerator(int code_idx, int chip)
+GalileoE1CodeGenerator::GalileoE1CodeGenerator(int code_idx, int chip_start)
 {
     this->code_idx = code_idx;
-    this->chip = chip;
+    this->chip = chip_start;
 }
 
 void GalileoE1CodeGenerator::clock_chip()

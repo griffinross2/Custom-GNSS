@@ -15,7 +15,7 @@
 class CACodeGenerator
 {
 public:
-    CACodeGenerator(uint8_t tap1, uint8_t tap2, int chip = 0);
+    CACodeGenerator(uint8_t tap1, uint8_t tap2, int chip_start = 0);
 
     void clock_chip();
     uint8_t get_chip();
@@ -32,7 +32,7 @@ private:
 class GalileoE1CodeGenerator
 {
 public:
-    GalileoE1CodeGenerator(int code_idx, int chip = 0);
+    GalileoE1CodeGenerator(int code_idx, int chip_start = 0);
 
     void clock_chip();
     uint8_t get_chip();

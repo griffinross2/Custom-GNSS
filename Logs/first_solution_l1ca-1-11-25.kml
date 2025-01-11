@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+  <Document>
+    <name>GPS L1CA Solution Test</name>
+    <description>GPS L1CA Solution Test</description>
+    <Style id="linePoly">
+      <LineStyle>
+        <color>7fff00ff</color>
+        <width>4</width>
+      </LineStyle>
+      <PolyStyle>
+        <color>7f000000</color>
+      </PolyStyle>
+    </Style>
+    <Placemark>
+      <name>GPS L1CA Solution Test</name>
+    <description>GPS L1CA Solution Test</description>
+      <styleUrl>#linePoly</styleUrl>
+      <LineString>
+        <extrude>1</extrude>
+        <tessellate>1</tessellate>
+        <altitudeMode>absolute</altitudeMode>
+        <coordinates> 
+	-122.1805838,37.4322198,34.45
+	-122.1804703,37.4320701,0.81
+	-122.1805589,37.4322623,43.94
+	-122.1805415,37.4319778,5.63
+	-122.1804498,37.4319653,37.42
+	-122.1805391,37.4321155,18.14
+	-122.1805999,37.4321767,8.42
+        </coordinates>
+      </LineString>
+    </Placemark>
+  </Document>
+</kml>

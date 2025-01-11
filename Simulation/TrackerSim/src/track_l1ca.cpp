@@ -60,7 +60,7 @@ GPSL1CATracker::GPSL1CATracker(int sv, double fs, double fc, double doppler, dou
     epoch_processed = false;
 
     // DLL filter
-    dll = new SecondOrderPLL(2.0, doppler * CHIP_RATE / FREQ_L1CA);
+    dll = new SecondOrderPLL(5.0, doppler * CHIP_RATE / FREQ_L1CA);
 
     // PLL filter
     pll = new ThirdOrderPLL(50.0, doppler);
@@ -86,6 +86,9 @@ GPSL1CATracker::GPSL1CATracker(int sv, double fs, double fc, double doppler, dou
     // Nav
     nav_valid = false;
     last_z_count = -2; // So we don't think we incremented on the first one
+
+    // SNR
+    cn0 = 0;
 }
 
 GPSL1CATracker::~GPSL1CATracker()
@@ -152,11 +155,7 @@ void GPSL1CATracker::update_epoch()
     prompt_len += (prompt_len >= 100) ? 0 : 1;
     prompt_idx = (prompt_idx + 1) % 100;
 
-    double snr = 0;
-    if (prompt_len >= 100)
-    {
-        snr = cn0_svn_estimator(ip_buffer, qp_buffer, 100, 0.001);
-    }
+    cn0 = cn0_svn_estimator(ip_buffer, qp_buffer, 100, 0.001);
 
     // Compute the Costas loop discriminator
     double carrier_discriminator = 0;
@@ -195,7 +194,7 @@ void GPSL1CATracker::update_epoch()
         bit_sum += ip;
     }
     // Start bit sync when above threshold
-    else if (snr > BIT_SYNC_THRESHOLD || bit_sync_count != 0)
+    else if (cn0 > BIT_SYNC_THRESHOLD || bit_sync_count != 0)
     {
         if (bit_sync_count >= BIT_SYNC_MS)
         {

@@ -96,6 +96,20 @@ void EphemerisE1B::process_message(uint8_t *message, int page_type)
     }
 }
 
+void EphemerisE1B::inc_time()
+{
+    if (tow == 604799)
+    {
+        wn = (wn + 1) % 4096;
+        tow = 0;
+    }
+    else
+    {
+        tow++;
+    }
+    tGST = ((wn * 604800) + tow + 2) % ((uint32_t)604800 * 4096);
+}
+
 void EphemerisE1B::get_satellite_ecef(double t, double *x, double *y, double *z)
 {
     double _root_A = root_A * pow(2, -19);

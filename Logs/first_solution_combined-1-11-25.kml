@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+  <Document>
+    <name>GNSS Combined Solution Test</name>
+    <description>GNSS Combined Solution Test</description>
+    <Style id="linePoly">
+      <LineStyle>
+        <color>7fff00ff</color>
+        <width>4</width>
+      </LineStyle>
+      <PolyStyle>
+        <color>7f000000</color>
+      </PolyStyle>
+    </Style>
+    <Placemark>
+      <name>GNSS Combined Solution Test</name>
+    <description>GNSS Combined Solution Test</description>
+      <styleUrl>#linePoly</styleUrl>
+      <LineString>
+        <extrude>1</extrude>
+        <tessellate>1</tessellate>
+        <altitudeMode>absolute</altitudeMode>
+        <coordinates> 
+	-122.1805624,37.4321611,39.50
+	-122.1805026,37.4321697,50.11
+	-122.1805452,37.4320221,30.25
+	-122.1804621,37.4318952,40.80
+	-122.1805604,37.4321744,42.38
+	-122.1806028,37.4322161,31.71
+        </coordinates>
+      </LineString>
+    </Placemark>
+  </Document>
+</kml>

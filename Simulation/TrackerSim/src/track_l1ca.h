@@ -24,6 +24,8 @@ public:
     void get_satellite_ecef(double t, double *x, double *y, double *z);
     double get_clock_correction(double t);
     bool ready_to_solve();
+    double get_cn0() { return cn0; }
+    int get_sv() { return sv; }
 
 private:
     int sv;
@@ -92,8 +94,12 @@ private:
     // Ephemeris
     EphemerisL1CA ephm;
 
+    // SNR
+    double cn0;
+
     // Private functions
-    void update_sample(uint8_t signal_sample);
+    void
+    update_sample(uint8_t signal_sample);
     void update_epoch();
     void update_nav();
 };

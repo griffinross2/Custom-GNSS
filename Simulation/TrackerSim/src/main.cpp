@@ -6,22 +6,10 @@
 #include "track_l1ca.h"
 #include "track_e1.h"
 #include <windows.h>
+#include "solve.h"
 
 #define FS 69.984e6
 #define FC 9.334875e6
-
-typedef struct
-{
-    GalileoE1Tracker *track;
-    uint8_t *signal;
-    long long size;
-} PARAMS;
-
-DWORD WINAPI ThreadFunction(LPVOID lpParam)
-{
-    ((PARAMS *)lpParam)->track->track(((PARAMS *)lpParam)->signal, ((PARAMS *)lpParam)->size);
-    return 0;
-}
 
 void save_signal_data(uint8_t *signal, long long size);
 
@@ -56,13 +44,26 @@ int main(int argc, char *argv[])
     // Track GPS
     GPSL1CATracker gps0(2, FS, FC, 1600.0, 7.0);
     GPSL1CATracker gps1(21, FS, FC, -2400.0, 817.4);
+    GPSL1CATracker gps2(26, FS, FC, -3400, 446.3);
+    GPSL1CATracker gps3(5, FS, FC, 1400.0, 969.4);
 
     printf("Tracking Galileo...\n");
 
     // Track Galileo
-    GalileoE1Tracker gal1(24, FS, FC, -250.0, 2838.0, dll_bw, pll_bw, fll_bw);
-    GalileoE1Tracker gal2(14, FS, FC, -3250.0, 3770.6, dll_bw, pll_bw, fll_bw);
-    GalileoE1Tracker gal3(26, FS, FC, 1000.0, 1001.1, dll_bw, pll_bw, fll_bw);
+    GalileoE1Tracker gal0(24, FS, FC, -250.0, 2838.0, dll_bw, pll_bw, fll_bw);
+    GalileoE1Tracker gal1(14, FS, FC, -3250.0, 3770.6, dll_bw, pll_bw, fll_bw);
+    GalileoE1Tracker gal2(26, FS, FC, 1000.0, 1001.1, dll_bw, pll_bw, fll_bw);
+
+    // Solver
+    Solution solution;
+    Solver solver;
+    solver.register_l1ca_channel(&gps0);
+    solver.register_l1ca_channel(&gps1);
+    solver.register_l1ca_channel(&gps2);
+    solver.register_l1ca_channel(&gps3);
+    solver.register_e1_channel(&gal0);
+    solver.register_e1_channel(&gal1);
+    solver.register_e1_channel(&gal2);
 
     // Combine signals
     for (long long i = 0; i < size; i++)
@@ -76,10 +77,29 @@ int main(int argc, char *argv[])
         double signal = 0;
         sig_gen.generate(&signal, 1);
         uint8_t total_signal = (signal /*+ signal2[i] + noise[i]*/) > 0 ? 1 : 0;
-        // gal1.track(&total_signal, 1);
-        // gal2.track(&total_signal, 1);
-        // gal3.track(&total_signal, 1);
+        gal0.track(&total_signal, 1);
+        gal1.track(&total_signal, 1);
+        gal2.track(&total_signal, 1);
         gps0.track(&total_signal, 1);
+        gps1.track(&total_signal, 1);
+        gps2.track(&total_signal, 1);
+        gps3.track(&total_signal, 1);
+        // if (gal0.ready_to_solve())
+        // {
+        //     double x, y, z;
+        //     double t;
+        //     t = gal0.get_tx_time();
+        //     t -= gal0.get_clock_correction(t);
+        //     gal0.get_satellite_ecef(t, &x, &y, &z);
+        //     printf("%.12f,%.12f,%.12f\n", x, y, z);
+        // }
+        if (i % (long long)FS == 0)
+        {
+            if (solver.solve(&solution))
+            {
+                printf("Solution: lat,lon,alt,tbias: %.7f,%.7f,%.2f,%.7f\n", solution.lat, solution.lon, solution.alt, solution.t_bias);
+            }
+        }
     }
 
     // printf("Acquiring GPS...\n");
@@ -97,18 +117,6 @@ int main(int argc, char *argv[])
     // {
     //     acquire_e1c(prn, total_signal, 8, 0);
     // }
-
-    // PARAMS params1 = {&track1, total_signal, size};
-    // PARAMS params2 = {&track2, total_signal, size};
-    // PARAMS params3 = {&track3, total_signal, size};
-
-    // HANDLE hThreadArray[3];
-
-    // hThreadArray[0] = CreateThread(NULL, 0, ThreadFunction, (LPVOID)&params1, 0, NULL);
-    // hThreadArray[1] = CreateThread(NULL, 0, ThreadFunction, (LPVOID)&params2, 0, NULL);
-    // hThreadArray[2] = CreateThread(NULL, 0, ThreadFunction, (LPVOID)&params3, 0, NULL);
-
-    // WaitForMultipleObjects(3, hThreadArray, TRUE, INFINITE);
 
     sig_gen.close();
 
