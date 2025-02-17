@@ -29,6 +29,21 @@ private:
     uint8_t g2[11]; // First bit is space for new bit
 };
 
+class WAASCodeGenerator
+{
+public:
+    WAASCodeGenerator(int g2_delay, int chip_start = 0);
+
+    void clock_chip();
+    uint8_t get_chip();
+
+    int chip;
+
+private:
+    uint8_t g1[11]; // First bit is space for new bit
+    uint8_t g2[11]; // First bit is space for new bit
+};
+
 class GalileoE1CodeGenerator
 {
 public:
@@ -195,5 +210,12 @@ const uint8_t gal_e1b_code[50][512] = {
 
 const uint8_t e1_secondary[25] = {0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 1, 1, 0, 1, 1, 0, 0, 1, 0};
 const uint8_t e1_secondary_inv[25] = {1, 1, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, 1, 0, 0, 1, 0, 0, 1, 1, 0, 1};
+
+const int waas_code_params[][2] = {
+    {131, 0551},  // PRN 131 - Eutelsat 117 West B (Old)
+    {133, 01731}, // PRN 133 - Inmarsat 3-F2 (Old) - SES-15 (Current)
+    {135, 01216}, // PRN 135 - Galaxy-15 (Old) - Galaxy-30 (Current)
+    {138, 0450},  // PRN 138 - Anik F1R (Old)
+};
 
 #endif // TOOLS_H

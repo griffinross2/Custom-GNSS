@@ -9,6 +9,7 @@
         "algorithm": "cpp",
         "cmath": "cpp",
         "filters.h": "c",
-        "cstdlib": "cpp"
+        "cstdlib": "cpp",
+        "xmemory": "cpp"
     }
 }
