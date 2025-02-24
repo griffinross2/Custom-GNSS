@@ -10,6 +10,7 @@
         "cmath": "cpp",
         "filters.h": "c",
         "cstdlib": "cpp",
+        "iterator": "cpp",
         "xmemory": "cpp"
     }
 }

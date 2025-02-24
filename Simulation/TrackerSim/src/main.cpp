@@ -5,6 +5,7 @@
 #include "acq_e1c.h"
 #include "track_l1ca.h"
 #include "track_e1.h"
+#include "track_waas.h"
 #include <windows.h>
 #include "solve.h"
 
@@ -54,6 +55,9 @@ int main(int argc, char *argv[])
     GalileoE1Tracker gal1(14, FS, FC, -3250.0, 3770.6, dll_bw, pll_bw, fll_bw);
     GalileoE1Tracker gal2(26, FS, FC, 1000.0, 1001.1, dll_bw, pll_bw, fll_bw);
 
+    // Track WAAS
+    SBASWAASTracker waas(135, FS, FC, -800, 1004.5);
+
     // Solver
     Solution solution;
     Solver solver;
@@ -84,6 +88,7 @@ int main(int argc, char *argv[])
         gps1.track(&total_signal, 1);
         gps2.track(&total_signal, 1);
         gps3.track(&total_signal, 1);
+        waas.track(&total_signal, 1);
         // if (gal0.ready_to_solve())
         // {
         //     double x, y, z;
