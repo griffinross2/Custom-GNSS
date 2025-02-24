@@ -67,6 +67,16 @@ uint32_t gal_e1_crc(const uint8_t *data, const uint8_t *extras);
 
 void bytes_to_number(void *dest, uint8_t *buf, int dest_size, int src_size, uint8_t sign);
 
+uint32_t hamming_dist2(uint32_t val1, uint32_t val2);
+
+uint8_t parity(uint8_t val);
+
+uint8_t get_conv_out(uint8_t state, uint8_t input);
+
+// Viterbi decoder for k=7 1/2 rate convolutional code
+// Returns the minimum path metric
+int viterbi_decode(uint8_t *data, uint8_t *result, int ninput);
+
 const uint8_t l1_taps[32][2] = {
     {2, 6},
     {3, 7},

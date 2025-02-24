@@ -84,7 +84,7 @@ private:
     int bit_sum;
 
     // Bit buffer
-    uint8_t nav_buf[300];
+    uint8_t nav_buf[500];
     int nav_count;
 
     // Nav

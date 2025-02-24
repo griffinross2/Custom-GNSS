@@ -12,10 +12,6 @@
 const uint8_t carrier_sin[] = {1, 1, 0, 0};
 const uint8_t carrier_cos[] = {1, 0, 0, 1};
 
-uint8_t parity(uint8_t val);
-uint8_t get_conv_out(uint8_t state, uint8_t input);
-void viterbi_decode(uint8_t *data, uint8_t *result);
-
 GalileoE1Tracker::GalileoE1Tracker(int sv, double fs, double fc, double doppler, double code_off, double dll_bw, double pll_bw, double fll_bw)
 {
     this->sv = sv;
@@ -440,7 +436,7 @@ void GalileoE1Tracker::update_nav()
 
     // Decode convolutional code
     uint8_t decoded_bits[sizeof(block) / 2];
-    viterbi_decode(block, decoded_bits);
+    viterbi_decode(block, decoded_bits, 240);
 
     // Check tail
     if (memcmp(decoded_bits + (sizeof(decoded_bits) - sizeof(tail)), tail,
@@ -555,114 +551,4 @@ double GalileoE1Tracker::get_clock_correction(double t)
 bool GalileoE1Tracker::ready_to_solve()
 {
     return ephm.ephm_valid();
-}
-
-uint32_t hamming_dist2(uint32_t val1, uint32_t val2)
-{
-    uint32_t dist = 0;
-    for (int i = 0; i < 2; i++)
-    {
-        dist += (val1 & 0x1) ^ (val2 & 0x1);
-        val1 >>= 1;
-        val2 >>= 1;
-    }
-    return dist;
-}
-
-uint8_t parity(uint8_t val)
-{
-    uint8_t parity = 0;
-    for (int i = 0; i < 8; i++)
-    {
-        parity ^= (val >> i) & 0x1;
-    }
-    return parity;
-}
-
-uint8_t get_conv_out(uint8_t state, uint8_t input)
-{
-    static uint8_t G1 = 0b1111001;
-    static uint8_t G2 = 0b1011011;
-
-    uint8_t conv_in = state | (input << 6);
-
-    // [7:2] res, [1:0] output bits
-    uint8_t result = 0;
-    result |= (parity(conv_in & G1) << 1);
-    result |= (parity(conv_in & G2) == 0);
-
-    return result;
-}
-
-void viterbi_decode(uint8_t *data, uint8_t *result)
-{
-    static const uint8_t nstates = 64;
-    static const uint8_t ninput = 240;
-    static const uint8_t rate = 2;
-
-    uint32_t path_metric[nstates][ninput / rate + 1];
-
-    // Setup initial state
-    memset(path_metric, 0xFF, sizeof(path_metric));
-    path_metric[0][0] = 0;
-
-    // Create trellis
-    for (int j = 0; j < ninput / rate; j++)
-    {
-        for (uint8_t i = 0; i < nstates; i++)
-        {
-            // skip unaccessible states
-            if (path_metric[i][j] == 0xFFFFFFFF)
-                continue;
-
-            // input bit 0
-            uint8_t next_state = (i >> 1);
-            uint32_t conv_out = get_conv_out(i, 0);
-            uint8_t rcvd = (data[j * rate] << 1) | data[j * rate + 1];
-            uint32_t dist = hamming_dist2(rcvd, conv_out);
-            if (path_metric[next_state][j + 1] > path_metric[i][j] + dist)
-            {
-                path_metric[next_state][j + 1] = path_metric[i][j] + dist;
-            }
-            // input bit 1
-            next_state |= 0b100000;
-            conv_out = get_conv_out(i, 1);
-            dist = hamming_dist2(rcvd, conv_out);
-            if (path_metric[next_state][j + 1] > path_metric[i][j] + dist)
-            {
-                path_metric[next_state][j + 1] = path_metric[i][j] + dist;
-            }
-        }
-    }
-
-    // Find best ending
-    uint8_t best_state = 0;
-    uint32_t best_metric = 0xFFFFFFFF;
-    for (int i = 0; i < nstates; i++)
-    {
-        if (path_metric[i][ninput / rate] < best_metric)
-        {
-            best_metric = path_metric[i][ninput / rate];
-            best_state = i;
-        }
-    }
-
-    // Traceback through best path
-    for (int i = ninput / rate - 1; i >= 0; i--)
-    {
-        result[i] = (best_state >> 5) & 1;
-
-        // Zero path
-        uint8_t previous_state = (best_state << 1) & 0b111111;
-        best_metric = path_metric[previous_state][i];
-        best_state = previous_state;
-
-        // One path
-        previous_state = (best_state | 1);
-        if (path_metric[previous_state][i] < best_metric)
-        {
-            best_metric = path_metric[previous_state][i];
-            best_state = previous_state;
-        }
-    }
 }

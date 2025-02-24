@@ -2,6 +2,7 @@
 
 #include <string.h>
 #include <math.h>
+#include <stdlib.h>
 
 CACodeGenerator::CACodeGenerator(uint8_t tap1, uint8_t tap2, int chip_start)
 {
@@ -214,4 +215,133 @@ uint32_t gal_e1_crc(const uint8_t *data, const uint8_t *extras)
     }
 
     return crc;
+}
+
+uint32_t hamming_dist2(uint32_t val1, uint32_t val2)
+{
+    uint32_t dist = 0;
+    for (int i = 0; i < 2; i++)
+    {
+        dist += (val1 & 0x1) ^ (val2 & 0x1);
+        val1 >>= 1;
+        val2 >>= 1;
+    }
+    return dist;
+}
+
+uint8_t parity(uint8_t val)
+{
+    uint8_t parity = 0;
+    for (int i = 0; i < 8; i++)
+    {
+        parity ^= (val >> i) & 0x1;
+    }
+    return parity;
+}
+
+uint8_t get_conv_out(uint8_t state, uint8_t input)
+{
+    static uint8_t G1 = 0b1111001;
+    static uint8_t G2 = 0b1011011;
+
+    uint8_t conv_in = state | (input << 6);
+
+    // [7:2] res, [1:0] output bits
+    uint8_t result = 0;
+    result |= (parity(conv_in & G1) << 1);
+    result |= (parity(conv_in & G2) == 0);
+
+    return result;
+}
+
+int viterbi_decode(uint8_t *data, uint8_t *result, int ninput)
+{
+    static const uint8_t nstates = 64;
+    static const uint8_t rate = 2;
+
+    // Allocate path metric array
+    uint32_t *path_metric[nstates];
+    for (int i = 0; i < nstates; i++)
+    {
+        path_metric[i] = (uint32_t *)malloc((ninput / rate + 1) * sizeof(uint32_t));
+    }
+
+    // Setup initial state
+    for (int i = 0; i < nstates; i++)
+    {
+        memset(path_metric[i], 0xFF, sizeof((ninput / rate + 1) * sizeof(uint32_t)));
+    }
+    path_metric[0][0] = 0;
+
+    // Create trellis
+    for (int j = 0; j < ninput / rate; j++)
+    {
+        for (uint8_t i = 0; i < nstates; i++)
+        {
+            // skip unaccessible states
+            if (path_metric[i][j] == 0xFFFFFFFF)
+                continue;
+
+            // input bit 0
+            uint8_t next_state = (i >> 1);
+            uint32_t conv_out = get_conv_out(i, 0);
+            uint8_t rcvd = (data[j * rate] << 1) | data[j * rate + 1];
+            uint32_t dist = hamming_dist2(rcvd, conv_out);
+            if (path_metric[next_state][j + 1] > path_metric[i][j] + dist)
+            {
+                path_metric[next_state][j + 1] = path_metric[i][j] + dist;
+            }
+            // input bit 1
+            next_state |= 0b100000;
+            conv_out = get_conv_out(i, 1);
+            dist = hamming_dist2(rcvd, conv_out);
+            if (path_metric[next_state][j + 1] > path_metric[i][j] + dist)
+            {
+                path_metric[next_state][j + 1] = path_metric[i][j] + dist;
+            }
+        }
+    }
+
+    // Find best ending
+    uint32_t best_ending = 0xFFFFFFFF;
+    uint8_t best_state = 0;
+    uint32_t best_metric = 0xFFFFFFFF;
+    for (int i = 0; i < nstates; i++)
+    {
+        if (path_metric[i][ninput / rate] < best_metric)
+        {
+            best_metric = path_metric[i][ninput / rate];
+            best_state = i;
+        }
+    }
+
+    // Save best ending
+    best_ending = best_state;
+
+    // Traceback through best path
+    for (int i = ninput / rate - 1; i >= 0; i--)
+    {
+        result[i] = (best_state >> 5) & 1;
+
+        // Zero path
+        uint8_t previous_state = (best_state << 1) & 0b111111;
+        best_metric = path_metric[previous_state][i];
+        best_state = previous_state;
+
+        // One path
+        previous_state = (best_state | 1);
+        if (path_metric[previous_state][i] < best_metric)
+        {
+            best_metric = path_metric[previous_state][i];
+            best_state = previous_state;
+        }
+    }
+
+    // Cleanup
+    for (int i = 0; i < nstates; i++)
+    {
+        free(path_metric[i]);
+    }
+
+    return best_ending;
 }

@@ -176,8 +176,6 @@ void SBASWAASTracker::update_epoch()
     prompt_idx = (prompt_idx + 1) % 100;
 
     cn0 = cn0_svn_estimator(ip_buffer, qp_buffer, 100, 0.001);
-    printf("%d,%d,", ip, qp);
-    printf("%.2f\n", cn0);
 
     // Compute the Costas loop discriminator
     double carrier_discriminator = 0;
@@ -247,7 +245,7 @@ void SBASWAASTracker::update_epoch()
     bit_ms = (bit_ms + 1) % 2;
 
     // Process the bits
-    if (nav_count >= 300)
+    if (nav_count >= sizeof(nav_buf))
     {
         update_nav();
     }
@@ -268,6 +266,25 @@ void SBASWAASTracker::update_epoch()
 
 void SBASWAASTracker::update_nav()
 {
+    uint8_t decoded_bits[250];
+    int result = viterbi_decode(nav_buf, decoded_bits, sizeof(nav_buf));
+    memmove(nav_buf, nav_buf + 1, 499);
+    nav_count--;
+
+    // Preamble
+    uint8_t pre1[8] = {0, 1, 0, 1, 0, 0, 1, 1};
+    uint8_t pre2[8] = {1, 0, 0, 1, 1, 0, 1, 0};
+    uint8_t pre3[8] = {1, 1, 0, 0, 0, 1, 1, 0};
+
+    if ((memcmp(decoded_bits, pre1, 8) == 0) || (memcmp(decoded_bits, pre2, 8) == 0) || (memcmp(decoded_bits, pre3, 8) == 0))
+    {
+        for (size_t i = 0; i < 8; i++)
+        {
+            printf("%d", decoded_bits[i]);
+        }
+
+        printf(", %d\n", result);
+    }
 }
 
 void SBASWAASTracker::track(uint8_t *signal, long long size)
