@@ -9,7 +9,7 @@ module l1ca_code_tb;
     logic en, clear;
     integer sv;
     logic code, epoch;
-    chip_t chip;
+    gps_chip_t chip;
 
     l1ca_code dut (
         .clk(clk),

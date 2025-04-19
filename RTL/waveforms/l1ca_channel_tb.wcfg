@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="l1ca_channel_tb_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="common_gnss_types_pkg" />
+            <top_module name="glbl" />
+            <top_module name="l1ca_channel_tb" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="259.148667 us"></ZoomStartTime>
+      <ZoomEndTime time="1,347.148668 us"></ZoomEndTime>
+      <Cursor1Time time="440.482000 us"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="191"></NameColumnWidth>
+      <ValueColumnWidth column_width="184"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="66" />
+   <wvobject fp_name="/l1ca_channel_tb/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/l1ca_channel_tb/nrst" type="logic">
+      <obj_property name="ElementShortName">nrst</obj_property>
+      <obj_property name="ObjectShortName">nrst</obj_property>
+   </wvobject>
+   <wvobject fp_name="/l1ca_channel_tb/en" type="logic">
+      <obj_property name="ElementShortName">en</obj_property>
+      <obj_property name="ObjectShortName">en</obj_property>
+   </wvobject>
+   <wvobject fp_name="/l1ca_channel_tb/clear" type="logic">
+      <obj_property name="ElementShortName">clear</obj_property>
+      <obj_property name="ObjectShortName">clear</obj_property>
+   </wvobject>
+   <wvobject fp_name="/l1ca_channel_tb/sv" type="array">
+      <obj_property name="ElementShortName">sv[4:0]</obj_property>
+      <obj_property name="ObjectShortName">sv[4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/l1ca_channel_tb/delay_code" type="logic">
+      <obj_property name="ElementShortName">delay_code</obj_property>
+      <obj_property name="ObjectShortName">delay_code</obj_property>
+   </wvobject>
+   <wvobject fp_name="/l1ca_channel_tb/delay_cycles" type="logic">
+      <obj_property name="ElementShortName">delay_cycles</obj_property>
+      <obj_property name="ObjectShortName">delay_cycles</obj_property>
+   </wvobject>
+   <wvobject fp_name="/l1ca_channel_tb/code_rate" type="array">
+      <obj_property name="ElementShortName">code_rate[31:0]</obj_property>
+      <obj_property name="ObjectShortName">code_rate[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/l1ca_channel_tb/lo_rate" type="array">
+      <obj_property name="ElementShortName">lo_rate[31:0]</obj_property>
+      <obj_property name="ObjectShortName">lo_rate[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/l1ca_channel_tb/signal_in" type="logic">
+      <obj_property name="ElementShortName">signal_in</obj_property>
+      <obj_property name="ObjectShortName">signal_in</obj_property>
+   </wvobject>
+   <wvobject fp_name="/l1ca_channel_tb/epoch" type="logic">
+      <obj_property name="ElementShortName">epoch</obj_property>
+      <obj_property name="ObjectShortName">epoch</obj_property>
+   </wvobject>
+   <wvobject fp_name="/l1ca_channel_tb/ie" type="array">
+      <obj_property name="ElementShortName">ie[15:0]</obj_property>
+      <obj_property name="ObjectShortName">ie[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/l1ca_channel_tb/qe" type="array">
+      <obj_property name="ElementShortName">qe[15:0]</obj_property>
+      <obj_property name="ObjectShortName">qe[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/l1ca_channel_tb/ip" type="array">
+      <obj_property name="ElementShortName">ip[15:0]</obj_property>
+      <obj_property name="ObjectShortName">ip[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/l1ca_channel_tb/qp" type="array">
+      <obj_property name="ElementShortName">qp[15:0]</obj_property>
+      <obj_property name="ObjectShortName">qp[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/l1ca_channel_tb/il" type="array">
+      <obj_property name="ElementShortName">il[15:0]</obj_property>
+      <obj_property name="ObjectShortName">il[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/l1ca_channel_tb/ql" type="array">
+      <obj_property name="ElementShortName">ql[15:0]</obj_property>
+      <obj_property name="ObjectShortName">ql[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/l1ca_channel_tb/code_phase" type="array">
+      <obj_property name="ElementShortName">code_phase[31:0]</obj_property>
+      <obj_property name="ObjectShortName">code_phase[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/l1ca_channel_tb/lo_phase" type="array">
+      <obj_property name="ElementShortName">lo_phase[31:0]</obj_property>
+      <obj_property name="ObjectShortName">lo_phase[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/l1ca_channel_tb/FS" type="other">
+      <obj_property name="ElementShortName">FS</obj_property>
+      <obj_property name="ObjectShortName">FS</obj_property>
+   </wvobject>
+   <wvobject fp_name="/l1ca_channel_tb/FC" type="other">
+      <obj_property name="ElementShortName">FC</obj_property>
+      <obj_property name="ObjectShortName">FC</obj_property>
+   </wvobject>
+   <wvobject type="divider" fp_name="divider22">
+      <obj_property name="label">Module</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+   </wvobject>
+   <wvobject fp_name="/l1ca_channel_tb/dut/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/l1ca_channel_tb/dut/nrst" type="logic">
+      <obj_property name="ElementShortName">nrst</obj_property>
+      <obj_property name="ObjectShortName">nrst</obj_property>
+   </wvobject>
+   <wvobject fp_name="/l1ca_channel_tb/dut/en" type="logic">
+      <obj_property name="ElementShortName">en</obj_property>
+      <obj_property name="ObjectShortName">en</obj_property>
+   </wvobject>
+   <wvobject fp_name="/l1ca_channel_tb/dut/clear" type="logic">
+      <obj_property name="ElementShortName">clear</obj_property>
+      <obj_property name="ObjectShortName">clear</obj_property>
+   </wvobject>
+   <wvobject fp_name="/l1ca_channel_tb/dut/sv" type="array">
+      <obj_property name="ElementShortName">sv[4:0]</obj_property>
+      <obj_property name="ObjectShortName">sv[4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/l1ca_channel_tb/dut/delay_code" type="logic">
+      <obj_property name="ElementShortName">delay_code</obj_property>
+      <obj_property name="ObjectShortName">delay_code</obj_property>
+   </wvobject>
+   <wvobject fp_name="/l1ca_channel_tb/dut/delay_cycles" type="logic">
+      <obj_property name="ElementShortName">delay_cycles</obj_property>
+      <obj_property name="ObjectShortName">delay_cycles</obj_property>
+   </wvobject>
+   <wvobject fp_name="/l1ca_channel_tb/dut/code_rate" type="array">
+      <obj_property name="ElementShortName">code_rate[31:0]</obj_property>
+      <obj_property name="ObjectShortName">code_rate[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/l1ca_channel_tb/dut/lo_rate" type="array">
+      <obj_property name="ElementShortName">lo_rate[31:0]</obj_property>
+      <obj_property name="ObjectShortName">lo_rate[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/l1ca_channel_tb/dut/signal_in" type="logic">
+      <obj_property name="ElementShortName">signal_in</obj_property>
+      <obj_property name="ObjectShortName">signal_in</obj_property>
+   </wvobject>
+   <wvobject fp_name="/l1ca_channel_tb/dut/epoch" type="logic">
+      <obj_property name="ElementShortName">epoch</obj_property>
+      <obj_property name="ObjectShortName">epoch</obj_property>
+   </wvobject>
+   <wvobject fp_name="/l1ca_channel_tb/dut/ie" type="array">
+      <obj_property name="ElementShortName">ie[15:0]</obj_property>
+      <obj_property name="ObjectShortName">ie[15:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/l1ca_channel_tb/dut/qe" type="array">
+      <obj_property name="ElementShortName">qe[15:0]</obj_property>
+      <obj_property name="ObjectShortName">qe[15:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/l1ca_channel_tb/dut/ip" type="array">
+      <obj_property name="ElementShortName">ip[15:0]</obj_property>
+      <obj_property name="ObjectShortName">ip[15:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/l1ca_channel_tb/dut/qp" type="array">
+      <obj_property name="ElementShortName">qp[15:0]</obj_property>
+      <obj_property name="ObjectShortName">qp[15:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/l1ca_channel_tb/dut/il" type="array">
+      <obj_property name="ElementShortName">il[15:0]</obj_property>
+      <obj_property name="ObjectShortName">il[15:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/l1ca_channel_tb/dut/ql" type="array">
+      <obj_property name="ElementShortName">ql[15:0]</obj_property>
+      <obj_property name="ObjectShortName">ql[15:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/l1ca_channel_tb/dut/code_phase" type="array">
+      <obj_property name="ElementShortName">code_phase[31:0]</obj_property>
+      <obj_property name="ObjectShortName">code_phase[31:0]</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="/l1ca_channel_tb/dut/lo_phase" type="array">
+      <obj_property name="ElementShortName">lo_phase[31:0]</obj_property>
+      <obj_property name="ObjectShortName">lo_phase[31:0]</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="/l1ca_channel_tb/dut/epoch_reg" type="logic">
+      <obj_property name="ElementShortName">epoch_reg</obj_property>
+      <obj_property name="ObjectShortName">epoch_reg</obj_property>
+   </wvobject>
+   <wvobject fp_name="/l1ca_channel_tb/dut/next_ie" type="array">
+      <obj_property name="ElementShortName">next_ie[15:0]</obj_property>
+      <obj_property name="ObjectShortName">next_ie[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/l1ca_channel_tb/dut/next_qe" type="array">
+      <obj_property name="ElementShortName">next_qe[15:0]</obj_property>
+      <obj_property name="ObjectShortName">next_qe[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/l1ca_channel_tb/dut/next_ip" type="array">
+      <obj_property name="ElementShortName">next_ip[15:0]</obj_property>
+      <obj_property name="ObjectShortName">next_ip[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/l1ca_channel_tb/dut/next_qp" type="array">
+      <obj_property name="ElementShortName">next_qp[15:0]</obj_property>
+      <obj_property name="ObjectShortName">next_qp[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/l1ca_channel_tb/dut/next_il" type="array">
+      <obj_property name="ElementShortName">next_il[15:0]</obj_property>
+      <obj_property name="ObjectShortName">next_il[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/l1ca_channel_tb/dut/next_ql" type="array">
+      <obj_property name="ElementShortName">next_ql[15:0]</obj_property>
+      <obj_property name="ObjectShortName">next_ql[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/l1ca_channel_tb/dut/die" type="logic">
+      <obj_property name="ElementShortName">die</obj_property>
+      <obj_property name="ObjectShortName">die</obj_property>
+   </wvobject>
+   <wvobject fp_name="/l1ca_channel_tb/dut/dip" type="logic">
+      <obj_property name="ElementShortName">dip</obj_property>
+      <obj_property name="ObjectShortName">dip</obj_property>
+   </wvobject>
+   <wvobject fp_name="/l1ca_channel_tb/dut/dil" type="logic">
+      <obj_property name="ElementShortName">dil</obj_property>
+      <obj_property name="ObjectShortName">dil</obj_property>
+   </wvobject>
+   <wvobject fp_name="/l1ca_channel_tb/dut/dqe" type="logic">
+      <obj_property name="ElementShortName">dqe</obj_property>
+      <obj_property name="ObjectShortName">dqe</obj_property>
+   </wvobject>
+   <wvobject fp_name="/l1ca_channel_tb/dut/dqp" type="logic">
+      <obj_property name="ElementShortName">dqp</obj_property>
+      <obj_property name="ObjectShortName">dqp</obj_property>
+   </wvobject>
+   <wvobject fp_name="/l1ca_channel_tb/dut/dql" type="logic">
+      <obj_property name="ElementShortName">dql</obj_property>
+      <obj_property name="ObjectShortName">dql</obj_property>
+   </wvobject>
+   <wvobject fp_name="/l1ca_channel_tb/dut/next_code_phase" type="array">
+      <obj_property name="ElementShortName">next_code_phase[32:0]</obj_property>
+      <obj_property name="ObjectShortName">next_code_phase[32:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/l1ca_channel_tb/dut/code_strobe" type="logic">
+      <obj_property name="ElementShortName">code_strobe</obj_property>
+      <obj_property name="ObjectShortName">code_strobe</obj_property>
+   </wvobject>
+   <wvobject fp_name="/l1ca_channel_tb/dut/delay_strobe" type="logic">
+      <obj_property name="ElementShortName">delay_strobe</obj_property>
+      <obj_property name="ObjectShortName">delay_strobe</obj_property>
+   </wvobject>
+   <wvobject fp_name="/l1ca_channel_tb/dut/code_early" type="logic">
+      <obj_property name="ElementShortName">code_early</obj_property>
+      <obj_property name="ObjectShortName">code_early</obj_property>
+   </wvobject>
+   <wvobject fp_name="/l1ca_channel_tb/dut/code_prompt" type="logic">
+      <obj_property name="ElementShortName">code_prompt</obj_property>
+      <obj_property name="ObjectShortName">code_prompt</obj_property>
+   </wvobject>
+   <wvobject fp_name="/l1ca_channel_tb/dut/code_late" type="logic">
+      <obj_property name="ElementShortName">code_late</obj_property>
+      <obj_property name="ObjectShortName">code_late</obj_property>
+   </wvobject>
+   <wvobject fp_name="/l1ca_channel_tb/dut/next_code_prompt" type="logic">
+      <obj_property name="ElementShortName">next_code_prompt</obj_property>
+      <obj_property name="ObjectShortName">next_code_prompt</obj_property>
+   </wvobject>
+   <wvobject fp_name="/l1ca_channel_tb/dut/next_code_late" type="logic">
+      <obj_property name="ElementShortName">next_code_late</obj_property>
+      <obj_property name="ObjectShortName">next_code_late</obj_property>
+   </wvobject>
+   <wvobject fp_name="/l1ca_channel_tb/dut/next_lo_phase" type="array">
+      <obj_property name="ElementShortName">next_lo_phase[31:0]</obj_property>
+      <obj_property name="ObjectShortName">next_lo_phase[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/l1ca_channel_tb/dut/lo_cos" type="logic">
+      <obj_property name="ElementShortName">lo_cos</obj_property>
+      <obj_property name="ObjectShortName">lo_cos</obj_property>
+   </wvobject>
+   <wvobject fp_name="/l1ca_channel_tb/dut/lo_sin" type="logic">
+      <obj_property name="ElementShortName">lo_sin</obj_property>
+      <obj_property name="ObjectShortName">lo_sin</obj_property>
+   </wvobject>
+   <wvobject fp_name="/l1ca_channel_tb/dut/chip" type="logic">
+      <obj_property name="ElementShortName">chip</obj_property>
+      <obj_property name="ObjectShortName">chip</obj_property>
+   </wvobject>
+</wave_config>

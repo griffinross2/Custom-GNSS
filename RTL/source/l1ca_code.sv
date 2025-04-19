@@ -8,10 +8,10 @@ module l1ca_code (
     input logic en, clear,
     input sv_t sv,
     output logic code, epoch,
-    output chip_t chip
+    output gps_chip_t chip
 );
 
-    chip_t next_chip;
+    gps_chip_t next_chip;
 
     l1ca_lfsr_t g1, next_g1;
     l1ca_lfsr_t g2, next_g2;

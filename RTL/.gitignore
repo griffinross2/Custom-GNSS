@@ -9,3 +9,4 @@
 *.tcl
 *.o
 obj_dir/
+signal_files/
