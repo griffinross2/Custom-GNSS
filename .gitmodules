@@ -1,0 +1,3 @@
+[submodule "RTL/RISC-V-Emulator"]
+	path = RTL/RISC-V-Emulator
+	url = https://github.com/griffinross2/RISC-V-Emulator

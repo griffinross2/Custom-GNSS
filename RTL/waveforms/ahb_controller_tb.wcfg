@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="ahb_controller_tb_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="ahb_controller_tb" />
+            <top_module name="common_types_pkg" />
+            <top_module name="glbl" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0.000 ns"></ZoomStartTime>
+      <ZoomEndTime time="218.549 ns"></ZoomEndTime>
+      <Cursor1Time time="40.038 ns"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="392"></NameColumnWidth>
+      <ValueColumnWidth column_width="183"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="9" />
+   <wvobject fp_name="/ahb_controller_tb/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/ahb_controller_tb/nrst" type="logic">
+      <obj_property name="ElementShortName">nrst</obj_property>
+      <obj_property name="ObjectShortName">nrst</obj_property>
+   </wvobject>
+   <wvobject fp_name="group13" type="group">
+      <obj_property name="label">AHB Controller Interface</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <wvobject fp_name="/ahb_controller_tb/amif/iread" type="logic">
+         <obj_property name="ElementShortName">iread</obj_property>
+         <obj_property name="ObjectShortName">iread</obj_property>
+      </wvobject>
+      <wvobject fp_name="/ahb_controller_tb/amif/dread" type="logic">
+         <obj_property name="ElementShortName">dread</obj_property>
+         <obj_property name="ObjectShortName">dread</obj_property>
+      </wvobject>
+      <wvobject fp_name="/ahb_controller_tb/amif/dwrite" type="array">
+         <obj_property name="ElementShortName">dwrite[1:0]</obj_property>
+         <obj_property name="ObjectShortName">dwrite[1:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/ahb_controller_tb/amif/iaddr" type="array">
+         <obj_property name="ElementShortName">iaddr[31:0]</obj_property>
+         <obj_property name="ObjectShortName">iaddr[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/ahb_controller_tb/amif/daddr" type="array">
+         <obj_property name="ElementShortName">daddr[31:0]</obj_property>
+         <obj_property name="ObjectShortName">daddr[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/ahb_controller_tb/amif/dstore" type="array">
+         <obj_property name="ElementShortName">dstore[31:0]</obj_property>
+         <obj_property name="ObjectShortName">dstore[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/ahb_controller_tb/amif/ihit" type="logic">
+         <obj_property name="ElementShortName">ihit</obj_property>
+         <obj_property name="ObjectShortName">ihit</obj_property>
+      </wvobject>
+      <wvobject fp_name="/ahb_controller_tb/amif/dhit" type="logic">
+         <obj_property name="ElementShortName">dhit</obj_property>
+         <obj_property name="ObjectShortName">dhit</obj_property>
+      </wvobject>
+      <wvobject fp_name="/ahb_controller_tb/amif/iload" type="array">
+         <obj_property name="ElementShortName">iload[31:0]</obj_property>
+         <obj_property name="ObjectShortName">iload[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/ahb_controller_tb/amif/dload" type="array">
+         <obj_property name="ElementShortName">dload[31:0]</obj_property>
+         <obj_property name="ObjectShortName">dload[31:0]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group37" type="group">
+      <obj_property name="label">AHB Bus From Controller</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <wvobject fp_name="/ahb_controller_tb/abif_controller/haddr" type="array">
+         <obj_property name="ElementShortName">haddr[31:0]</obj_property>
+         <obj_property name="ObjectShortName">haddr[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/ahb_controller_tb/abif_controller/hburst" type="array">
+         <obj_property name="ElementShortName">hburst[2:0]</obj_property>
+         <obj_property name="ObjectShortName">hburst[2:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/ahb_controller_tb/abif_controller/hsize" type="array">
+         <obj_property name="ElementShortName">hsize[1:0]</obj_property>
+         <obj_property name="ObjectShortName">hsize[1:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/ahb_controller_tb/abif_controller/htrans" type="array">
+         <obj_property name="ElementShortName">htrans[1:0]</obj_property>
+         <obj_property name="ObjectShortName">htrans[1:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/ahb_controller_tb/abif_controller/hwdata" type="array">
+         <obj_property name="ElementShortName">hwdata[31:0]</obj_property>
+         <obj_property name="ObjectShortName">hwdata[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/ahb_controller_tb/abif_controller/hrdata" type="array">
+         <obj_property name="ElementShortName">hrdata[31:0]</obj_property>
+         <obj_property name="ObjectShortName">hrdata[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/ahb_controller_tb/abif_controller/hready" type="logic">
+         <obj_property name="ElementShortName">hready</obj_property>
+         <obj_property name="ObjectShortName">hready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/ahb_controller_tb/abif_controller/hresp" type="logic">
+         <obj_property name="ElementShortName">hresp</obj_property>
+         <obj_property name="ObjectShortName">hresp</obj_property>
+      </wvobject>
+      <wvobject fp_name="/ahb_controller_tb/abif_controller/hwrite" type="logic">
+         <obj_property name="ElementShortName">hwrite</obj_property>
+         <obj_property name="ObjectShortName">hwrite</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="/ahb_controller_tb/ahb_inst/data_transfer" type="array">
+      <obj_property name="ElementShortName">data_transfer[1:0]</obj_property>
+      <obj_property name="ObjectShortName">data_transfer[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/ahb_controller_tb/ahb_inst/addr_transfer" type="array">
+      <obj_property name="ElementShortName">addr_transfer[1:0]</obj_property>
+      <obj_property name="ObjectShortName">addr_transfer[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="group46" type="group">
+      <obj_property name="label">AHB Bus RAM Interface</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <wvobject fp_name="/ahb_controller_tb/abif_satellite_ram/haddr" type="array">
+         <obj_property name="ElementShortName">haddr[31:0]</obj_property>
+         <obj_property name="ObjectShortName">haddr[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/ahb_controller_tb/abif_satellite_ram/hburst" type="array">
+         <obj_property name="ElementShortName">hburst[2:0]</obj_property>
+         <obj_property name="ObjectShortName">hburst[2:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/ahb_controller_tb/abif_satellite_ram/hsize" type="array">
+         <obj_property name="ElementShortName">hsize[1:0]</obj_property>
+         <obj_property name="ObjectShortName">hsize[1:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/ahb_controller_tb/abif_satellite_ram/htrans" type="array">
+         <obj_property name="ElementShortName">htrans[1:0]</obj_property>
+         <obj_property name="ObjectShortName">htrans[1:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/ahb_controller_tb/abif_satellite_ram/hwdata" type="array">
+         <obj_property name="ElementShortName">hwdata[31:0]</obj_property>
+         <obj_property name="ObjectShortName">hwdata[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/ahb_controller_tb/abif_satellite_ram/hrdata" type="array">
+         <obj_property name="ElementShortName">hrdata[31:0]</obj_property>
+         <obj_property name="ObjectShortName">hrdata[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/ahb_controller_tb/abif_satellite_ram/hready" type="logic">
+         <obj_property name="ElementShortName">hready</obj_property>
+         <obj_property name="ObjectShortName">hready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/ahb_controller_tb/abif_satellite_ram/hreadyout" type="logic">
+         <obj_property name="ElementShortName">hreadyout</obj_property>
+         <obj_property name="ObjectShortName">hreadyout</obj_property>
+      </wvobject>
+      <wvobject fp_name="/ahb_controller_tb/abif_satellite_ram/hresp" type="logic">
+         <obj_property name="ElementShortName">hresp</obj_property>
+         <obj_property name="ObjectShortName">hresp</obj_property>
+      </wvobject>
+      <wvobject fp_name="/ahb_controller_tb/abif_satellite_ram/hwrite" type="logic">
+         <obj_property name="ElementShortName">hwrite</obj_property>
+         <obj_property name="ObjectShortName">hwrite</obj_property>
+      </wvobject>
+      <wvobject fp_name="/ahb_controller_tb/abif_satellite_ram/hsel" type="logic">
+         <obj_property name="ElementShortName">hsel</obj_property>
+         <obj_property name="ObjectShortName">hsel</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group34" type="group">
+      <obj_property name="label">RAM Interface</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <wvobject fp_name="/ahb_controller_tb/ram_if/addr" type="array">
+         <obj_property name="ElementShortName">addr[31:0]</obj_property>
+         <obj_property name="ObjectShortName">addr[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/ahb_controller_tb/ram_if/wen" type="array">
+         <obj_property name="ElementShortName">wen[3:0]</obj_property>
+         <obj_property name="ObjectShortName">wen[3:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/ahb_controller_tb/ram_if/ren" type="logic">
+         <obj_property name="ElementShortName">ren</obj_property>
+         <obj_property name="ObjectShortName">ren</obj_property>
+      </wvobject>
+      <wvobject fp_name="/ahb_controller_tb/ram_if/load" type="array">
+         <obj_property name="ElementShortName">load[31:0]</obj_property>
+         <obj_property name="ObjectShortName">load[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/ahb_controller_tb/ram_if/store" type="array">
+         <obj_property name="ElementShortName">store[31:0]</obj_property>
+         <obj_property name="ObjectShortName">store[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/ahb_controller_tb/ram_if/state" type="array">
+         <obj_property name="ElementShortName">state[1:0]</obj_property>
+         <obj_property name="ObjectShortName">state[1:0]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="/ahb_controller_tb/ram_inst/ram_inst/xpm_memory_base_inst/mem[1]" type="array">
+      <obj_property name="ElementShortName">[1][31:0]</obj_property>
+      <obj_property name="ObjectShortName">[1][31:0]</obj_property>
+   </wvobject>
+</wave_config>

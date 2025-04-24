@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="divider_tb_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="divider_tb" />
+            <top_module name="glbl" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="352,021.734 ns"></ZoomStartTime>
+      <ZoomEndTime time="352,452.935 ns"></ZoomEndTime>
+      <Cursor1Time time="352,180.534 ns"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="191"></NameColumnWidth>
+      <ValueColumnWidth column_width="204"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="27" />
+   <wvobject fp_name="/divider_tb/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/divider_tb/nrst" type="logic">
+      <obj_property name="ElementShortName">nrst</obj_property>
+      <obj_property name="ObjectShortName">nrst</obj_property>
+   </wvobject>
+   <wvobject fp_name="/divider_tb/a" type="array">
+      <obj_property name="ElementShortName">a[31:0]</obj_property>
+      <obj_property name="ObjectShortName">a[31:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/divider_tb/b" type="array">
+      <obj_property name="ElementShortName">b[31:0]</obj_property>
+      <obj_property name="ObjectShortName">b[31:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/divider_tb/i" type="array">
+      <obj_property name="ElementShortName">i[31:0]</obj_property>
+      <obj_property name="ObjectShortName">i[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="divider" fp_name="divider37">
+      <obj_property name="label">Divider</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+   </wvobject>
+   <wvobject fp_name="/divider_tb/divider/state" type="array">
+      <obj_property name="ElementShortName">state[1:0]</obj_property>
+      <obj_property name="ObjectShortName">state[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/divider_tb/divider/next_state" type="array">
+      <obj_property name="ElementShortName">next_state[1:0]</obj_property>
+      <obj_property name="ObjectShortName">next_state[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/divider_tb/divider/n" type="array">
+      <obj_property name="ElementShortName">n[31:0]</obj_property>
+      <obj_property name="ObjectShortName">n[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/divider_tb/divider/next_n" type="array">
+      <obj_property name="ElementShortName">next_n[31:0]</obj_property>
+      <obj_property name="ObjectShortName">next_n[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/divider_tb/divider/d" type="array">
+      <obj_property name="ElementShortName">d[31:0]</obj_property>
+      <obj_property name="ObjectShortName">d[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/divider_tb/divider/next_d" type="array">
+      <obj_property name="ElementShortName">next_d[31:0]</obj_property>
+      <obj_property name="ObjectShortName">next_d[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/divider_tb/divider/q" type="array">
+      <obj_property name="ElementShortName">q[31:0]</obj_property>
+      <obj_property name="ObjectShortName">q[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/divider_tb/divider/next_q" type="array">
+      <obj_property name="ElementShortName">next_q[31:0]</obj_property>
+      <obj_property name="ObjectShortName">next_q[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/divider_tb/divider/r" type="array">
+      <obj_property name="ElementShortName">r[31:0]</obj_property>
+      <obj_property name="ObjectShortName">r[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/divider_tb/divider/next_r" type="array">
+      <obj_property name="ElementShortName">next_r[31:0]</obj_property>
+      <obj_property name="ObjectShortName">next_r[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/divider_tb/divider/div_counter" type="array">
+      <obj_property name="ElementShortName">div_counter[4:0]</obj_property>
+      <obj_property name="ObjectShortName">div_counter[4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/divider_tb/divider/next_div_counter" type="array">
+      <obj_property name="ElementShortName">next_div_counter[4:0]</obj_property>
+      <obj_property name="ObjectShortName">next_div_counter[4:0]</obj_property>
+   </wvobject>
+   <wvobject type="divider" fp_name="divider45">
+      <obj_property name="label">Bus</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+   </wvobject>
+   <wvobject fp_name="/divider_tb/divider_if/en" type="logic">
+      <obj_property name="ElementShortName">en</obj_property>
+      <obj_property name="ObjectShortName">en</obj_property>
+   </wvobject>
+   <wvobject fp_name="/divider_tb/divider_if/ready" type="logic">
+      <obj_property name="ElementShortName">ready</obj_property>
+      <obj_property name="ObjectShortName">ready</obj_property>
+   </wvobject>
+   <wvobject fp_name="/divider_tb/divider_if/is_signed" type="logic">
+      <obj_property name="ElementShortName">is_signed</obj_property>
+      <obj_property name="ObjectShortName">is_signed</obj_property>
+   </wvobject>
+   <wvobject fp_name="/divider_tb/divider_if/a" type="array">
+      <obj_property name="ElementShortName">a[31:0]</obj_property>
+      <obj_property name="ObjectShortName">a[31:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/divider_tb/divider_if/b" type="array">
+      <obj_property name="ElementShortName">b[31:0]</obj_property>
+      <obj_property name="ObjectShortName">b[31:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/divider_tb/divider_if/q" type="array">
+      <obj_property name="ElementShortName">q[31:0]</obj_property>
+      <obj_property name="ObjectShortName">q[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/divider_tb/divider_if/r" type="array">
+      <obj_property name="ElementShortName">r[31:0]</obj_property>
+      <obj_property name="ObjectShortName">r[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/divider_tb/divider_if/div_by_zero" type="logic">
+      <obj_property name="ElementShortName">div_by_zero</obj_property>
+      <obj_property name="ObjectShortName">div_by_zero</obj_property>
+   </wvobject>
+</wave_config>
