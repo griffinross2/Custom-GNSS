@@ -28,6 +28,9 @@ always_comb begin
     interrupt_in_sync[16] = uart_rx_int;
 end
 
+// GPS control lines
+logic snapshot;
+
 // Interfaces
 ahb_controller_if debug_controller_if();
 
@@ -37,6 +40,7 @@ ahb_bus_if cpu_abif();
 ahb_bus_if def_abif();
 ahb_bus_if ram_abif();
 ahb_bus_if uart_abif();
+ahb_bus_if gnss_abif();
 
 ram_if ram_if();
 
@@ -126,6 +130,15 @@ ahb_uart_satellite uart_inst (
     .txd(txd),
     .rxi(uart_rx_int),
     .abif(uart_abif)
+);
+
+// GNSS satellite
+ahb_gnss_satellite gnss_inst (
+    .clk(clk),
+    .nrst(nrst),
+    .abif(gnss_abif),
+    .epoch(32'b0),
+    .snapshot(snapshot)
 );
 
 // Shared Instruction-Data RAM

@@ -11,6 +11,7 @@ module l1ca_channel (
     input logic [31:0] code_rate, lo_rate,  // Code and local oscillator rates
     input logic signal_in,                  // Signal input
     output logic epoch,                     // Epoch signal
+    output gps_chip_t chip,                 // Chip index from code generator
     output acc_t ie, qe,                    // Early in-phase and quadrature phase output accumulator
     output acc_t ip, qp,                    // Prompt in-phase and quadrature phase output accumulator
     output acc_t il, ql,                    // Late in-phase and quadrature phase output accumulator
@@ -28,7 +29,6 @@ module l1ca_channel (
     logic code_strobe;      // Code strobe from NCO
     logic delay_strobe;     // Delay strobe from NCO (twice rate of code strobe)
 
-    gps_chip_t chip;        // Chip index from code generator
     logic code_early, code_prompt, code_late; // Code samples for early, prompt, and late
     logic next_code_prompt, next_code_late; // Next state for code samples
 

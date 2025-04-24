@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="ahb_gnss_satellite_tb_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="ahb_gnss_satellite_tb" />
+            <top_module name="common_types_pkg" />
+            <top_module name="glbl" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0.000 ns"></ZoomStartTime>
+      <ZoomEndTime time="2,586.001 ns"></ZoomEndTime>
+      <Cursor1Time time="1,915.000 ns"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="392"></NameColumnWidth>
+      <ValueColumnWidth column_width="143"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="6" />
+   <wvobject fp_name="/ahb_gnss_satellite_tb/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/ahb_gnss_satellite_tb/hclk" type="logic">
+      <obj_property name="ElementShortName">hclk</obj_property>
+      <obj_property name="ObjectShortName">hclk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/ahb_gnss_satellite_tb/nrst" type="logic">
+      <obj_property name="ElementShortName">nrst</obj_property>
+      <obj_property name="ObjectShortName">nrst</obj_property>
+   </wvobject>
+   <wvobject fp_name="group56" type="group">
+      <obj_property name="label">Controller</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <wvobject fp_name="/ahb_gnss_satellite_tb/amif/iread" type="logic">
+         <obj_property name="ElementShortName">iread</obj_property>
+         <obj_property name="ObjectShortName">iread</obj_property>
+      </wvobject>
+      <wvobject fp_name="/ahb_gnss_satellite_tb/amif/dread" type="logic">
+         <obj_property name="ElementShortName">dread</obj_property>
+         <obj_property name="ObjectShortName">dread</obj_property>
+      </wvobject>
+      <wvobject fp_name="/ahb_gnss_satellite_tb/amif/dwrite" type="array">
+         <obj_property name="ElementShortName">dwrite[1:0]</obj_property>
+         <obj_property name="ObjectShortName">dwrite[1:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/ahb_gnss_satellite_tb/amif/iaddr" type="array">
+         <obj_property name="ElementShortName">iaddr[31:0]</obj_property>
+         <obj_property name="ObjectShortName">iaddr[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/ahb_gnss_satellite_tb/amif/daddr" type="array">
+         <obj_property name="ElementShortName">daddr[31:0]</obj_property>
+         <obj_property name="ObjectShortName">daddr[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/ahb_gnss_satellite_tb/amif/dstore" type="array">
+         <obj_property name="ElementShortName">dstore[31:0]</obj_property>
+         <obj_property name="ObjectShortName">dstore[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/ahb_gnss_satellite_tb/amif/ihit" type="logic">
+         <obj_property name="ElementShortName">ihit</obj_property>
+         <obj_property name="ObjectShortName">ihit</obj_property>
+      </wvobject>
+      <wvobject fp_name="/ahb_gnss_satellite_tb/amif/dhit" type="logic">
+         <obj_property name="ElementShortName">dhit</obj_property>
+         <obj_property name="ObjectShortName">dhit</obj_property>
+      </wvobject>
+      <wvobject fp_name="/ahb_gnss_satellite_tb/amif/iload" type="array">
+         <obj_property name="ElementShortName">iload[31:0]</obj_property>
+         <obj_property name="ObjectShortName">iload[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/ahb_gnss_satellite_tb/amif/dload" type="array">
+         <obj_property name="ElementShortName">dload[31:0]</obj_property>
+         <obj_property name="ObjectShortName">dload[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/ahb_gnss_satellite_tb/ahb_inst/data_transfer" type="array">
+         <obj_property name="ElementShortName">data_transfer[1:0]</obj_property>
+         <obj_property name="ObjectShortName">data_transfer[1:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/ahb_gnss_satellite_tb/ahb_inst/addr_transfer" type="array">
+         <obj_property name="ElementShortName">addr_transfer[1:0]</obj_property>
+         <obj_property name="ObjectShortName">addr_transfer[1:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/ahb_gnss_satellite_tb/abif_controller/hready" type="logic">
+         <obj_property name="ElementShortName">hready</obj_property>
+         <obj_property name="ObjectShortName">hready</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group15" type="group">
+      <obj_property name="label">Bus to GNSS</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <wvobject fp_name="/ahb_gnss_satellite_tb/abif_satellite_gnss/haddr" type="array">
+         <obj_property name="ElementShortName">haddr[31:0]</obj_property>
+         <obj_property name="ObjectShortName">haddr[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/ahb_gnss_satellite_tb/abif_satellite_gnss/hburst" type="array">
+         <obj_property name="ElementShortName">hburst[2:0]</obj_property>
+         <obj_property name="ObjectShortName">hburst[2:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/ahb_gnss_satellite_tb/abif_satellite_gnss/hsize" type="array">
+         <obj_property name="ElementShortName">hsize[1:0]</obj_property>
+         <obj_property name="ObjectShortName">hsize[1:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/ahb_gnss_satellite_tb/abif_satellite_gnss/htrans" type="array">
+         <obj_property name="ElementShortName">htrans[1:0]</obj_property>
+         <obj_property name="ObjectShortName">htrans[1:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/ahb_gnss_satellite_tb/abif_satellite_gnss/hwdata" type="array">
+         <obj_property name="ElementShortName">hwdata[31:0]</obj_property>
+         <obj_property name="ObjectShortName">hwdata[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/ahb_gnss_satellite_tb/abif_satellite_gnss/hrdata" type="array">
+         <obj_property name="ElementShortName">hrdata[31:0]</obj_property>
+         <obj_property name="ObjectShortName">hrdata[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/ahb_gnss_satellite_tb/abif_satellite_gnss/hready" type="logic">
+         <obj_property name="ElementShortName">hready</obj_property>
+         <obj_property name="ObjectShortName">hready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/ahb_gnss_satellite_tb/abif_satellite_gnss/hreadyout" type="logic">
+         <obj_property name="ElementShortName">hreadyout</obj_property>
+         <obj_property name="ObjectShortName">hreadyout</obj_property>
+      </wvobject>
+      <wvobject fp_name="/ahb_gnss_satellite_tb/abif_satellite_gnss/hresp" type="logic">
+         <obj_property name="ElementShortName">hresp</obj_property>
+         <obj_property name="ObjectShortName">hresp</obj_property>
+      </wvobject>
+      <wvobject fp_name="/ahb_gnss_satellite_tb/abif_satellite_gnss/hwrite" type="logic">
+         <obj_property name="ElementShortName">hwrite</obj_property>
+         <obj_property name="ObjectShortName">hwrite</obj_property>
+      </wvobject>
+      <wvobject fp_name="/ahb_gnss_satellite_tb/abif_satellite_gnss/hsel" type="logic">
+         <obj_property name="ElementShortName">hsel</obj_property>
+         <obj_property name="ObjectShortName">hsel</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group38" type="group">
+      <obj_property name="label">GNSS Satellite</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <wvobject fp_name="/ahb_gnss_satellite_tb/ahb_satellite_gnss/clk" type="logic">
+         <obj_property name="ElementShortName">clk</obj_property>
+         <obj_property name="ObjectShortName">clk</obj_property>
+      </wvobject>
+      <wvobject fp_name="/ahb_gnss_satellite_tb/ahb_satellite_gnss/hclk" type="logic">
+         <obj_property name="ElementShortName">hclk</obj_property>
+         <obj_property name="ObjectShortName">hclk</obj_property>
+      </wvobject>
+      <wvobject fp_name="/ahb_gnss_satellite_tb/ahb_satellite_gnss/nrst" type="logic">
+         <obj_property name="ElementShortName">nrst</obj_property>
+         <obj_property name="ObjectShortName">nrst</obj_property>
+      </wvobject>
+      <wvobject fp_name="/ahb_gnss_satellite_tb/ahb_satellite_gnss/cdc_req_hclk" type="logic">
+         <obj_property name="ElementShortName">cdc_req_hclk</obj_property>
+         <obj_property name="ObjectShortName">cdc_req_hclk</obj_property>
+      </wvobject>
+      <wvobject fp_name="/ahb_gnss_satellite_tb/ahb_satellite_gnss/cdc_req_hclk_n" type="logic">
+         <obj_property name="ElementShortName">cdc_req_hclk_n</obj_property>
+         <obj_property name="ObjectShortName">cdc_req_hclk_n</obj_property>
+      </wvobject>
+      <wvobject fp_name="/ahb_gnss_satellite_tb/ahb_satellite_gnss/cdc_req_clk" type="logic">
+         <obj_property name="ElementShortName">cdc_req_clk</obj_property>
+         <obj_property name="ObjectShortName">cdc_req_clk</obj_property>
+      </wvobject>
+      <wvobject fp_name="/ahb_gnss_satellite_tb/ahb_satellite_gnss/cdc_req_clk_n" type="logic">
+         <obj_property name="ElementShortName">cdc_req_clk_n</obj_property>
+         <obj_property name="ObjectShortName">cdc_req_clk_n</obj_property>
+      </wvobject>
+      <wvobject fp_name="/ahb_gnss_satellite_tb/ahb_satellite_gnss/cdc_ack_hclk" type="logic">
+         <obj_property name="ElementShortName">cdc_ack_hclk</obj_property>
+         <obj_property name="ObjectShortName">cdc_ack_hclk</obj_property>
+      </wvobject>
+      <wvobject fp_name="/ahb_gnss_satellite_tb/ahb_satellite_gnss/cdc_ack_hclk_n" type="logic">
+         <obj_property name="ElementShortName">cdc_ack_hclk_n</obj_property>
+         <obj_property name="ObjectShortName">cdc_ack_hclk_n</obj_property>
+      </wvobject>
+      <wvobject fp_name="/ahb_gnss_satellite_tb/ahb_satellite_gnss/cdc_ack_clk" type="logic">
+         <obj_property name="ElementShortName">cdc_ack_clk</obj_property>
+         <obj_property name="ObjectShortName">cdc_ack_clk</obj_property>
+      </wvobject>
+      <wvobject fp_name="/ahb_gnss_satellite_tb/ahb_satellite_gnss/cdc_ack_clk_n" type="logic">
+         <obj_property name="ElementShortName">cdc_ack_clk_n</obj_property>
+         <obj_property name="ObjectShortName">cdc_ack_clk_n</obj_property>
+      </wvobject>
+      <wvobject fp_name="/ahb_gnss_satellite_tb/ahb_satellite_gnss/cdc_req_sync" type="array">
+         <obj_property name="ElementShortName">cdc_req_sync[2:0]</obj_property>
+         <obj_property name="ObjectShortName">cdc_req_sync[2:0]</obj_property>
+         <obj_property name="isExpanded"></obj_property>
+      </wvobject>
+      <wvobject fp_name="/ahb_gnss_satellite_tb/ahb_satellite_gnss/cdc_ack_sync" type="array">
+         <obj_property name="ElementShortName">cdc_ack_sync[2:0]</obj_property>
+         <obj_property name="ObjectShortName">cdc_ack_sync[2:0]</obj_property>
+         <obj_property name="isExpanded"></obj_property>
+      </wvobject>
+      <wvobject fp_name="/ahb_gnss_satellite_tb/ahb_satellite_gnss/rsel_hclk" type="array">
+         <obj_property name="ElementShortName">rsel_hclk[1:0]</obj_property>
+         <obj_property name="ObjectShortName">rsel_hclk[1:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/ahb_gnss_satellite_tb/ahb_satellite_gnss/rsel_hclk_n" type="array">
+         <obj_property name="ElementShortName">rsel_hclk_n[1:0]</obj_property>
+         <obj_property name="ObjectShortName">rsel_hclk_n[1:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/ahb_gnss_satellite_tb/ahb_satellite_gnss/rsel_clk" type="array">
+         <obj_property name="ElementShortName">rsel_clk[1:0]</obj_property>
+         <obj_property name="ObjectShortName">rsel_clk[1:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/ahb_gnss_satellite_tb/ahb_satellite_gnss/rsel_clk_n" type="array">
+         <obj_property name="ElementShortName">rsel_clk_n[1:0]</obj_property>
+         <obj_property name="ObjectShortName">rsel_clk_n[1:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/ahb_gnss_satellite_tb/ahb_satellite_gnss/rdata_clk" type="array">
+         <obj_property name="ElementShortName">rdata_clk[31:0]</obj_property>
+         <obj_property name="ObjectShortName">rdata_clk[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/ahb_gnss_satellite_tb/ahb_satellite_gnss/rdata_clk_n" type="array">
+         <obj_property name="ElementShortName">rdata_clk_n[31:0]</obj_property>
+         <obj_property name="ObjectShortName">rdata_clk_n[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/ahb_gnss_satellite_tb/ahb_satellite_gnss/rdata_hclk" type="array">
+         <obj_property name="ElementShortName">rdata_hclk[31:0]</obj_property>
+         <obj_property name="ObjectShortName">rdata_hclk[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/ahb_gnss_satellite_tb/ahb_satellite_gnss/rdata_hclk_n" type="array">
+         <obj_property name="ElementShortName">rdata_hclk_n[31:0]</obj_property>
+         <obj_property name="ObjectShortName">rdata_hclk_n[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/ahb_gnss_satellite_tb/ahb_satellite_gnss/wsel_hclk" type="array">
+         <obj_property name="ElementShortName">wsel_hclk[1:0]</obj_property>
+         <obj_property name="ObjectShortName">wsel_hclk[1:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/ahb_gnss_satellite_tb/ahb_satellite_gnss/wsel_hclk_n" type="array">
+         <obj_property name="ElementShortName">wsel_hclk_n[1:0]</obj_property>
+         <obj_property name="ObjectShortName">wsel_hclk_n[1:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/ahb_gnss_satellite_tb/ahb_satellite_gnss/wsel_clk" type="array">
+         <obj_property name="ElementShortName">wsel_clk[1:0]</obj_property>
+         <obj_property name="ObjectShortName">wsel_clk[1:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/ahb_gnss_satellite_tb/ahb_satellite_gnss/wsel_clk_n" type="array">
+         <obj_property name="ElementShortName">wsel_clk_n[1:0]</obj_property>
+         <obj_property name="ObjectShortName">wsel_clk_n[1:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/ahb_gnss_satellite_tb/ahb_satellite_gnss/wdata_clk" type="array">
+         <obj_property name="ElementShortName">wdata_clk[31:0]</obj_property>
+         <obj_property name="ObjectShortName">wdata_clk[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/ahb_gnss_satellite_tb/ahb_satellite_gnss/wdata_clk_n" type="array">
+         <obj_property name="ElementShortName">wdata_clk_n[31:0]</obj_property>
+         <obj_property name="ObjectShortName">wdata_clk_n[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/ahb_gnss_satellite_tb/ahb_satellite_gnss/wdata_hclk" type="array">
+         <obj_property name="ElementShortName">wdata_hclk[31:0]</obj_property>
+         <obj_property name="ObjectShortName">wdata_hclk[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/ahb_gnss_satellite_tb/ahb_satellite_gnss/wdata_hclk_n" type="array">
+         <obj_property name="ElementShortName">wdata_hclk_n[31:0]</obj_property>
+         <obj_property name="ObjectShortName">wdata_hclk_n[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/ahb_gnss_satellite_tb/ahb_satellite_gnss/hreadyout_n" type="logic">
+         <obj_property name="ElementShortName">hreadyout_n</obj_property>
+         <obj_property name="ObjectShortName">hreadyout_n</obj_property>
+      </wvobject>
+      <wvobject fp_name="/ahb_gnss_satellite_tb/ahb_satellite_gnss/epoch" type="array">
+         <obj_property name="ElementShortName">epoch[31:0]</obj_property>
+         <obj_property name="ObjectShortName">epoch[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/ahb_gnss_satellite_tb/ahb_satellite_gnss/epoch_edge" type="array">
+         <obj_property name="ElementShortName">epoch_edge[31:0]</obj_property>
+         <obj_property name="ObjectShortName">epoch_edge[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/ahb_gnss_satellite_tb/ahb_satellite_gnss/snapshot" type="logic">
+         <obj_property name="ElementShortName">snapshot</obj_property>
+         <obj_property name="ObjectShortName">snapshot</obj_property>
+      </wvobject>
+      <wvobject fp_name="/ahb_gnss_satellite_tb/ahb_satellite_gnss/csr" type="array">
+         <obj_property name="ElementShortName">csr[31:0]</obj_property>
+         <obj_property name="ObjectShortName">csr[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/ahb_gnss_satellite_tb/ahb_satellite_gnss/csr_n" type="array">
+         <obj_property name="ElementShortName">csr_n[31:0]</obj_property>
+         <obj_property name="ObjectShortName">csr_n[31:0]</obj_property>
+      </wvobject>
+   </wvobject>
+</wave_config>
