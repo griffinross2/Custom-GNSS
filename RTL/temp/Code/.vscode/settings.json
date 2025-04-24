@@ -1,7 +1,0 @@
-{
-    "files.associations": {
-        "math.h": "c",
-        "stdio.h": "c",
-        "stdint.h": "c"
-    }
-}

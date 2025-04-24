@@ -1,8 +1,0 @@
-# Ignore all memory, elf, object, and asm files
-# except for the startup assembly file
-*.S
-!startup.S
-*.o
-*.elf
-*.hex
-*.mem
