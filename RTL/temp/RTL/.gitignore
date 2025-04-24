@@ -1,0 +1,11 @@
+*.jou
+*.log
+.*
+!.gitignore
+!.vscode/
+*.str
+*.mem
+*.hex
+*.tcl
+*.o
+obj_dir/

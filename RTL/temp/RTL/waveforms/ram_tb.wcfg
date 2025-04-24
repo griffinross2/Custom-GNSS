@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="ram_tb_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="common_types_pkg" />
+            <top_module name="glbl" />
+            <top_module name="ram_tb" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="646.824 ns"></ZoomStartTime>
+      <ZoomEndTime time="731.775 ns"></ZoomEndTime>
+      <Cursor1Time time="670.174 ns"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="533"></NameColumnWidth>
+      <ValueColumnWidth column_width="259"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="11" />
+   <wvobject fp_name="/ram_tb/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/ram_tb/nrst" type="logic">
+      <obj_property name="ElementShortName">nrst</obj_property>
+      <obj_property name="ObjectShortName">nrst</obj_property>
+   </wvobject>
+   <wvobject fp_name="/ram_tb/i" type="array">
+      <obj_property name="ElementShortName">i[31:0]</obj_property>
+      <obj_property name="ObjectShortName">i[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/ram_tb/ram_inst/ram_if/addr" type="array">
+      <obj_property name="ElementShortName">addr[31:0]</obj_property>
+      <obj_property name="ObjectShortName">addr[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/ram_tb/ram_inst/ram_if/wen" type="logic">
+      <obj_property name="ElementShortName">wen</obj_property>
+      <obj_property name="ObjectShortName">wen</obj_property>
+   </wvobject>
+   <wvobject fp_name="/ram_tb/ram_inst/ram_if/ren" type="logic">
+      <obj_property name="ElementShortName">ren</obj_property>
+      <obj_property name="ObjectShortName">ren</obj_property>
+   </wvobject>
+   <wvobject fp_name="/ram_tb/ram_inst/ram_if/load" type="array">
+      <obj_property name="ElementShortName">load[31:0]</obj_property>
+      <obj_property name="ObjectShortName">load[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/ram_tb/ram_inst/ram_if/store" type="array">
+      <obj_property name="ElementShortName">store[31:0]</obj_property>
+      <obj_property name="ObjectShortName">store[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/ram_tb/ram_inst/ram_if/ready" type="logic">
+      <obj_property name="ElementShortName">ready</obj_property>
+      <obj_property name="ObjectShortName">ready</obj_property>
+   </wvobject>
+   <wvobject fp_name="/ram_tb/ram_inst/count" type="array">
+      <obj_property name="ElementShortName">count[31:0]</obj_property>
+      <obj_property name="ObjectShortName">count[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/ram_tb/ram_inst/count_n" type="array">
+      <obj_property name="ElementShortName">count_n[31:0]</obj_property>
+      <obj_property name="ObjectShortName">count_n[31:0]</obj_property>
+   </wvobject>
+</wave_config>
