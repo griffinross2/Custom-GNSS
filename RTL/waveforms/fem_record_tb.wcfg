@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="fem_record_tb_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="fem_record_tb" />
+            <top_module name="glbl" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="99,845,221.000 ns"></ZoomStartTime>
+      <ZoomEndTime time="99,855,321.001 ns"></ZoomEndTime>
+      <Cursor1Time time="99,847,046.000 ns"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="392"></NameColumnWidth>
+      <ValueColumnWidth column_width="139"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="46" />
+   <wvobject fp_name="/fem_record_tb/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fem_record_tb/nrst" type="logic">
+      <obj_property name="ElementShortName">nrst</obj_property>
+      <obj_property name="ObjectShortName">nrst</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fem_record_tb/uart_tx" type="logic">
+      <obj_property name="ElementShortName">uart_tx</obj_property>
+      <obj_property name="ObjectShortName">uart_tx</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fem_record_tb/inp_i" type="logic">
+      <obj_property name="ElementShortName">inp_i</obj_property>
+      <obj_property name="ObjectShortName">inp_i</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fem_record_tb/CLK_PERIOD" type="other">
+      <obj_property name="ElementShortName">CLK_PERIOD</obj_property>
+      <obj_property name="ObjectShortName">CLK_PERIOD</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fem_record_tb/dut/CLK" type="logic">
+      <obj_property name="ElementShortName">CLK</obj_property>
+      <obj_property name="ObjectShortName">CLK</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fem_record_tb/dut/ck_rst" type="logic">
+      <obj_property name="ElementShortName">ck_rst</obj_property>
+      <obj_property name="ObjectShortName">ck_rst</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fem_record_tb/dut/jb_0" type="logic">
+      <obj_property name="ElementShortName">jb_0</obj_property>
+      <obj_property name="ObjectShortName">jb_0</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fem_record_tb/dut/jb_1" type="logic">
+      <obj_property name="ElementShortName">jb_1</obj_property>
+      <obj_property name="ObjectShortName">jb_1</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fem_record_tb/dut/jb_2" type="logic">
+      <obj_property name="ElementShortName">jb_2</obj_property>
+      <obj_property name="ObjectShortName">jb_2</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fem_record_tb/dut/jb_3" type="logic">
+      <obj_property name="ElementShortName">jb_3</obj_property>
+      <obj_property name="ObjectShortName">jb_3</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fem_record_tb/dut/jb_6" type="logic">
+      <obj_property name="ElementShortName">jb_6</obj_property>
+      <obj_property name="ObjectShortName">jb_6</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fem_record_tb/dut/jb_4" type="logic">
+      <obj_property name="ElementShortName">jb_4</obj_property>
+      <obj_property name="ObjectShortName">jb_4</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fem_record_tb/dut/jb_5" type="logic">
+      <obj_property name="ElementShortName">jb_5</obj_property>
+      <obj_property name="ObjectShortName">jb_5</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fem_record_tb/dut/jb_7" type="logic">
+      <obj_property name="ElementShortName">jb_7</obj_property>
+      <obj_property name="ObjectShortName">jb_7</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fem_record_tb/dut/LED" type="array">
+      <obj_property name="ElementShortName">LED[0:3]</obj_property>
+      <obj_property name="ObjectShortName">LED[0:3]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fem_record_tb/dut/UART_TXD" type="logic">
+      <obj_property name="ElementShortName">UART_TXD</obj_property>
+      <obj_property name="ObjectShortName">UART_TXD</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fem_record_tb/dut/inp_i" type="array">
+      <obj_property name="ElementShortName">inp_i[1:0]</obj_property>
+      <obj_property name="ObjectShortName">inp_i[1:0]</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+   </wvobject>
+   <wvobject fp_name="/fem_record_tb/dut/div" type="array">
+      <obj_property name="ElementShortName">div[31:0]</obj_property>
+      <obj_property name="ObjectShortName">div[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fem_record_tb/dut/clk_1hz" type="logic">
+      <obj_property name="ElementShortName">clk_1hz</obj_property>
+      <obj_property name="ObjectShortName">clk_1hz</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fem_record_tb/dut/bit_counter" type="array">
+      <obj_property name="ElementShortName">bit_counter[4:0]</obj_property>
+      <obj_property name="ObjectShortName">bit_counter[4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fem_record_tb/dut/word_counter" type="array">
+      <obj_property name="ElementShortName">word_counter[29:0]</obj_property>
+      <obj_property name="ObjectShortName">word_counter[29:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fem_record_tb/dut/shift_reg" type="array">
+      <obj_property name="ElementShortName">shift_reg[31:0]</obj_property>
+      <obj_property name="ObjectShortName">shift_reg[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fem_record_tb/dut/sample_done" type="logic">
+      <obj_property name="ElementShortName">sample_done</obj_property>
+      <obj_property name="ObjectShortName">sample_done</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fem_record_tb/dut/ram_out" type="array">
+      <obj_property name="ElementShortName">ram_out[31:0]</obj_property>
+      <obj_property name="ObjectShortName">ram_out[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fem_record_tb/dut/ram_word" type="array">
+      <obj_property name="ElementShortName">ram_word[31:0]</obj_property>
+      <obj_property name="ObjectShortName">ram_word[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fem_record_tb/dut/ram_word_n" type="array">
+      <obj_property name="ElementShortName">ram_word_n[31:0]</obj_property>
+      <obj_property name="ObjectShortName">ram_word_n[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fem_record_tb/dut/ram_addr" type="array">
+      <obj_property name="ElementShortName">ram_addr[29:0]</obj_property>
+      <obj_property name="ObjectShortName">ram_addr[29:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fem_record_tb/dut/ram_addr_n" type="array">
+      <obj_property name="ElementShortName">ram_addr_n[29:0]</obj_property>
+      <obj_property name="ObjectShortName">ram_addr_n[29:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fem_record_tb/dut/uart_state" type="array">
+      <obj_property name="ElementShortName">uart_state[3:0]</obj_property>
+      <obj_property name="ObjectShortName">uart_state[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fem_record_tb/dut/uart_state_n" type="array">
+      <obj_property name="ElementShortName">uart_state_n[3:0]</obj_property>
+      <obj_property name="ObjectShortName">uart_state_n[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fem_record_tb/dut/uart_start" type="logic">
+      <obj_property name="ElementShortName">uart_start</obj_property>
+      <obj_property name="ObjectShortName">uart_start</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fem_record_tb/dut/uart_byte" type="array">
+      <obj_property name="ElementShortName">uart_byte[7:0]</obj_property>
+      <obj_property name="ObjectShortName">uart_byte[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fem_record_tb/dut/uart_busy" type="logic">
+      <obj_property name="ElementShortName">uart_busy</obj_property>
+      <obj_property name="ObjectShortName">uart_busy</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fem_record_tb/dut/RAM_SIZE" type="array">
+      <obj_property name="ElementShortName">RAM_SIZE[31:0]</obj_property>
+      <obj_property name="ObjectShortName">RAM_SIZE[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fem_record_tb/dut/ram_inst/wea" type="array">
+      <obj_property name="ElementShortName">wea[0:0]</obj_property>
+      <obj_property name="ObjectShortName">wea[0:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fem_record_tb/dut/ram_inst/addra" type="array">
+      <obj_property name="ElementShortName">addra[29:0]</obj_property>
+      <obj_property name="ObjectShortName">addra[29:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fem_record_tb/dut/ram_inst/dina" type="array">
+      <obj_property name="ElementShortName">dina[31:0]</obj_property>
+      <obj_property name="ObjectShortName">dina[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fem_record_tb/dut/sck" type="logic">
+      <obj_property name="ElementShortName">sck</obj_property>
+      <obj_property name="ObjectShortName">sck</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fem_record_tb/dut/sda" type="logic">
+      <obj_property name="ElementShortName">sda</obj_property>
+      <obj_property name="ObjectShortName">sda</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fem_record_tb/dut/cs" type="logic">
+      <obj_property name="ElementShortName">cs</obj_property>
+      <obj_property name="ObjectShortName">cs</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fem_record_tb/dut/start" type="logic">
+      <obj_property name="ElementShortName">start</obj_property>
+      <obj_property name="ObjectShortName">start</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fem_record_tb/dut/busy" type="logic">
+      <obj_property name="ElementShortName">busy</obj_property>
+      <obj_property name="ObjectShortName">busy</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fem_record_tb/dut/send_done" type="logic">
+      <obj_property name="ElementShortName">send_done</obj_property>
+      <obj_property name="ObjectShortName">send_done</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fem_record_tb/dut/spi_word_num" type="array">
+      <obj_property name="ElementShortName">spi_word_num[2:0]</obj_property>
+      <obj_property name="ObjectShortName">spi_word_num[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fem_record_tb/dut/serial_word" type="array">
+      <obj_property name="ElementShortName">serial_word[31:0]</obj_property>
+      <obj_property name="ObjectShortName">serial_word[31:0]</obj_property>
+   </wvobject>
+</wave_config>

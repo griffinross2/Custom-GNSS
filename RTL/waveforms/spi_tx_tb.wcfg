@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="spi_tx_tb_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="glbl" />
+            <top_module name="spi_tx_tb" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0.000000 us"></ZoomStartTime>
+      <ZoomEndTime time="4,048.000001 us"></ZoomEndTime>
+      <Cursor1Time time="400.670667 us"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="392"></NameColumnWidth>
+      <ValueColumnWidth column_width="135"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="15" />
+   <wvobject fp_name="/spi_tx_tb/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/spi_tx_tb/nrst" type="logic">
+      <obj_property name="ElementShortName">nrst</obj_property>
+      <obj_property name="ObjectShortName">nrst</obj_property>
+   </wvobject>
+   <wvobject fp_name="/spi_tx_tb/nrst_gen" type="logic">
+      <obj_property name="ElementShortName">nrst_gen</obj_property>
+      <obj_property name="ObjectShortName">nrst_gen</obj_property>
+   </wvobject>
+   <wvobject fp_name="/spi_tx_tb/dut/bit_period" type="array">
+      <obj_property name="ElementShortName">bit_period[15:0]</obj_property>
+      <obj_property name="ObjectShortName">bit_period[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/spi_tx_tb/dut/data_width" type="array">
+      <obj_property name="ElementShortName">data_width[4:0]</obj_property>
+      <obj_property name="ObjectShortName">data_width[4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/spi_tx_tb/data" type="array">
+      <obj_property name="ElementShortName">data[31:0]</obj_property>
+      <obj_property name="ObjectShortName">data[31:0]</obj_property>
+      <obj_property name="Radix">BINARYRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/spi_tx_tb/start" type="logic">
+      <obj_property name="ElementShortName">start</obj_property>
+      <obj_property name="ObjectShortName">start</obj_property>
+   </wvobject>
+   <wvobject fp_name="/spi_tx_tb/sdo" type="logic">
+      <obj_property name="ElementShortName">sdo</obj_property>
+      <obj_property name="ObjectShortName">sdo</obj_property>
+   </wvobject>
+   <wvobject fp_name="/spi_tx_tb/sck" type="logic">
+      <obj_property name="ElementShortName">sck</obj_property>
+      <obj_property name="ObjectShortName">sck</obj_property>
+   </wvobject>
+   <wvobject fp_name="/spi_tx_tb/cs" type="logic">
+      <obj_property name="ElementShortName">cs</obj_property>
+      <obj_property name="ObjectShortName">cs</obj_property>
+      <obj_property name="CustomSignalColor">#00FF00</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/spi_tx_tb/busy" type="logic">
+      <obj_property name="ElementShortName">busy</obj_property>
+      <obj_property name="ObjectShortName">busy</obj_property>
+   </wvobject>
+   <wvobject fp_name="/spi_tx_tb/BIT_PERIOD" type="array">
+      <obj_property name="ElementShortName">BIT_PERIOD[31:0]</obj_property>
+      <obj_property name="ObjectShortName">BIT_PERIOD[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/spi_tx_tb/dut/state" type="array">
+      <obj_property name="ElementShortName">state[1:0]</obj_property>
+      <obj_property name="ObjectShortName">state[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/spi_tx_tb/dut/bit_counter" type="array">
+      <obj_property name="ElementShortName">bit_counter[4:0]</obj_property>
+      <obj_property name="ObjectShortName">bit_counter[4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/spi_tx_tb/dut/clk_div_counter" type="array">
+      <obj_property name="ElementShortName">clk_div_counter[15:0]</obj_property>
+      <obj_property name="ObjectShortName">clk_div_counter[15:0]</obj_property>
+   </wvobject>
+</wave_config>

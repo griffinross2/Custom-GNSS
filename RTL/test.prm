@@ -1,0 +1,12 @@
+===================================
+Configuration Memory information
+===================================
+File Format        MCS
+Interface          SPIX4
+Size               16M
+Start Address      0x00000000
+End Address        0x00FFFFFF
+
+Addr1         Addr2         Date                    File(s)
+0x00000000    0x0021728B    Apr 24 00:37:33 2025    D:/github_repos/Custom-GNSS/RTL/system_fpga.bit
+0x00800000    0x00812007    May 12 16:09:24 2025    D:/github_repos/RISC-V-Core/Code/build/program.bin

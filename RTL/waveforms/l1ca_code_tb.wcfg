@@ -12,15 +12,15 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="0.000000 us"></ZoomStartTime>
-      <ZoomEndTime time="222.159697 us"></ZoomEndTime>
-      <Cursor1Time time="1.000000 us"></Cursor1Time>
+      <ZoomStartTime time="0.000 ns"></ZoomStartTime>
+      <ZoomEndTime time="216.801 ns"></ZoomEndTime>
+      <Cursor1Time time="12.100 ns"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="191"></NameColumnWidth>
-      <ValueColumnWidth column_width="196"></ValueColumnWidth>
+      <ValueColumnWidth column_width="192"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="8" />
+   <WVObjectSize size="10" />
    <wvobject fp_name="/l1ca_code_tb/clk" type="logic">
       <obj_property name="ElementShortName">clk</obj_property>
       <obj_property name="ObjectShortName">clk</obj_property>
@@ -38,8 +38,8 @@
       <obj_property name="ObjectShortName">clear</obj_property>
    </wvobject>
    <wvobject fp_name="/l1ca_code_tb/sv" type="array">
-      <obj_property name="ElementShortName">sv[4:0]</obj_property>
-      <obj_property name="ObjectShortName">sv[4:0]</obj_property>
+      <obj_property name="ElementShortName">sv[31:0]</obj_property>
+      <obj_property name="ObjectShortName">sv[31:0]</obj_property>
       <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/l1ca_code_tb/code" type="logic">
@@ -54,5 +54,15 @@
       <obj_property name="ElementShortName">chip[9:0]</obj_property>
       <obj_property name="ObjectShortName">chip[9:0]</obj_property>
       <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/l1ca_code_tb/dut/g1" type="array">
+      <obj_property name="ElementShortName">g1[10:1]</obj_property>
+      <obj_property name="ObjectShortName">g1[10:1]</obj_property>
+      <obj_property name="Radix">BINARYRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/l1ca_code_tb/dut/g2" type="array">
+      <obj_property name="ElementShortName">g2[10:1]</obj_property>
+      <obj_property name="ObjectShortName">g2[10:1]</obj_property>
+      <obj_property name="Radix">BINARYRADIX</obj_property>
    </wvobject>
 </wave_config>
