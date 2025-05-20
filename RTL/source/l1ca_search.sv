@@ -281,7 +281,7 @@ always_comb begin
             if (code_num == code_ctr[10:1]) begin
                 // Half step
                 if (code_ctr[0]) begin
-                    next_code_phase = {1'b0, code_phase} + {1'b0, CODE_RATE[30:1], 1'b0};
+                    next_code_phase = {1'b0, code_phase} + {1'b0, 32'h8000_0000};
                 end else begin
                     next_code_phase = '0;
                 end

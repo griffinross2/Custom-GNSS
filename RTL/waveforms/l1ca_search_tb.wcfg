@@ -5,7 +5,7 @@
    <db_ref_list>
       <db_ref path="l1ca_search_tb_behav.wdb" id="1">
          <top_modules>
-            <top_module name="\$unit_ahb_controller_sv_2627459349 " />
+            <top_module name="\$unit_ahb_controller_sv_3607684319 " />
             <top_module name="common_gnss_types_pkg" />
             <top_module name="common_types_pkg" />
             <top_module name="glbl" />
@@ -15,12 +15,12 @@
    </db_ref_list>
    <zoom_setting>
       <ZoomStartTime time="0.000000000 ms"></ZoomStartTime>
-      <ZoomEndTime time="384.000000001 ms"></ZoomEndTime>
-      <Cursor1Time time="104.021450000 ms"></Cursor1Time>
+      <ZoomEndTime time="1,707.574468090 ms"></ZoomEndTime>
+      <Cursor1Time time="230.430642000 ms"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="316"></NameColumnWidth>
-      <ValueColumnWidth column_width="283"></ValueColumnWidth>
+      <ValueColumnWidth column_width="279"></ValueColumnWidth>
    </column_width_setting>
    <WVObjectSize size="14" />
    <wvobject fp_name="/l1ca_search_tb/clk" type="logic">
@@ -42,6 +42,7 @@
    <wvobject fp_name="/l1ca_search_tb/sv" type="array">
       <obj_property name="ElementShortName">sv[4:0]</obj_property>
       <obj_property name="ObjectShortName">sv[4:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/l1ca_search_tb/acc_out" type="array">
       <obj_property name="ElementShortName">acc_out[31:0]</obj_property>
@@ -51,10 +52,12 @@
    <wvobject fp_name="/l1ca_search_tb/code_index" type="array">
       <obj_property name="ElementShortName">code_index[10:0]</obj_property>
       <obj_property name="ObjectShortName">code_index[10:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/l1ca_search_tb/dop_index" type="array">
       <obj_property name="ElementShortName">dop_index[4:0]</obj_property>
       <obj_property name="ObjectShortName">dop_index[4:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/l1ca_search_tb/fd" type="array">
       <obj_property name="ElementShortName">fd[31:0]</obj_property>
