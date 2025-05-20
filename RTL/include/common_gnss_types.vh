@@ -4,6 +4,10 @@
 // Common types package
 package common_gnss_types_pkg;
 
+    parameter SAMPLE_RATE = 19200000;           // Sample rate
+    parameter IF_RATE = 4020000;                // GPS L1 C/A frequency
+    parameter GPS_L1CA_FREQ = 1575420000;       // GPS L1 C/A frequency
+
     parameter ACC_W = 16;                       // Accumulator width
 
     typedef logic [4:0] sv_t;                   // SV number type

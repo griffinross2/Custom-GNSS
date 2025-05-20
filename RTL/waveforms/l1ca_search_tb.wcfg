@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="l1ca_search_tb_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="\$unit_ahb_controller_sv_2627459349 " />
+            <top_module name="common_gnss_types_pkg" />
+            <top_module name="common_types_pkg" />
+            <top_module name="glbl" />
+            <top_module name="l1ca_search_tb" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0.000000000 ms"></ZoomStartTime>
+      <ZoomEndTime time="384.000000001 ms"></ZoomEndTime>
+      <Cursor1Time time="104.021450000 ms"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="316"></NameColumnWidth>
+      <ValueColumnWidth column_width="283"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="14" />
+   <wvobject fp_name="/l1ca_search_tb/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/l1ca_search_tb/nrst" type="logic">
+      <obj_property name="ElementShortName">nrst</obj_property>
+      <obj_property name="ObjectShortName">nrst</obj_property>
+   </wvobject>
+   <wvobject fp_name="/l1ca_search_tb/signal_in" type="logic">
+      <obj_property name="ElementShortName">signal_in</obj_property>
+      <obj_property name="ObjectShortName">signal_in</obj_property>
+   </wvobject>
+   <wvobject fp_name="/l1ca_search_tb/start" type="logic">
+      <obj_property name="ElementShortName">start</obj_property>
+      <obj_property name="ObjectShortName">start</obj_property>
+   </wvobject>
+   <wvobject fp_name="/l1ca_search_tb/sv" type="array">
+      <obj_property name="ElementShortName">sv[4:0]</obj_property>
+      <obj_property name="ObjectShortName">sv[4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/l1ca_search_tb/acc_out" type="array">
+      <obj_property name="ElementShortName">acc_out[31:0]</obj_property>
+      <obj_property name="ObjectShortName">acc_out[31:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/l1ca_search_tb/code_index" type="array">
+      <obj_property name="ElementShortName">code_index[10:0]</obj_property>
+      <obj_property name="ObjectShortName">code_index[10:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/l1ca_search_tb/dop_index" type="array">
+      <obj_property name="ElementShortName">dop_index[4:0]</obj_property>
+      <obj_property name="ObjectShortName">dop_index[4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/l1ca_search_tb/fd" type="array">
+      <obj_property name="ElementShortName">fd[31:0]</obj_property>
+      <obj_property name="ObjectShortName">fd[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/l1ca_search_tb/bit_count" type="array">
+      <obj_property name="ElementShortName">bit_count[2:0]</obj_property>
+      <obj_property name="ObjectShortName">bit_count[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/l1ca_search_tb/signal_byte" type="array">
+      <obj_property name="ElementShortName">signal_byte[7:0]</obj_property>
+      <obj_property name="ObjectShortName">signal_byte[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="group57" type="group">
+      <obj_property name="label">Search</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <wvobject fp_name="/l1ca_search_tb/dut/clk" type="logic">
+         <obj_property name="ElementShortName">clk</obj_property>
+         <obj_property name="ObjectShortName">clk</obj_property>
+      </wvobject>
+      <wvobject fp_name="/l1ca_search_tb/dut/nrst" type="logic">
+         <obj_property name="ElementShortName">nrst</obj_property>
+         <obj_property name="ObjectShortName">nrst</obj_property>
+      </wvobject>
+      <wvobject fp_name="/l1ca_search_tb/dut/signal_in" type="logic">
+         <obj_property name="ElementShortName">signal_in</obj_property>
+         <obj_property name="ObjectShortName">signal_in</obj_property>
+      </wvobject>
+      <wvobject fp_name="/l1ca_search_tb/dut/start" type="logic">
+         <obj_property name="ElementShortName">start</obj_property>
+         <obj_property name="ObjectShortName">start</obj_property>
+      </wvobject>
+      <wvobject fp_name="/l1ca_search_tb/dut/sv" type="array">
+         <obj_property name="ElementShortName">sv[4:0]</obj_property>
+         <obj_property name="ObjectShortName">sv[4:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/l1ca_search_tb/dut/acc_out" type="array">
+         <obj_property name="ElementShortName">acc_out[31:0]</obj_property>
+         <obj_property name="ObjectShortName">acc_out[31:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/l1ca_search_tb/dut/code_index" type="array">
+         <obj_property name="ElementShortName">code_index[10:0]</obj_property>
+         <obj_property name="ObjectShortName">code_index[10:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/l1ca_search_tb/dut/dop_index" type="array">
+         <obj_property name="ElementShortName">dop_index[4:0]</obj_property>
+         <obj_property name="ObjectShortName">dop_index[4:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/l1ca_search_tb/dut/acc_i" type="array">
+         <obj_property name="ElementShortName">acc_i[0:20][31:0]</obj_property>
+         <obj_property name="ObjectShortName">acc_i[0:20][31:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/l1ca_search_tb/dut/next_acc_i" type="array">
+         <obj_property name="ElementShortName">next_acc_i[0:20][31:0]</obj_property>
+         <obj_property name="ObjectShortName">next_acc_i[0:20][31:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/l1ca_search_tb/dut/acc_q" type="array">
+         <obj_property name="ElementShortName">acc_q[0:20][31:0]</obj_property>
+         <obj_property name="ObjectShortName">acc_q[0:20][31:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/l1ca_search_tb/dut/next_acc_q" type="array">
+         <obj_property name="ElementShortName">next_acc_q[0:20][31:0]</obj_property>
+         <obj_property name="ObjectShortName">next_acc_q[0:20][31:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/l1ca_search_tb/dut/state" type="array">
+         <obj_property name="ElementShortName">state[2:0]</obj_property>
+         <obj_property name="ObjectShortName">state[2:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/l1ca_search_tb/dut/next_state" type="array">
+         <obj_property name="ElementShortName">next_state[2:0]</obj_property>
+         <obj_property name="ObjectShortName">next_state[2:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/l1ca_search_tb/dut/sample_wen" type="logic">
+         <obj_property name="ElementShortName">sample_wen</obj_property>
+         <obj_property name="ObjectShortName">sample_wen</obj_property>
+      </wvobject>
+      <wvobject fp_name="/l1ca_search_tb/dut/sample_ren" type="logic">
+         <obj_property name="ElementShortName">sample_ren</obj_property>
+         <obj_property name="ObjectShortName">sample_ren</obj_property>
+      </wvobject>
+      <wvobject fp_name="/l1ca_search_tb/dut/sample_ctr" type="array">
+         <obj_property name="ElementShortName">sample_ctr[14:0]</obj_property>
+         <obj_property name="ObjectShortName">sample_ctr[14:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/l1ca_search_tb/dut/next_sample_ctr" type="array">
+         <obj_property name="ElementShortName">next_sample_ctr[14:0]</obj_property>
+         <obj_property name="ObjectShortName">next_sample_ctr[14:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/l1ca_search_tb/dut/sample_out" type="logic">
+         <obj_property name="ElementShortName">sample_out</obj_property>
+         <obj_property name="ObjectShortName">sample_out</obj_property>
+      </wvobject>
+      <wvobject fp_name="/l1ca_search_tb/dut/dop_ctr" type="array">
+         <obj_property name="ElementShortName">dop_ctr[4:0]</obj_property>
+         <obj_property name="ObjectShortName">dop_ctr[4:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/l1ca_search_tb/dut/next_dop_ctr" type="array">
+         <obj_property name="ElementShortName">next_dop_ctr[4:0]</obj_property>
+         <obj_property name="ObjectShortName">next_dop_ctr[4:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/l1ca_search_tb/dut/code_ctr" type="array">
+         <obj_property name="ElementShortName">code_ctr[10:0]</obj_property>
+         <obj_property name="ObjectShortName">code_ctr[10:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/l1ca_search_tb/dut/next_code_ctr" type="array">
+         <obj_property name="ElementShortName">next_code_ctr[10:0]</obj_property>
+         <obj_property name="ObjectShortName">next_code_ctr[10:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/l1ca_search_tb/dut/code_strobe" type="logic">
+         <obj_property name="ElementShortName">code_strobe</obj_property>
+         <obj_property name="ObjectShortName">code_strobe</obj_property>
+      </wvobject>
+      <wvobject fp_name="/l1ca_search_tb/dut/code_clear" type="logic">
+         <obj_property name="ElementShortName">code_clear</obj_property>
+         <obj_property name="ObjectShortName">code_clear</obj_property>
+      </wvobject>
+      <wvobject fp_name="/l1ca_search_tb/dut/code" type="logic">
+         <obj_property name="ElementShortName">code</obj_property>
+         <obj_property name="ObjectShortName">code</obj_property>
+      </wvobject>
+      <wvobject fp_name="/l1ca_search_tb/dut/code_phase" type="array">
+         <obj_property name="ElementShortName">code_phase[31:0]</obj_property>
+         <obj_property name="ObjectShortName">code_phase[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/l1ca_search_tb/dut/next_code_phase" type="array">
+         <obj_property name="ElementShortName">next_code_phase[32:0]</obj_property>
+         <obj_property name="ObjectShortName">next_code_phase[32:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/l1ca_search_tb/dut/lo_phase" type="array">
+         <obj_property name="ElementShortName">lo_phase[0:20][31:0]</obj_property>
+         <obj_property name="ObjectShortName">lo_phase[0:20][31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/l1ca_search_tb/dut/next_lo_phase" type="array">
+         <obj_property name="ElementShortName">next_lo_phase[0:20][31:0]</obj_property>
+         <obj_property name="ObjectShortName">next_lo_phase[0:20][31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/l1ca_search_tb/dut/CODE_RATE" type="array">
+         <obj_property name="ElementShortName">CODE_RATE[31:0]</obj_property>
+         <obj_property name="ObjectShortName">CODE_RATE[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/l1ca_search_tb/dut/LO_RATE" type="array">
+         <obj_property name="ElementShortName">LO_RATE[0:20][31:0]</obj_property>
+         <obj_property name="ObjectShortName">LO_RATE[0:20][31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/l1ca_search_tb/dut/LO_SIN" type="array">
+         <obj_property name="ElementShortName">LO_SIN[3:0]</obj_property>
+         <obj_property name="ObjectShortName">LO_SIN[3:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/l1ca_search_tb/dut/LO_COS" type="array">
+         <obj_property name="ElementShortName">LO_COS[3:0]</obj_property>
+         <obj_property name="ObjectShortName">LO_COS[3:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/l1ca_search_tb/dut/max_calc_step" type="array">
+         <obj_property name="ElementShortName">max_calc_step[1:0]</obj_property>
+         <obj_property name="ObjectShortName">max_calc_step[1:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/l1ca_search_tb/dut/next_max_calc_step" type="array">
+         <obj_property name="ElementShortName">next_max_calc_step[1:0]</obj_property>
+         <obj_property name="ObjectShortName">next_max_calc_step[1:0]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group266" type="group">
+      <obj_property name="label">Code Gen</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <wvobject fp_name="/l1ca_search_tb/dut/code_gen/clk" type="logic">
+         <obj_property name="ElementShortName">clk</obj_property>
+         <obj_property name="ObjectShortName">clk</obj_property>
+      </wvobject>
+      <wvobject fp_name="/l1ca_search_tb/dut/code_gen/nrst" type="logic">
+         <obj_property name="ElementShortName">nrst</obj_property>
+         <obj_property name="ObjectShortName">nrst</obj_property>
+      </wvobject>
+      <wvobject fp_name="/l1ca_search_tb/dut/code_gen/en" type="logic">
+         <obj_property name="ElementShortName">en</obj_property>
+         <obj_property name="ObjectShortName">en</obj_property>
+      </wvobject>
+      <wvobject fp_name="/l1ca_search_tb/dut/code_gen/clear" type="logic">
+         <obj_property name="ElementShortName">clear</obj_property>
+         <obj_property name="ObjectShortName">clear</obj_property>
+      </wvobject>
+      <wvobject fp_name="/l1ca_search_tb/dut/code_gen/sv" type="array">
+         <obj_property name="ElementShortName">sv[4:0]</obj_property>
+         <obj_property name="ObjectShortName">sv[4:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/l1ca_search_tb/dut/code_gen/code" type="logic">
+         <obj_property name="ElementShortName">code</obj_property>
+         <obj_property name="ObjectShortName">code</obj_property>
+      </wvobject>
+      <wvobject fp_name="/l1ca_search_tb/dut/code_gen/epoch" type="logic">
+         <obj_property name="ElementShortName">epoch</obj_property>
+         <obj_property name="ObjectShortName">epoch</obj_property>
+      </wvobject>
+      <wvobject fp_name="/l1ca_search_tb/dut/code_gen/chip" type="array">
+         <obj_property name="ElementShortName">chip[9:0]</obj_property>
+         <obj_property name="ObjectShortName">chip[9:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/l1ca_search_tb/dut/code_gen/next_chip" type="array">
+         <obj_property name="ElementShortName">next_chip[9:0]</obj_property>
+         <obj_property name="ObjectShortName">next_chip[9:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/l1ca_search_tb/dut/code_gen/g1" type="array">
+         <obj_property name="ElementShortName">g1[10:1]</obj_property>
+         <obj_property name="ObjectShortName">g1[10:1]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/l1ca_search_tb/dut/code_gen/next_g1" type="array">
+         <obj_property name="ElementShortName">next_g1[10:1]</obj_property>
+         <obj_property name="ObjectShortName">next_g1[10:1]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/l1ca_search_tb/dut/code_gen/g2" type="array">
+         <obj_property name="ElementShortName">g2[10:1]</obj_property>
+         <obj_property name="ObjectShortName">g2[10:1]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/l1ca_search_tb/dut/code_gen/next_g2" type="array">
+         <obj_property name="ElementShortName">next_g2[10:1]</obj_property>
+         <obj_property name="ObjectShortName">next_g2[10:1]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group194" type="group">
+      <obj_property name="label">Multiplier IF</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <wvobject fp_name="/l1ca_search_tb/dut/mulif/en" type="logic">
+         <obj_property name="ElementShortName">en</obj_property>
+         <obj_property name="ObjectShortName">en</obj_property>
+      </wvobject>
+      <wvobject fp_name="/l1ca_search_tb/dut/mulif/ready" type="logic">
+         <obj_property name="ElementShortName">ready</obj_property>
+         <obj_property name="ObjectShortName">ready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/l1ca_search_tb/dut/mulif/is_signed_a" type="logic">
+         <obj_property name="ElementShortName">is_signed_a</obj_property>
+         <obj_property name="ObjectShortName">is_signed_a</obj_property>
+      </wvobject>
+      <wvobject fp_name="/l1ca_search_tb/dut/mulif/is_signed_b" type="logic">
+         <obj_property name="ElementShortName">is_signed_b</obj_property>
+         <obj_property name="ObjectShortName">is_signed_b</obj_property>
+      </wvobject>
+      <wvobject fp_name="/l1ca_search_tb/dut/mulif/a" type="array">
+         <obj_property name="ElementShortName">a[31:0]</obj_property>
+         <obj_property name="ObjectShortName">a[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/l1ca_search_tb/dut/mulif/b" type="array">
+         <obj_property name="ElementShortName">b[31:0]</obj_property>
+         <obj_property name="ObjectShortName">b[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/l1ca_search_tb/dut/mulif/out" type="array">
+         <obj_property name="ElementShortName">out[63:0]</obj_property>
+         <obj_property name="ObjectShortName">out[63:0]</obj_property>
+      </wvobject>
+   </wvobject>
+</wave_config>
