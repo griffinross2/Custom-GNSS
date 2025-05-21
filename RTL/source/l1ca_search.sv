@@ -301,8 +301,8 @@ always_comb begin
 
             // Accumulate
             for (int i = 0; i < N_DOP; i++) begin
-                next_acc_i[i] = acc_i[i] + ((sample_out ^ code ^ LO_SIN[lo_phase[i][1:0]]) ? 32'd1 : -32'd1);
-                next_acc_q[i] = acc_q[i] + ((sample_out ^ code ^ LO_COS[lo_phase[i][1:0]]) ? 32'd1 : -32'd1);
+                next_acc_i[i] = acc_i[i] + ((sample_out ^ code ^ LO_SIN[lo_phase[i][31:30]]) ? 32'd1 : -32'd1);
+                next_acc_q[i] = acc_q[i] + ((sample_out ^ code ^ LO_COS[lo_phase[i][31:30]]) ? 32'd1 : -32'd1);
                 next_lo_phase[i] = lo_phase[i] + LO_RATE[i];
             end
             // Increment code phase
