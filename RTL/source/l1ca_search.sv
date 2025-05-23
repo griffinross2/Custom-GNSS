@@ -17,7 +17,7 @@ module l1ca_search (
     output word_t acc_out,                      // Maximum correlation
     output logic [10:0] code_index,             // Chip index of maximum correlation
     output logic [4:0] dop_index,               // Doppler index of maximum correlation
-    output logic done                           // Done signal
+    output logic busy                           // Busy signal
 );
 
 logic signed [31:0] acc_i [0:N_DOP-1];                // Accumulator for I channel (each dop bin)
@@ -91,12 +91,19 @@ l1ca_code code_gen (
 );
 
 // Multiplier
-multiplier_if mulif ();
+logic [15:0] mult_a, mult_b;
+logic [31:0] mult_p;
+logic mult_start;
+logic mult_busy;
 
-multiplier mult (
+mult_16x16 mult (
     .clk(clk),
     .nrst(nrst),
-    .multiplier_if(mulif)
+    .start(mult_start),
+    .busy(mult_busy),
+    .a(mult_a),
+    .b(mult_b),
+    .p(mult_p)
 );
 
 // Code NCOs
@@ -152,7 +159,6 @@ always_ff @(posedge clk) begin
         code_index <= 0;
         dop_index <= 0;
         max_calc_step <= 0;
-        done <= 0;
     end else begin
         state <= next_state;
         for (int i = 0; i < N_DOP; i++) begin
@@ -168,7 +174,6 @@ always_ff @(posedge clk) begin
         code_index <= next_code_index;
         dop_index <= next_dop_index;
         max_calc_step <= next_max_calc_step;
-        done <= next_done;
     end
 end
 
@@ -234,13 +239,11 @@ always_comb begin
     next_acc_out = acc_out;
 
     // Multiplier
-    mulif.en = 0;
-    mulif.a = 0;
-    mulif.b = 0;
-    mulif.is_signed_a = 1;
-    mulif.is_signed_b = 1;
+    mult_start = 0;
+    mult_a = 0;
+    mult_b = 0;
 
-    next_done = done;
+    busy = 1'b1;
 
     case (state)
         IDLE: begin
@@ -250,9 +253,7 @@ always_comb begin
 
             code_clear = 1;
 
-            if (start) begin
-                next_done = 0;
-            end
+            busy = 1'b0;
         end
         SAMPLE: begin
             sample_wen = 1;
@@ -322,34 +323,34 @@ always_comb begin
             case (max_calc_step)
                 2'd0: begin
                     // Start
-                    mulif.en = 1;
-                    mulif.a = acc_i[dop_ctr];
-                    mulif.b = acc_i[dop_ctr];
+                    mult_start = 1;
+                    mult_a = acc_i[dop_ctr];
+                    mult_b = acc_i[dop_ctr];
                     next_max_calc_step = 2'd1;
                 end
                 2'd1: begin
                     // I*I
-                    mulif.en = 1;
-                    mulif.a = acc_i[dop_ctr];
-                    mulif.b = acc_i[dop_ctr];
+                    mult_start = 1;
+                    mult_a = acc_i[dop_ctr];
+                    mult_b = acc_i[dop_ctr];
 
-                    if (mulif.ready) begin
-                        mulif.a = acc_q[dop_ctr];
-                        mulif.b = acc_q[dop_ctr];
+                    if (!mult_busy) begin
+                        mult_a = acc_q[dop_ctr];
+                        mult_b = acc_q[dop_ctr];
                         next_max_calc_step = 2'd2;
-                        next_acc_i[dop_ctr] = mulif.out[31:0];
+                        next_acc_i[dop_ctr] = mult_p;
                     end
                 end
                 2'd2: begin
                     // Q*Q
-                    mulif.en = 1;
-                    mulif.a = acc_q[dop_ctr];
-                    mulif.b = acc_q[dop_ctr];
+                    mult_start = 1;
+                    mult_a = acc_q[dop_ctr];
+                    mult_b = acc_q[dop_ctr];
 
-                    if (mulif.ready) begin
-                        mulif.en = 0;
+                    if (!mult_busy) begin
+                        mult_start = 0;
                         next_max_calc_step = 2'd3;
-                        next_acc_q[dop_ctr] = mulif.out[31:0];
+                        next_acc_q[dop_ctr] = mult_p;
                     end
                 end
                 2'd3: begin
@@ -387,14 +388,6 @@ always_comb begin
 
                         // Next code phase
                         next_code_ctr = code_ctr + 1;
-
-                        if (code_ctr == 11'd2046-11'd1) begin
-                            // Next code phase
-                            next_code_ctr = 0;
-
-                            // Done
-                            next_done = 1;
-                        end
                     end
                 end
             endcase

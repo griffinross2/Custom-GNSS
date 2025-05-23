@@ -11,7 +11,7 @@ module l1ca_search_tb;
     word_t acc_out;                     // Maximum correlation
     logic [10:0] code_index;            // Chip index of maximum correlation
     logic [4:0] dop_index;              // Doppler index of maximum correlation
-    logic done;
+    logic busy;
 
     l1ca_search dut (
         .clk(clk),
@@ -22,7 +22,7 @@ module l1ca_search_tb;
         .acc_out(acc_out),
         .code_index(code_index),
         .dop_index(dop_index),
-        .done(done)
+        .busy(busy)
     );
     initial begin
         clk = 0;
@@ -63,7 +63,7 @@ module l1ca_search_tb;
 
         start = 0;
 
-        wait (done == 1'b1);
+        wait (busy == 1'b0);
 
         #10 $finish; // End simulation
     end
