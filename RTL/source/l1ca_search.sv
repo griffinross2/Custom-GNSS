@@ -20,10 +20,12 @@ module l1ca_search (
     output logic busy                           // Busy signal
 );
 
-logic signed [31:0] acc_i [0:N_DOP-1];                // Accumulator for I channel (each dop bin)
-logic signed [31:0] next_acc_i [0:N_DOP-1];           // Next accumulator for I channel (each dop bin)
-logic signed [31:0] acc_q [0:N_DOP-1];                // Accumulator for Q channel (each dop bin)
-logic signed [31:0] next_acc_q [0:N_DOP-1];           // Next accumulator for Q channel (each dop bin)
+logic signed [15:0] acc_i [0:N_DOP-1];          // Accumulator for I channel (each dop bin)
+logic signed [15:0] next_acc_i [0:N_DOP-1];     // Next accumulator for I channel (each dop bin)
+logic signed [15:0] acc_q [0:N_DOP-1];          // Accumulator for Q channel (each dop bin)
+logic signed [15:0] next_acc_q [0:N_DOP-1];     // Next accumulator for Q channel (each dop bin)
+logic signed [31:0] i_sqr, next_i_sqr;          // I channel squared
+logic signed [31:0] q_sqr, next_q_sqr;          // Q channel squared
 
 typedef enum logic [2:0] {
     IDLE,
@@ -42,7 +44,7 @@ logic sample_out;
 logic [4:0] dop_ctr, next_dop_ctr;              // Doppler bin counter
 logic [10:0] code_ctr, next_code_ctr;           // Code phase bin counter
 
-logic [31:0] next_acc_out;                           // Maximum correlation output
+logic [31:0] next_acc_out;                      // Maximum correlation output
 logic [10:0] next_code_index;                   // Next maximum code bin
 logic [4:0] next_dop_index;                     // Next maximum dop bin
 
@@ -113,31 +115,31 @@ logic [32:0] next_code_phase;
 localparam CODE_RATE = 32'd228841226; // Ignore doppler for such a short sample
 
 // LO NCOs
-word_t lo_phase [0:N_DOP-1];
-word_t next_lo_phase [0:N_DOP-1];
+logic [15:0] lo_phase [0:N_DOP-1];
+logic [15:0] next_lo_phase [0:N_DOP-1];
 
-localparam word_t LO_RATE [0:N_DOP-1] = {
-    32'd898140296,
-    32'd898252144,
-    32'd898363992,
-    32'd898475840,
-    32'd898587688,
-    32'd898699537,
-    32'd898811385,
-    32'd898923233,
-    32'd899035081,
-    32'd899146929,
-    32'd899258777,
-    32'd899370625,
-    32'd899482473,
-    32'd899594321,
-    32'd899706170,
-    32'd899818018,
-    32'd899929866,
-    32'd900041714,
-    32'd900153562,
-    32'd900265410,
-    32'd900377258
+localparam logic [15:0] LO_RATE [0:N_DOP-1] = {
+    16'd13704,
+    16'd13706,
+    16'd13707,
+    16'd13709,
+    16'd13711,
+    16'd13713,
+    16'd13714,
+    16'd13716,
+    16'd13718,
+    16'd13719,
+    16'd13721,
+    16'd13723,
+    16'd13725,
+    16'd13726,
+    16'd13728,
+    16'd13730,
+    16'd13731,
+    16'd13733,
+    16'd13735,
+    16'd13736,
+    16'd13738
 };
 
 localparam LO_SIN = 4'b0011;
@@ -159,12 +161,14 @@ always_ff @(posedge clk) begin
         code_index <= 0;
         dop_index <= 0;
         max_calc_step <= 0;
+        i_sqr <= 0;
+        q_sqr <= 0;
     end else begin
         state <= next_state;
         for (int i = 0; i < N_DOP; i++) begin
             acc_i[i] <= next_acc_i[i];
             acc_q[i] <= next_acc_q[i];
-            lo_phase[i] = next_lo_phase[i];
+            lo_phase[i] <= next_lo_phase[i];
         end
         sample_ctr <= next_sample_ctr;
         dop_ctr <= next_dop_ctr;
@@ -174,6 +178,8 @@ always_ff @(posedge clk) begin
         code_index <= next_code_index;
         dop_index <= next_dop_index;
         max_calc_step <= next_max_calc_step;
+        i_sqr <= next_i_sqr;
+        q_sqr <= next_q_sqr;
     end
 end
 
@@ -223,10 +229,12 @@ always_comb begin
     next_code_ctr = code_ctr;
 
     next_code_phase = {1'b0, code_phase};
-    next_lo_phase = lo_phase;
-
-    next_acc_i = acc_i;
-    next_acc_q = acc_q;
+    
+    for (int i = 0; i < N_DOP; i++) begin
+        next_lo_phase[i] = lo_phase[i];
+        next_acc_i[i] = acc_i[i];
+        next_acc_q[i] = acc_q[i];
+    end
 
     code_strobe = 0;
     code_clear = 0;
@@ -237,6 +245,9 @@ always_comb begin
     next_max_calc_step = max_calc_step;
 
     next_acc_out = acc_out;
+
+    next_i_sqr = i_sqr;
+    next_q_sqr = q_sqr;
 
     // Multiplier
     mult_start = 0;
@@ -302,8 +313,8 @@ always_comb begin
 
             // Accumulate
             for (int i = 0; i < N_DOP; i++) begin
-                next_acc_i[i] = acc_i[i] + ((sample_out ^ code ^ LO_SIN[lo_phase[i][31:30]]) ? 32'd1 : -32'd1);
-                next_acc_q[i] = acc_q[i] + ((sample_out ^ code ^ LO_COS[lo_phase[i][31:30]]) ? 32'd1 : -32'd1);
+                next_acc_i[i] = acc_i[i] + ((sample_out ^ code ^ LO_SIN[lo_phase[i][15:14]]) ? 16'd1 : -16'd1);
+                next_acc_q[i] = acc_q[i] + ((sample_out ^ code ^ LO_COS[lo_phase[i][15:14]]) ? 16'd1 : -16'd1);
                 next_lo_phase[i] = lo_phase[i] + LO_RATE[i];
             end
             // Increment code phase
@@ -324,39 +335,39 @@ always_comb begin
                 2'd0: begin
                     // Start
                     mult_start = 1;
-                    mult_a = acc_i[dop_ctr];
-                    mult_b = acc_i[dop_ctr];
+                    mult_a = {{16{acc_i[dop_ctr][15]}}, acc_i[dop_ctr]};
+                    mult_b = {{16{acc_i[dop_ctr][15]}}, acc_i[dop_ctr]};
                     next_max_calc_step = 2'd1;
                 end
                 2'd1: begin
                     // I*I
                     mult_start = 1;
-                    mult_a = acc_i[dop_ctr];
-                    mult_b = acc_i[dop_ctr];
+                    mult_a = {{16{acc_i[dop_ctr][15]}}, acc_i[dop_ctr]};
+                    mult_b = {{16{acc_i[dop_ctr][15]}}, acc_i[dop_ctr]};
 
                     if (!mult_busy) begin
-                        mult_a = acc_q[dop_ctr];
-                        mult_b = acc_q[dop_ctr];
+                        mult_a = {{16{acc_q[dop_ctr][15]}}, acc_q[dop_ctr]};
+                        mult_b = {{16{acc_q[dop_ctr][15]}}, acc_q[dop_ctr]};
                         next_max_calc_step = 2'd2;
-                        next_acc_i[dop_ctr] = mult_p;
+                        next_i_sqr = mult_p;
                     end
                 end
                 2'd2: begin
                     // Q*Q
                     mult_start = 1;
-                    mult_a = acc_q[dop_ctr];
-                    mult_b = acc_q[dop_ctr];
+                    mult_a = {{16{acc_q[dop_ctr][15]}}, acc_q[dop_ctr]};
+                    mult_b = {{16{acc_q[dop_ctr][15]}}, acc_q[dop_ctr]};
 
                     if (!mult_busy) begin
                         mult_start = 0;
                         next_max_calc_step = 2'd3;
-                        next_acc_q[dop_ctr] = mult_p;
+                        next_q_sqr = mult_p;
                     end
                 end
                 2'd3: begin
                     // I+Q and compare
-                    if (acc_i[dop_ctr] + acc_q[dop_ctr] > acc_out) begin
-                        next_acc_out = acc_i[dop_ctr] + acc_q[dop_ctr];
+                    if (i_sqr + q_sqr > acc_out) begin
+                        next_acc_out = i_sqr + q_sqr;
                         next_code_index = code_ctr;
                         next_dop_index = dop_ctr;
                     end
