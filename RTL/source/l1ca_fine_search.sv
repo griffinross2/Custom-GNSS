@@ -6,17 +6,20 @@ import common_types_pkg::*;
 `include "common_gnss_types.vh"
 import common_gnss_types_pkg::*;
 
-localparam N_DOP = 21;
+localparam N_COARSE_DOP = 21;
+localparam N_DOP = 11;
 localparam N_CODE = 2046;
 
-module l1ca_search (
+module l1ca_fine_search (
     input logic clk, nrst,                      // Clock and reset
     input logic signal_in,                      // Input signal
     input logic start,                          // Start acquisition
+    input logic [4:0] coarse_dop_idx,           // Coarse doppler starting estimate
+    input logic [10:0] coarse_code_idx,         // Coarse code phase starting estimate
     input sv_t sv,                              // SV number to search
     output word_t acc_out,                      // Maximum correlation
-    output logic [10:0] code_index,             // Chip index of maximum correlation
-    output logic [4:0] dop_index,               // Doppler index of maximum correlation
+    output logic [12:0] code_index,             // Chip index of maximum correlation (/8)
+    output logic [7:0] dop_index,               // Doppler index of maximum correlation (50Hz steps from -5250Hz)
     output logic busy                           // Busy signal
 );
 
@@ -41,12 +44,12 @@ logic sample_wen, sample_ren;                   // Write and read enable for sam
 logic [14:0] sample_ctr, next_sample_ctr;       // Sample counter
 logic sample_out;
 
-logic [4:0] dop_ctr, next_dop_ctr;              // Doppler bin counter
-logic [10:0] code_ctr, next_code_ctr;           // Code phase bin counter
+logic [3:0] dop_ctr, next_dop_ctr;              // Doppler bin counter
+logic [2:0] code_ctr, next_code_ctr;            // Code phase bin counter
 
 logic [31:0] next_acc_out;                      // Maximum correlation output
-logic [10:0] next_code_index;                   // Next maximum code bin
-logic [4:0] next_dop_index;                     // Next maximum dop bin
+logic [12:0] next_code_index;                   // Next maximum code bin
+logic [7:0] next_dop_index;                     // Next maximum dop bin
 
 logic [1:0] max_calc_step, next_max_calc_step;  // Step for maximum calc: 0 - start, 1 - I*I, 2 - Q*Q, 3 - I+Q and compare
 
@@ -113,31 +116,52 @@ logic [32:0] next_code_phase;
 localparam CODE_RATE = 32'd228841226; // Ignore doppler for such a short sample
 
 // LO NCOs
-logic [15:0] lo_phase [0:N_DOP-1];
-logic [15:0] next_lo_phase [0:N_DOP-1];
+logic [19:0] lo_phase [0:N_DOP-1];
+logic [19:0] next_lo_phase [0:N_DOP-1];
 
-localparam logic [15:0] LO_RATE [0:N_DOP-1] = {
-    16'd13704,
-    16'd13706,
-    16'd13707,
-    16'd13709,
-    16'd13711,
-    16'd13713,
-    16'd13714,
-    16'd13716,
-    16'd13718,
-    16'd13719,
-    16'd13721,
-    16'd13723,
-    16'd13725,
-    16'd13726,
-    16'd13728,
-    16'd13730,
-    16'd13731,
-    16'd13733,
-    16'd13735,
-    16'd13736,
-    16'd13738
+// The coarse acquisition determined the best doppler bin within
+// +/- 250Hz of every 500Hz increment in [-5000, 5000]. Now we will
+// search every 50Hz increment within this 500Hz range. The range
+// should start at the bin given by coarse acquisition minus 250Hz,
+// and end at the bin value plus 250Hz. Here, we keep track of all possible
+// lower bounds, and the upper bound shall be found by the addition of constants
+// corresponding to each 50Hz increment.
+localparam logic [19:0] LO_COARSE [0:N_COARSE_DOP-1] = {
+    20'd219258, // -5250Hz
+    20'd219286,
+    20'd219313,
+    20'd219340,
+    20'd219368,
+    20'd219395,
+    20'd219422,
+    20'd219450,
+    20'd219477,
+    20'd219504,
+    20'd219531,
+    20'd219559,
+    20'd219586,
+    20'd219613,
+    20'd219641,
+    20'd219668,
+    20'd219695,
+    20'd219723,
+    20'd219750,
+    20'd219777,
+    20'd219805  // 4750Hz
+};
+
+localparam logic [19:0] LO_FINE [0:N_DOP-1] = {
+    20'd0,  // +0Hz
+    20'd2,
+    20'd5,
+    20'd8,
+    20'd10,
+    20'd13,
+    20'd16,
+    20'd19,
+    20'd21,
+    20'd24,
+    20'd27  // +500Hz
 };
 
 localparam LO_SIN = 4'b0011;
@@ -182,6 +206,8 @@ always_ff @(posedge clk) begin
 end
 
 // Next state logic
+logic [10:0] start_code;
+assign start_code = (((coarse_code_idx + code_ctr) % 11'd2046) == '0 ? 11'd2045 : (((coarse_code_idx + code_ctr) % 11'd2046) - 11'd1));
 always_comb begin
     next_state = state;
     case (state)
@@ -196,7 +222,7 @@ always_comb begin
             end
         end
         CODE_WIND: begin
-            if (code_num == code_ctr[10:1]) begin
+            if (code_num == start_code[10:1]) begin
                 next_state = DOP_SEARCH;
             end
         end
@@ -208,7 +234,7 @@ always_comb begin
         MAX_SEARCH: begin
             if (dop_ctr == N_DOP-5'd1 && max_calc_step == 2'd3) begin
                 // Next code phase or done
-                if (code_ctr == 11'd2046-11'd1) begin
+                if (code_ctr == 3'd7) begin
                     next_state = IDLE;
                 end else begin
                     next_state = CODE_WIND;
@@ -288,13 +314,19 @@ always_comb begin
         CODE_WIND: begin
             code_strobe = 1;
 
-            if (code_num == code_ctr[10:1]) begin
-                // Half step
-                if (code_ctr[0]) begin
-                    next_code_phase = {1'b0, code_phase} + {1'b0, 32'h8000_0000};
-                end else begin
-                    next_code_phase = '0;
-                end
+            // If start phase ends in a .5 and code counter is >= +0.5, then rollover to the next chip
+            if (code_num == (code_ctr[2] & start_code[0] ? ((start_code[10:1] + 10'd1) % 10'd1023) : start_code[10:1])) begin
+                // 8 steps of phase within chip
+                case(code_ctr + {start_code[0], 2'b0})
+                    3'b000: next_code_phase = 32'h0000_0000;
+                    3'b001: next_code_phase = 32'h2000_0000;
+                    3'b010: next_code_phase = 32'h4000_0000;
+                    3'b011: next_code_phase = 32'h6000_0000;
+                    3'b100: next_code_phase = 32'h8000_0000;
+                    3'b101: next_code_phase = 32'hA000_0000;
+                    3'b110: next_code_phase = 32'hC000_0000;
+                    3'b111: next_code_phase = 32'hE000_0000;
+                endcase
                 
                 // Stop incrementing
                 code_strobe = 0;
@@ -311,9 +343,9 @@ always_comb begin
 
             // Accumulate
             for (int i = 0; i < N_DOP; i++) begin
-                next_acc_i[i] = acc_i[i] + ((sample_out ^ code ^ LO_SIN[lo_phase[i][15:14]]) ? 16'd1 : -16'd1);
-                next_acc_q[i] = acc_q[i] + ((sample_out ^ code ^ LO_COS[lo_phase[i][15:14]]) ? 16'd1 : -16'd1);
-                next_lo_phase[i] = lo_phase[i] + LO_RATE[i];
+                next_acc_i[i] = acc_i[i] + ((sample_out ^ code ^ LO_SIN[lo_phase[i][19:18]]) ? 16'd1 : -16'd1);
+                next_acc_q[i] = acc_q[i] + ((sample_out ^ code ^ LO_COS[lo_phase[i][19:18]]) ? 16'd1 : -16'd1);
+                next_lo_phase[i] = lo_phase[i] + LO_COARSE[coarse_dop_idx] + LO_FINE[i];
             end
             // Increment code phase
             next_code_phase = {1'b0, code_phase} + {1'b0, CODE_RATE};
@@ -366,12 +398,14 @@ always_comb begin
                     // I+Q and compare
                     if (i_sqr + q_sqr > acc_out) begin
                         next_acc_out = i_sqr + q_sqr;
-                        next_code_index = code_ctr;
-                        next_dop_index = dop_ctr;
+                        // Figure out the code and doppler indices
+                        // Corresponding to this maximum
+                        next_code_index = ({start_code, 2'b0} + {10'b0, code_ctr}) % 13'd8184;
+                        next_dop_index = ({8'b0, coarse_dop_idx} * 13'd10) + {9'b0, dop_ctr};
                     end
 
                     // Next doppler bin
-                    next_dop_ctr = dop_ctr + 5'd1;
+                    next_dop_ctr = dop_ctr + 4'd1;
                     // Next step
                     next_max_calc_step = 2'd0;
 
