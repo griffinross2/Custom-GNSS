@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="icache_tb_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="common_types_pkg" />
+            <top_module name="glbl" />
+            <top_module name="icache_tb" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0.000 ns"></ZoomStartTime>
+      <ZoomEndTime time="673.001 ns"></ZoomEndTime>
+      <Cursor1Time time="486.000 ns"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="207"></NameColumnWidth>
+      <ValueColumnWidth column_width="151"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="9" />
+   <wvobject fp_name="/icache_tb/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/icache_tb/nrst" type="logic">
+      <obj_property name="ElementShortName">nrst</obj_property>
+      <obj_property name="ObjectShortName">nrst</obj_property>
+   </wvobject>
+   <wvobject fp_name="group10" type="group">
+      <obj_property name="label">Cache to Memory AMIF</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <wvobject fp_name="/icache_tb/amif/read" type="logic">
+         <obj_property name="ElementShortName">read</obj_property>
+         <obj_property name="ObjectShortName">read</obj_property>
+      </wvobject>
+      <wvobject fp_name="/icache_tb/amif/write" type="array">
+         <obj_property name="ElementShortName">write[1:0]</obj_property>
+         <obj_property name="ObjectShortName">write[1:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/icache_tb/amif/addr" type="array">
+         <obj_property name="ElementShortName">addr[31:0]</obj_property>
+         <obj_property name="ObjectShortName">addr[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/icache_tb/amif/store" type="array">
+         <obj_property name="ElementShortName">store[31:0]</obj_property>
+         <obj_property name="ObjectShortName">store[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/icache_tb/amif/done" type="logic">
+         <obj_property name="ElementShortName">done</obj_property>
+         <obj_property name="ObjectShortName">done</obj_property>
+      </wvobject>
+      <wvobject fp_name="/icache_tb/amif/ready" type="logic">
+         <obj_property name="ElementShortName">ready</obj_property>
+         <obj_property name="ObjectShortName">ready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/icache_tb/amif/load" type="array">
+         <obj_property name="ElementShortName">load[31:0]</obj_property>
+         <obj_property name="ObjectShortName">load[31:0]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group18" type="group">
+      <obj_property name="label">Datapath to Cache CIF</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <wvobject fp_name="/icache_tb/cache_if/read" type="logic">
+         <obj_property name="ElementShortName">read</obj_property>
+         <obj_property name="ObjectShortName">read</obj_property>
+      </wvobject>
+      <wvobject fp_name="/icache_tb/cache_if/write" type="array">
+         <obj_property name="ElementShortName">write[1:0]</obj_property>
+         <obj_property name="ObjectShortName">write[1:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/icache_tb/cache_if/addr" type="array">
+         <obj_property name="ElementShortName">addr[31:0]</obj_property>
+         <obj_property name="ObjectShortName">addr[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/icache_tb/cache_if/store" type="array">
+         <obj_property name="ElementShortName">store[31:0]</obj_property>
+         <obj_property name="ObjectShortName">store[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/icache_tb/cache_if/done" type="logic">
+         <obj_property name="ElementShortName">done</obj_property>
+         <obj_property name="ObjectShortName">done</obj_property>
+      </wvobject>
+      <wvobject fp_name="/icache_tb/cache_if/ready" type="logic">
+         <obj_property name="ElementShortName">ready</obj_property>
+         <obj_property name="ObjectShortName">ready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/icache_tb/cache_if/load" type="array">
+         <obj_property name="ElementShortName">load[31:0]</obj_property>
+         <obj_property name="ObjectShortName">load[31:0]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group37" type="group">
+      <obj_property name="label">Cache</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <wvobject fp_name="/icache_tb/icache_inst/clk" type="logic">
+         <obj_property name="ElementShortName">clk</obj_property>
+         <obj_property name="ObjectShortName">clk</obj_property>
+      </wvobject>
+      <wvobject fp_name="/icache_tb/icache_inst/nrst" type="logic">
+         <obj_property name="ElementShortName">nrst</obj_property>
+         <obj_property name="ObjectShortName">nrst</obj_property>
+      </wvobject>
+      <wvobject fp_name="/icache_tb/icache_inst/state" type="array">
+         <obj_property name="ElementShortName">state[1:0]</obj_property>
+         <obj_property name="ObjectShortName">state[1:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/icache_tb/icache_inst/next_state" type="array">
+         <obj_property name="ElementShortName">next_state[1:0]</obj_property>
+         <obj_property name="ObjectShortName">next_state[1:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/icache_tb/icache_inst/hit" type="logic">
+         <obj_property name="ElementShortName">hit</obj_property>
+         <obj_property name="ObjectShortName">hit</obj_property>
+      </wvobject>
+      <wvobject fp_name="/icache_tb/icache_inst/block_idx" type="logic">
+         <obj_property name="ElementShortName">block_idx</obj_property>
+         <obj_property name="ObjectShortName">block_idx</obj_property>
+      </wvobject>
+      <wvobject fp_name="/icache_tb/icache_inst/lru_idx" type="logic">
+         <obj_property name="ElementShortName">lru_idx</obj_property>
+         <obj_property name="ObjectShortName">lru_idx</obj_property>
+      </wvobject>
+      <wvobject fp_name="/icache_tb/icache_inst/next_lru_idx" type="logic">
+         <obj_property name="ElementShortName">next_lru_idx</obj_property>
+         <obj_property name="ObjectShortName">next_lru_idx</obj_property>
+      </wvobject>
+      <wvobject fp_name="/icache_tb/icache_inst/ren" type="logic">
+         <obj_property name="ElementShortName">ren</obj_property>
+         <obj_property name="ObjectShortName">ren</obj_property>
+      </wvobject>
+      <wvobject fp_name="/icache_tb/icache_inst/wen" type="logic">
+         <obj_property name="ElementShortName">wen</obj_property>
+         <obj_property name="ObjectShortName">wen</obj_property>
+      </wvobject>
+      <wvobject fp_name="/icache_tb/icache_inst/addr" type="array">
+         <obj_property name="ElementShortName">addr</obj_property>
+         <obj_property name="ObjectShortName">addr</obj_property>
+         <obj_property name="isExpanded"></obj_property>
+      </wvobject>
+      <wvobject fp_name="/icache_tb/icache_inst/wdata" type="array">
+         <obj_property name="ElementShortName">wdata[31:0]</obj_property>
+         <obj_property name="ObjectShortName">wdata[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/icache_tb/icache_inst/rdata0" type="array">
+         <obj_property name="ElementShortName">rdata0[31:0]</obj_property>
+         <obj_property name="ObjectShortName">rdata0[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/icache_tb/icache_inst/rdata1" type="array">
+         <obj_property name="ElementShortName">rdata1[31:0]</obj_property>
+         <obj_property name="ObjectShortName">rdata1[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/icache_tb/icache_inst/wmeta0" type="array">
+         <obj_property name="ElementShortName">wmeta0</obj_property>
+         <obj_property name="ObjectShortName">wmeta0</obj_property>
+      </wvobject>
+      <wvobject fp_name="/icache_tb/icache_inst/wmeta1" type="array">
+         <obj_property name="ElementShortName">wmeta1</obj_property>
+         <obj_property name="ObjectShortName">wmeta1</obj_property>
+      </wvobject>
+      <wvobject fp_name="/icache_tb/icache_inst/rmeta0" type="array">
+         <obj_property name="ElementShortName">rmeta0</obj_property>
+         <obj_property name="ObjectShortName">rmeta0</obj_property>
+         <obj_property name="isExpanded"></obj_property>
+      </wvobject>
+      <wvobject fp_name="/icache_tb/icache_inst/rmeta1" type="array">
+         <obj_property name="ElementShortName">rmeta1</obj_property>
+         <obj_property name="ObjectShortName">rmeta1</obj_property>
+         <obj_property name="isExpanded"></obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group83" type="group">
+      <obj_property name="label">Set 0, Block 0 Meta</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <wvobject fp_name="/icache_tb/icache_inst/block_0_meta/xpm_memory_base_inst/mem[0]" type="array">
+         <obj_property name="ElementShortName">[0][22:0]</obj_property>
+         <obj_property name="ObjectShortName">[0][22:0]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group596" type="group">
+      <obj_property name="label">Set 0, Block 1 Meta</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <wvobject fp_name="/icache_tb/icache_inst/block_1_meta/xpm_memory_base_inst/mem[0]" type="array">
+         <obj_property name="ElementShortName">[0][22:0]</obj_property>
+         <obj_property name="ObjectShortName">[0][22:0]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group597" type="group">
+      <obj_property name="label">Set 0, Block 0 Data</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <wvobject fp_name="/icache_tb/icache_inst/block_0_data/xpm_memory_base_inst/mem[0]" type="array">
+         <obj_property name="ElementShortName">[0][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[0][31:0]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group598" type="group">
+      <obj_property name="label">Set 0, Block 1 Data</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <wvobject fp_name="/icache_tb/icache_inst/block_1_data/xpm_memory_base_inst/mem[0]" type="array">
+         <obj_property name="ElementShortName">[0][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[0][31:0]</obj_property>
+      </wvobject>
+   </wvobject>
+</wave_config>

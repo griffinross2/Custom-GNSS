@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="axi_controller_tb_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="axi_controller_tb" />
+            <top_module name="common_types_pkg" />
+            <top_module name="glbl" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0.000 ns"></ZoomStartTime>
+      <ZoomEndTime time="245.201 ns"></ZoomEndTime>
+      <Cursor1Time time="135.484 ns"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="191"></NameColumnWidth>
+      <ValueColumnWidth column_width="184"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="9" />
+   <wvobject fp_name="/axi_controller_tb/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/axi_controller_tb/nrst" type="logic">
+      <obj_property name="ElementShortName">nrst</obj_property>
+      <obj_property name="ObjectShortName">nrst</obj_property>
+   </wvobject>
+   <wvobject fp_name="/axi_controller_tb/axi_inst/state" type="array">
+      <obj_property name="ElementShortName">state[2:0]</obj_property>
+      <obj_property name="ObjectShortName">state[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="group10" type="group">
+      <obj_property name="label">Controller Interface</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <wvobject fp_name="/axi_controller_tb/amif/read" type="logic">
+         <obj_property name="ElementShortName">read</obj_property>
+         <obj_property name="ObjectShortName">read</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_controller_tb/amif/write" type="array">
+         <obj_property name="ElementShortName">write[1:0]</obj_property>
+         <obj_property name="ObjectShortName">write[1:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_controller_tb/amif/addr" type="array">
+         <obj_property name="ElementShortName">addr[31:0]</obj_property>
+         <obj_property name="ObjectShortName">addr[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_controller_tb/amif/store" type="array">
+         <obj_property name="ElementShortName">store[31:0]</obj_property>
+         <obj_property name="ObjectShortName">store[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_controller_tb/amif/done" type="logic">
+         <obj_property name="ElementShortName">done</obj_property>
+         <obj_property name="ObjectShortName">done</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_controller_tb/amif/ready" type="logic">
+         <obj_property name="ElementShortName">ready</obj_property>
+         <obj_property name="ObjectShortName">ready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_controller_tb/amif/load" type="array">
+         <obj_property name="ElementShortName">load[31:0]</obj_property>
+         <obj_property name="ObjectShortName">load[31:0]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group22" type="group">
+      <obj_property name="label">Write Address Channel</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/axi_controller_tb/abif_controller/awid" type="array">
+         <obj_property name="ElementShortName">awid[3:0]</obj_property>
+         <obj_property name="ObjectShortName">awid[3:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_controller_tb/abif_controller/awaddr" type="array">
+         <obj_property name="ElementShortName">awaddr[31:0]</obj_property>
+         <obj_property name="ObjectShortName">awaddr[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_controller_tb/abif_controller/awlen" type="array">
+         <obj_property name="ElementShortName">awlen[7:0]</obj_property>
+         <obj_property name="ObjectShortName">awlen[7:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_controller_tb/abif_controller/awsize" type="array">
+         <obj_property name="ElementShortName">awsize[2:0]</obj_property>
+         <obj_property name="ObjectShortName">awsize[2:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_controller_tb/abif_controller/awburst" type="array">
+         <obj_property name="ElementShortName">awburst[1:0]</obj_property>
+         <obj_property name="ObjectShortName">awburst[1:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_controller_tb/abif_controller/awlock" type="logic">
+         <obj_property name="ElementShortName">awlock</obj_property>
+         <obj_property name="ObjectShortName">awlock</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_controller_tb/abif_controller/awcache" type="array">
+         <obj_property name="ElementShortName">awcache[3:0]</obj_property>
+         <obj_property name="ObjectShortName">awcache[3:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_controller_tb/abif_controller/awprot" type="array">
+         <obj_property name="ElementShortName">awprot[2:0]</obj_property>
+         <obj_property name="ObjectShortName">awprot[2:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_controller_tb/abif_controller/awqos" type="array">
+         <obj_property name="ElementShortName">awqos[3:0]</obj_property>
+         <obj_property name="ObjectShortName">awqos[3:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_controller_tb/abif_controller/awvalid" type="logic">
+         <obj_property name="ElementShortName">awvalid</obj_property>
+         <obj_property name="ObjectShortName">awvalid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_controller_tb/abif_controller/awready" type="logic">
+         <obj_property name="ElementShortName">awready</obj_property>
+         <obj_property name="ObjectShortName">awready</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group28" type="group">
+      <obj_property name="label">Write Data Channel</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/axi_controller_tb/abif_controller/wdata" type="array">
+         <obj_property name="ElementShortName">wdata[31:0]</obj_property>
+         <obj_property name="ObjectShortName">wdata[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_controller_tb/abif_controller/wstrb" type="array">
+         <obj_property name="ElementShortName">wstrb[3:0]</obj_property>
+         <obj_property name="ObjectShortName">wstrb[3:0]</obj_property>
+         <obj_property name="Radix">BINARYRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_controller_tb/abif_controller/wlast" type="logic">
+         <obj_property name="ElementShortName">wlast</obj_property>
+         <obj_property name="ObjectShortName">wlast</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_controller_tb/abif_controller/wvalid" type="logic">
+         <obj_property name="ElementShortName">wvalid</obj_property>
+         <obj_property name="ObjectShortName">wvalid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_controller_tb/abif_controller/wready" type="logic">
+         <obj_property name="ElementShortName">wready</obj_property>
+         <obj_property name="ObjectShortName">wready</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group33" type="group">
+      <obj_property name="label">Write Response Channel</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/axi_controller_tb/abif_controller/bid" type="array">
+         <obj_property name="ElementShortName">bid[3:0]</obj_property>
+         <obj_property name="ObjectShortName">bid[3:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_controller_tb/abif_controller/bresp" type="array">
+         <obj_property name="ElementShortName">bresp[1:0]</obj_property>
+         <obj_property name="ObjectShortName">bresp[1:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_controller_tb/abif_controller/bvalid" type="logic">
+         <obj_property name="ElementShortName">bvalid</obj_property>
+         <obj_property name="ObjectShortName">bvalid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_controller_tb/abif_controller/bready" type="logic">
+         <obj_property name="ElementShortName">bready</obj_property>
+         <obj_property name="ObjectShortName">bready</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group45" type="group">
+      <obj_property name="label">Read Address Channel</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <wvobject fp_name="/axi_controller_tb/abif_controller/arid" type="array">
+         <obj_property name="ElementShortName">arid[3:0]</obj_property>
+         <obj_property name="ObjectShortName">arid[3:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_controller_tb/abif_controller/araddr" type="array">
+         <obj_property name="ElementShortName">araddr[31:0]</obj_property>
+         <obj_property name="ObjectShortName">araddr[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_controller_tb/abif_controller/arlen" type="array">
+         <obj_property name="ElementShortName">arlen[7:0]</obj_property>
+         <obj_property name="ObjectShortName">arlen[7:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_controller_tb/abif_controller/arsize" type="array">
+         <obj_property name="ElementShortName">arsize[2:0]</obj_property>
+         <obj_property name="ObjectShortName">arsize[2:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_controller_tb/abif_controller/arburst" type="array">
+         <obj_property name="ElementShortName">arburst[1:0]</obj_property>
+         <obj_property name="ObjectShortName">arburst[1:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_controller_tb/abif_controller/arlock" type="logic">
+         <obj_property name="ElementShortName">arlock</obj_property>
+         <obj_property name="ObjectShortName">arlock</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_controller_tb/abif_controller/arcache" type="array">
+         <obj_property name="ElementShortName">arcache[3:0]</obj_property>
+         <obj_property name="ObjectShortName">arcache[3:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_controller_tb/abif_controller/arprot" type="array">
+         <obj_property name="ElementShortName">arprot[2:0]</obj_property>
+         <obj_property name="ObjectShortName">arprot[2:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_controller_tb/abif_controller/arqos" type="array">
+         <obj_property name="ElementShortName">arqos[3:0]</obj_property>
+         <obj_property name="ObjectShortName">arqos[3:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_controller_tb/abif_controller/arvalid" type="logic">
+         <obj_property name="ElementShortName">arvalid</obj_property>
+         <obj_property name="ObjectShortName">arvalid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_controller_tb/abif_controller/arready" type="logic">
+         <obj_property name="ElementShortName">arready</obj_property>
+         <obj_property name="ObjectShortName">arready</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group52" type="group">
+      <obj_property name="label">Read Data Channel</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <wvobject fp_name="/axi_controller_tb/abif_controller/rid" type="array">
+         <obj_property name="ElementShortName">rid[3:0]</obj_property>
+         <obj_property name="ObjectShortName">rid[3:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_controller_tb/abif_controller/rdata" type="array">
+         <obj_property name="ElementShortName">rdata[31:0]</obj_property>
+         <obj_property name="ObjectShortName">rdata[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_controller_tb/abif_controller/rresp" type="array">
+         <obj_property name="ElementShortName">rresp[1:0]</obj_property>
+         <obj_property name="ObjectShortName">rresp[1:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_controller_tb/abif_controller/rlast" type="logic">
+         <obj_property name="ElementShortName">rlast</obj_property>
+         <obj_property name="ObjectShortName">rlast</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_controller_tb/abif_controller/rvalid" type="logic">
+         <obj_property name="ElementShortName">rvalid</obj_property>
+         <obj_property name="ObjectShortName">rvalid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_controller_tb/abif_controller/rready" type="logic">
+         <obj_property name="ElementShortName">rready</obj_property>
+         <obj_property name="ObjectShortName">rready</obj_property>
+      </wvobject>
+   </wvobject>
+</wave_config>

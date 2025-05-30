@@ -12,7 +12,6 @@ module ahb_multiplexor (
     input logic clk, nrst,
     ahb_bus_if.mux_to_controller abif_to_controller,
     ahb_bus_if.mux_to_satellite abif_to_def,
-    ahb_bus_if.mux_to_satellite abif_to_ram,
     ahb_bus_if.mux_to_satellite abif_to_uart,
     ahb_bus_if.mux_to_satellite abif_to_gnss
 );
@@ -44,22 +43,16 @@ module ahb_multiplexor (
 
         // Select the appropriate satellite based on the address
         abif_to_def.hsel = 1'b0;
-        abif_to_ram.hsel = 1'b0;
         abif_to_uart.hsel = 1'b0;
         abif_to_gnss.hsel = 1'b0;
 
-        // RAM address range = 0x0000_0000 to 0x0000_FFFF
-        if (abif_to_controller.htrans != HTRANS_IDLE && abif_to_controller.haddr < 32'h0001_0000) begin
-            abif_to_ram.hsel = 1'b1;
-            sel_i = 1;
-        // UART address range = 0x0002_0000 to 0x0002_000C
-        end else if (abif_to_controller.htrans != HTRANS_IDLE && abif_to_controller.haddr >= 32'h0002_0000 && abif_to_controller.haddr < 32'h0002_0010) begin
+        // UART address range = 0x2002_0000 to 0x2002_000C
+        if (abif_to_controller.htrans != HTRANS_IDLE && abif_to_controller.haddr >= 32'h2002_0000 && abif_to_controller.haddr < 32'h2002_0010) begin
             abif_to_uart.hsel = 1'b1;
-            sel_i = 2;
-        // GNSS address range = 0x0004_0000 to 0x0004_03FF
-        end else if (abif_to_controller.htrans != HTRANS_IDLE && abif_to_controller.haddr >= 32'h0004_0000 && abif_to_controller.haddr < 32'h0004_03FF) begin
+            sel_i = 1;
+        end else if (abif_to_controller.htrans != HTRANS_IDLE && abif_to_controller.haddr >= 32'h2004_0000 && abif_to_controller.haddr < 32'h2004_0800) begin
             abif_to_gnss.hsel = 1'b1;
-            sel_i = 3;
+            sel_i = 2;
         end else begin
             abif_to_def.hsel = 1'b1;
             sel_i = 0;
@@ -74,19 +67,13 @@ module ahb_multiplexor (
                 abif_to_controller.hresp = abif_to_def.hresp;
             end
 
-            1: begin // RAM satellite
-                abif_to_controller.hrdata = abif_to_ram.hrdata;
-                readyout = abif_to_ram.hreadyout;
-                abif_to_controller.hresp = abif_to_ram.hresp;
-            end
-
-            2: begin // UART satellite
+            1: begin // UART satellite
                 abif_to_controller.hrdata = abif_to_uart.hrdata;
                 readyout = abif_to_uart.hreadyout;
                 abif_to_controller.hresp = abif_to_uart.hresp;
             end
 
-            3: begin // GNSS satellite
+            2: begin // GNSS satellite
                 abif_to_controller.hrdata = abif_to_gnss.hrdata;
                 readyout = abif_to_gnss.hreadyout;
                 abif_to_controller.hresp = abif_to_gnss.hresp;
@@ -113,14 +100,6 @@ module ahb_multiplexor (
         abif_to_def.htrans = abif_to_controller.htrans;
         abif_to_def.hwrite = abif_to_controller.hwrite;
         abif_to_def.hready = readyout;
-
-        abif_to_ram.hwdata = abif_to_controller.hwdata;
-        abif_to_ram.haddr = abif_to_controller.haddr;
-        abif_to_ram.hburst = abif_to_controller.hburst;
-        abif_to_ram.hsize = abif_to_controller.hsize;
-        abif_to_ram.htrans = abif_to_controller.htrans;
-        abif_to_ram.hwrite = abif_to_controller.hwrite;
-        abif_to_ram.hready = readyout;
 
         abif_to_uart.hwdata = abif_to_controller.hwdata;
         abif_to_uart.haddr = abif_to_controller.haddr;

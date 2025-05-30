@@ -13,8 +13,6 @@ interface fetch_to_decode_if;
   logic en;
   logic flush;
 
-  // Latched stuff
-
   /*******************/
   /* Program Counter */
   /*******************/
@@ -23,7 +21,7 @@ interface fetch_to_decode_if;
   /***************/
   /* Instruction */
   /***************/
-  logic inst_latch; // set to 1 initially, 0 after hready
+  word_t inst;
 
   /***************/
   /* Branch Unit */

@@ -30,8 +30,6 @@ interface execute_to_memory_if;
   // Memory control
   logic     dread;
   logic [1:0] dwrite;
-  logic     dread_short;
-  logic [1:0] dwrite_short;
   // Register write source (ALU output or memory)
   logic [1:0] reg_wr_src;   // 0 - alu, 1 - memory, 2 - pc + 4
   logic [1:0] reg_wr_mem;   // 0 - byte, 1 - halfword, 2 - word
@@ -57,7 +55,6 @@ interface execute_to_memory_if;
   /* ALU */
   /*******/
   word_t alu_out;
-  logic alu_zero;
 
   /*****************/
   /* PC Arithmetic */

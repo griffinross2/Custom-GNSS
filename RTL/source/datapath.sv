@@ -14,8 +14,8 @@ import common_types_pkg::*;
 `include "forward_unit_if.vh"
 `include "branch_unit_if.vh"
 `include "csr_if.vh"
-`include "ahb_controller_if.vh"
-`include "ahb_bus_if.vh"
+`include "axi_controller_if.vh"
+`include "cache_if.vh"
 
 // interface (pipeline)
 `include "fetch_to_decode_if.vh"
@@ -29,7 +29,8 @@ module datapath #(
   input logic clk, nrst,
   input logic [31:0] interrupt_in_sync,
   output logic halt,
-  ahb_bus_if.controller_to_mux abif
+  cache_if.datapath amif_fetch,
+  cache_if.datapath amif_mem
 );
   parameter NOP = 32'h00000013;
 
@@ -50,7 +51,6 @@ module datapath #(
   branch_unit_if buif();
   csr_if csrif();
   exception_unit_if euif();
-  ahb_controller_if amif();
 
   // Module instantiation
   (* keep_hierarchy = "yes" *) control_unit ctrl0(ctrlif);
@@ -63,7 +63,6 @@ module datapath #(
   (* keep_hierarchy = "yes" *) branch_unit bu0(clk, nrst, buif);
   (* keep_hierarchy = "yes" *) csr csr0(clk, nrst, csrif);
   (* keep_hierarchy = "yes" *) exception_unit eu0(clk, nrst, euif);
-  (* keep_hierarchy = "yes" *) ahb_controller am0(clk, nrst, amif, abif);
 
   fetch_to_decode_if      f2dif();
   decode_to_execute_if    d2eif();
@@ -88,8 +87,8 @@ module datapath #(
     hazif.halt = m2wif.halt;
     hazif.dread = e2mif.dread;
     hazif.dwrite = |e2mif.dwrite;
-    hazif.ihit = amif.ihit;
-    hazif.dhit = amif.dhit;
+    hazif.ihit = amif_fetch.ready;
+    hazif.dhit = amif_mem.ready;
     hazif.d2eif_dread = d2eif.dread;
     hazif.f2dif_rs1 = ctrlif.rs1;
     hazif.f2dif_rs2 = ctrlif.rs2;
@@ -106,7 +105,7 @@ module datapath #(
 
     // Signals from other modules to the exception unit
     euif.illegal_inst = e2mif.illegal_inst;
-    euif.interrupt_in_sync = interrupt_in_sync & {32{e2mif.en}};  // Allow through when mem is finishing
+    euif.interrupt_in_sync = interrupt_in_sync;
   end
 
   // Forwarding Unit to Pipeline
@@ -143,14 +142,14 @@ module datapath #(
 
   // STAGE 1: FETCH
   always_comb begin
-    amif.iread = 1'b1;
-    if((e2mif.dread | |e2mif.dwrite) & amif.ihit & ~amif.dhit) begin
-      // If we already got the next instruction, don't assert iren (let dread/write thru)
-      amif.iread = 1'b0;
-    end
+    amif_fetch.read = 1'b1;
+    amif_fetch.write = '0;
+    amif_fetch.addr = pc;
+    amif_fetch.store = '0;
+    amif_fetch.done = f2dif.en;
+    
     // If branch is predicted, fetch from the predicted target address
     buif.fetch_pc = pc;
-    amif.iaddr = pc;
   end
 
   // STAGE 1 => STAGE 2: FETCH => DECODE
@@ -159,49 +158,23 @@ module datapath #(
       f2dif.pc <= PC_INIT;
       f2dif.branch_predict <= 0;
       f2dif.branch_target <= 0;
-      f2dif.inst_latch <= 0;
+      f2dif.inst <= NOP;
     end else if (f2dif.en & f2dif.flush) begin
       f2dif.pc <= f2dif.pc;
       f2dif.branch_predict <= 0;
       f2dif.branch_target <= 0;
-      f2dif.inst_latch <= 0;
+      f2dif.inst <= NOP;
     end else if (f2dif.en) begin
       f2dif.pc <= pc;
       f2dif.branch_predict <= buif.fetch_predict;
       f2dif.branch_target <= buif.fetch_target;
-      f2dif.inst_latch <= 1;
-    end else begin
-      if(amif.ihit | f2dif.flush) begin
-        f2dif.inst_latch <= 0;
-      end
+      f2dif.inst <= amif_fetch.load;
     end
   end
 
   // STAGE 2: DECODE
-
-  // Latch the instruction if the pipeline is stalled after the AHB-Lite is ready
-  // so that it won't be lost.
-  word_t inst;
-  always_ff @(posedge clk) begin
-    if(~nrst) begin
-      inst <= NOP;
-    end else if (f2dif.flush) begin
-      inst <= NOP;
-    end else if (f2dif.inst_latch) begin
-      inst <= amif.iload;
-    end
-  end
-
   always_comb begin
-    ctrlif.inst = NOP;  // Default
-    if(f2dif.inst_latch) begin
-      // Get instruction from AHB bus
-      ctrlif.inst = amif.iload;
-    end else begin
-      // The pipeline is stalled, so we need to use the instruction
-      // saved from the bus. That or we flushed.
-      ctrlif.inst = inst;
-    end
+    ctrlif.inst = f2dif.inst;
   end
 
   always_comb begin
@@ -488,7 +461,6 @@ module datapath #(
       e2mif.rdat2 <= '0;
       e2mif.pc_plus_imm <= '0;
       e2mif.alu_out <= '0;
-      e2mif.alu_zero <= '0;
       e2mif.branch_predict <= 0;
       e2mif.branch_target <= 0;
       e2mif.csr_write <= '0;
@@ -512,7 +484,6 @@ module datapath #(
       e2mif.rdat2 <= '0;
       e2mif.pc_plus_imm <= '0;
       e2mif.alu_out <= '0;
-      e2mif.alu_zero <= '0;
       e2mif.branch_predict <= 0;
       e2mif.branch_target <= 0;
       e2mif.csr_write <= '0;
@@ -527,8 +498,6 @@ module datapath #(
       e2mif.rs1 <= d2eif.rs1;
       e2mif.dwrite <= d2eif.dwrite;
       e2mif.dread <= d2eif.dread;
-      e2mif.dwrite_short <= d2eif.dwrite;
-      e2mif.dread_short <= d2eif.dread;
       e2mif.reg_wr_src <= d2eif.reg_wr_src;
       e2mif.reg_wr_mem <= d2eif.reg_wr_mem;
       e2mif.reg_wr_mem_signed <= d2eif.reg_wr_mem_signed;
@@ -538,7 +507,6 @@ module datapath #(
       e2mif.rdat2 <= forwarded_rdat2;
       e2mif.pc_plus_imm <= (d2eif.pc + {d2eif.immediate[31:1], 1'b0});
       e2mif.alu_out <= execute_alu_out;
-      e2mif.alu_zero <= aluif.zero;
       e2mif.branch_predict <= d2eif.branch_predict;
       e2mif.branch_target <= d2eif.branch_target;
       e2mif.csr_write <= d2eif.csr_write;
@@ -546,66 +514,66 @@ module datapath #(
       e2mif.csr_wr_op <= d2eif.csr_wr_op;
       e2mif.csr_wr_imm <= d2eif.csr_wr_imm;
       e2mif.illegal_inst <= d2eif.illegal_inst;
-    end else if (amif.dhit) begin
-      // Ensure local memory signals only cause one transaction
-      e2mif.dwrite_short <= '0;
-      e2mif.dread_short <= '0;
     end
   end
 
   // STAGE 4: MEMORY
   always_comb begin
+    amif_mem.done = e2mif.en;
+
     // Memory address for ld/st is the sum from ALU
-    amif.daddr = e2mif.alu_out;
+    amif_mem.addr = e2mif.alu_out;
     
+    // Memory read/write signals
+    amif_mem.read = e2mif.dread;
+    amif_mem.write = e2mif.dwrite;
+
     // Memory data to store is from rs2:
     // Align the data to the proper part of the word
-    amif.dwrite = e2mif.dwrite_short;
-    casez(e2mif.dwrite_short)
+    amif_mem.store = '0;
+    casez(e2mif.dwrite)
       // No store
       2'b00: begin
-        amif.dstore = e2mif.rdat2;
+        amif_mem.store = e2mif.rdat2;
       end
       // Byte store
       2'b01: begin
         // Alignment
-        casez(amif.daddr[1:0])
+        casez(amif_mem.addr[1:0])
           2'b00: begin
-            amif.dstore = {24'd0, e2mif.rdat2[7:0]};
+            amif_mem.store = {24'd0, e2mif.rdat2[7:0]};
           end
           2'b01: begin
-            amif.dstore = {16'd0, e2mif.rdat2[7:0], 8'd0};
+            amif_mem.store = {16'd0, e2mif.rdat2[7:0], 8'd0};
           end
           2'b10: begin
-            amif.dstore = {8'd0, e2mif.rdat2[7:0], 16'd0};
+            amif_mem.store = {8'd0, e2mif.rdat2[7:0], 16'd0};
           end
           2'b11: begin
-            amif.dstore = {e2mif.rdat2[7:0], 24'd0};
+            amif_mem.store = {e2mif.rdat2[7:0], 24'd0};
           end
         endcase
       end
       // Halfword store
       2'b10: begin
         // Alignment
-        casez(amif.daddr[1:0])
+        casez(amif_mem.addr[1:0])
           2'b00, 2'b01: begin
-            amif.dstore = {16'd0, e2mif.rdat2[15:0]};
+            amif_mem.store = {16'd0, e2mif.rdat2[15:0]};
           end
           2'b10, 2'b11: begin
-            amif.dstore = {e2mif.rdat2[15:0], 16'd0};
+            amif_mem.store = {e2mif.rdat2[15:0], 16'd0};
           end
         endcase
       end
       // Word store
       2'b11: begin
-        amif.dstore = e2mif.rdat2;
+        amif_mem.store = e2mif.rdat2;
       end
       default: begin
-        amif.dstore = e2mif.rdat2;
+        amif_mem.store = e2mif.rdat2;
       end
     endcase
-
-    amif.dread = e2mif.dread_short;
   end
 
   // STAGE 4 => STAGE 5: MEMORY => WRITEBACK
@@ -649,7 +617,7 @@ module datapath #(
         m2wif.reg_wr_mem <= e2mif.reg_wr_mem;
         m2wif.reg_wr_mem_signed <= e2mif.reg_wr_mem_signed;
         m2wif.alu_out <= e2mif.csr_write ? csrif.csr_rdata : e2mif.alu_out;
-        m2wif.dload <= amif.dload;
+        m2wif.dload <= amif_mem.load;
         m2wif.rdat1 <= e2mif.rdat1;
         m2wif.csr_write <= e2mif.csr_write;
         m2wif.csr_waddr <= e2mif.csr_waddr;
@@ -742,6 +710,13 @@ module datapath #(
   end
 
   // Program Counter Control
+  word_t e2mif_pc_plus_4;
+  cla_32_bit mem_target_adder (
+    .a(e2mif.pc),
+    .b(32'd4),
+    .cin(1'b0),
+    .sum(e2mif_pc_plus_4)
+  );
   always_comb begin
     pc_n = pc;
 
@@ -753,7 +728,8 @@ module datapath #(
     // Default to telling BU no branch
     buif.mem_branch = 1'b0;
     buif.mem_taken = 1'b0;
-    buif.mem_target_res = e2mif.pc + 32'd4;
+    
+    buif.mem_target_res = e2mif_pc_plus_4;
 
     // Signal to handle this branch instruction
     if(e2mif.en & |e2mif.pc_ctrl) begin
@@ -764,7 +740,7 @@ module datapath #(
     casez(e2mif.pc_ctrl)
       3'b001: begin
         buif.mem_target_res = e2mif.pc_plus_imm;
-        if(e2mif.branch_pol ^ e2mif.alu_zero) begin
+        if(e2mif.branch_pol ^ (e2mif.alu_out == '0)) begin
           // Resolve to taken
           buif.mem_taken = 1'b1;
         end
@@ -787,7 +763,7 @@ module datapath #(
       default: begin
         // Default to telling BU no branch
         buif.mem_taken = 1'b0;
-        buif.mem_target_res = e2mif.pc + 32'd4;
+        buif.mem_target_res = e2mif_pc_plus_4;
       end
     endcase
 
@@ -817,7 +793,7 @@ module datapath #(
         // The branch predictor either predicted a false branch, or the wrong destination
         casez(e2mif.pc_ctrl)
           3'b001: begin
-            if(e2mif.branch_pol ^ e2mif.alu_zero) begin
+            if(e2mif.branch_pol ^ (e2mif.alu_out == '0)) begin
               pc_n = e2mif.pc_plus_imm;
             end else begin
               // False branch
@@ -861,7 +837,7 @@ module datapath #(
     if(~nrst) begin
       halt <= '0;
     end else begin
-      halt <= m2wif.halt | halt;
+      halt <= e2mif.halt | halt;
     end
   end
 endmodule

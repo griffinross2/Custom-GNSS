@@ -6,17 +6,21 @@
 
 `include "common_types.vh"
 import common_types_pkg::*;
-`include "ram_dump_if.vh"
-`include "ahb_controller_if.vh"
+`include "axi_controller_if.vh"
+`include "cache_if.vh"
+`include "axi_bus_if.vh"
 `include "ahb_bus_if.vh"
 `include "ram_if.vh"
 
 module system (
     input logic clk, nrst,
+    input logic gnssclk, signal_in,
     input logic rxd,
     output logic txd,
     output logic halt,
-    ram_dump_if.tb cpu_ram_debug_if
+    axi_controller_if.axi_controller debug_amif,
+    output logic flash_cs,
+    inout wire [3:0] flash_dq
 );
 
 // Interrupt lines
@@ -28,124 +32,195 @@ always_comb begin
     interrupt_in_sync[16] = uart_rx_int;
 end
 
-// GPS control lines
-logic snapshot;
-
 // Interfaces
-ahb_controller_if debug_controller_if();
+cache_if fetch_amif();
+cache_if mem_amif();
+axi_controller_if icache_amif();
+axi_controller_if dcache_amif();
 
-ahb_bus_if multiplexor_abif();
-ahb_bus_if debug_abif();
-ahb_bus_if cpu_abif();
-ahb_bus_if def_abif();
-ahb_bus_if ram_abif();
-ahb_bus_if uart_abif();
-ahb_bus_if gnss_abif();
+axi_bus_if multiplexor_abif();
+axi_bus_if debug_abif();
+axi_bus_if icache_abif();
+axi_bus_if dcache_abif();
+axi_bus_if sram_abif();
+axi_bus_if flash_abif();
+axi_bus_if dram_abif();
+axi_bus_if ahb_abif();
+ahb_bus_if controller_ahb();
+ahb_bus_if uart_ahb();
+ahb_bus_if gnss_ahb();
+ahb_bus_if def_ahb();
 
-ram_if ram_if();
+ram_if rom_if();
+ram_if sram_if();
 
-// Debug AHB interface
-assign debug_controller_if.iread = cpu_ram_debug_if.iren;
-assign debug_controller_if.dread = cpu_ram_debug_if.dren;
-always_comb begin
-    casez (cpu_ram_debug_if.dwen)
-        4'b0001, 4'b0010, 4'b0100, 4'b1000: debug_controller_if.dwrite = 2'b01;
-        4'b1100, 4'b0011: debug_controller_if.dwrite = 2'b10;
-        4'b1111: debug_controller_if.dwrite = 2'b11;
-        default: debug_controller_if.dwrite = 2'b00; // No write
-    endcase
-end
-assign debug_controller_if.iaddr = cpu_ram_debug_if.iaddr;
-assign debug_controller_if.daddr = cpu_ram_debug_if.daddr;
-assign debug_controller_if.dstore = cpu_ram_debug_if.dstore;
-
-assign cpu_ram_debug_if.iwait = ~debug_controller_if.ihit;
-assign cpu_ram_debug_if.dwait = ~debug_controller_if.dhit;
-assign cpu_ram_debug_if.iload = debug_controller_if.iload;
-assign cpu_ram_debug_if.dload = debug_controller_if.dload;
-
-// Connect control from TB or CPU to AHB bus
-assign multiplexor_abif.haddr = cpu_ram_debug_if.override_ctrl ? debug_abif.haddr : cpu_abif.haddr;
-assign multiplexor_abif.hburst = cpu_ram_debug_if.override_ctrl ? debug_abif.hburst : cpu_abif.hburst;
-assign multiplexor_abif.hsize = cpu_ram_debug_if.override_ctrl ? debug_abif.hsize : cpu_abif.hsize;
-assign multiplexor_abif.htrans = cpu_ram_debug_if.override_ctrl ? debug_abif.htrans : cpu_abif.htrans;
-assign multiplexor_abif.hwdata = cpu_ram_debug_if.override_ctrl ? debug_abif.hwdata : cpu_abif.hwdata;
-assign multiplexor_abif.hwrite = cpu_ram_debug_if.override_ctrl ? debug_abif.hwrite : cpu_abif.hwrite;
-
-// Connect AHB bus to TB and CPU
-assign cpu_abif.hrdata = multiplexor_abif.hrdata;
-assign cpu_abif.hready = multiplexor_abif.hready;
-assign cpu_abif.hresp = multiplexor_abif.hresp;
-assign debug_abif.hrdata = multiplexor_abif.hrdata;
-assign debug_abif.hready = multiplexor_abif.hready;
-assign debug_abif.hresp = multiplexor_abif.hresp;
-
-// Debug AHB controller
-ahb_controller debug_controller (
-    .clk(clk),
-    .nrst(nrst),
-    .amif(debug_controller_if),
-    .abif(debug_abif)
-);
-
-// CPU
-cpu cpu_inst(
+// Datapath
+datapath datapath_inst (
     .clk(clk),
     .nrst(nrst),
     .interrupt_in_sync(interrupt_in_sync),
-    .halt(halt),
-    .abif(cpu_abif)
+    .halt(mem_amif.halt),
+    .amif_fetch(fetch_amif),
+    .amif_mem(mem_amif)
+);
+assign halt = mem_amif.flushed;
+
+// GNSS
+gnss gnss_inst (
+    .gnssclk(gnssclk),
+    .cpuclk(clk),
+    .nrst(nrst),
+    .signal_in(signal_in),
+    .abif(gnss_ahb)
 );
 
-// AHB multiplexor
-ahb_multiplexor ahb_mux_inst (
+// AXI interconnect
+axi_interconnect axi_interconnect_inst (
     .clk(clk),
     .nrst(nrst),
-    .abif_to_controller(multiplexor_abif),
-    .abif_to_def(def_abif),
-    .abif_to_ram(ram_abif),
-    .abif_to_uart(uart_abif)
+    .abif_to_icache(icache_abif),
+    .abif_to_dcache(dcache_abif),
+    .abif_to_dma(debug_abif),   // Plug debug into DMA for now
+    .abif_to_sram(sram_abif),
+    .abif_to_flash(flash_abif),
+    .abif_to_dram(dram_abif),
+    .abif_to_ahb(ahb_abif)
 );
 
-// AHB default satellite
-ahb_default_satellite ahb_satellite_def (
+// Debug AXI controller
+axi_controller debug_controller (
     .clk(clk),
     .nrst(nrst),
-    .abif(def_abif)
+    .amif(debug_amif),
+    .abif(debug_abif)
 );
 
-// Memory controller
-memory_control memory_control_inst (
+// Instruction Cache
+icache icache_inst (
     .clk(clk),
     .nrst(nrst),
-    .ahb_bus_if(ram_abif),
-    .ram_if(ram_if)
+    .amif(icache_amif),
+    .cif(fetch_amif)
 );
 
-// UART
-ahb_uart_satellite uart_inst (
+// always_comb begin
+//     fetch_amif.load = icache_amif.load;
+//     fetch_amif.ready = icache_amif.ready;
+//     icache_amif.done = fetch_amif.done;
+//     icache_amif.store = fetch_amif.store;
+//     icache_amif.read = fetch_amif.read;
+//     icache_amif.write = fetch_amif.write;
+//     icache_amif.addr = fetch_amif.addr;
+// end
+
+// Data Cache
+// dcache dcache_inst (
+//     .clk(clk),
+//     .nrst(nrst),
+//     .amif(dcache_amif),
+//     .cif(mem_amif)
+// );
+
+always_comb begin
+    mem_amif.load = dcache_amif.load;
+    mem_amif.ready = dcache_amif.ready;
+    dcache_amif.done = mem_amif.done;
+    dcache_amif.store = mem_amif.store;
+    dcache_amif.read = mem_amif.read;
+    dcache_amif.write = mem_amif.write;
+    dcache_amif.addr = mem_amif.addr;
+    mem_amif.flushed = mem_amif.halt;
+end
+
+// AXI ICache controller
+axi_controller icache_controller (
     .clk(clk),
     .nrst(nrst),
+    .amif(icache_amif),
+    .abif(icache_abif)
+);
+
+// AXI DCache controller
+axi_controller dcache_controller (
+    .clk(clk),
+    .nrst(nrst),
+    .amif(dcache_amif),
+    .abif(dcache_abif)
+);
+
+// AXI Flash controller
+axi_flash_controller flash_controller (
+    .clk(clk),
+    .nrst(nrst),
+    .abif(flash_abif),
+    .clk_div(4'd1),
+    .flash_cs(flash_cs),
+    .flash_dq(flash_dq)
+);
+
+// AXI ROM controller
+axi_rom_controller rom_controller (
+    .clk(clk),
+    .nrst(nrst),
+    .abif(sram_abif),
+    .ram_if(rom_if)
+);
+
+// ROM
+rom rom_inst (
+    .clk(clk),
+    .nrst(nrst),
+    .ram_if(rom_if)
+);
+
+// AXI SRAM controller
+axi_sram_controller sram_controller (
+    .clk(clk),
+    .nrst(nrst),
+    .abif(dram_abif),
+    .ram_if(sram_if)
+);
+
+// SRAM
+sram sram_inst (
+    .clk(clk),
+    .nrst(nrst),
+    .ram_if(sram_if)
+);
+
+// AXI to AHB-Lite bridge
+axi_to_ahb_bridge axi_to_ahb_inst (
+    .clk(clk),
+    .nrst(nrst),
+    .axi(ahb_abif),
+    .ahb(controller_ahb)
+);
+
+// AHB-Lite Multiplexor
+ahb_multiplexor ahb_multiplexor_inst (
+    .clk(clk),
+    .nrst(nrst),
+    .abif_to_controller(controller_ahb),
+    .abif_to_def(def_ahb),
+    .abif_to_uart(uart_ahb),
+    .abif_to_gnss(gnss_ahb)
+);
+
+// AHB-Lite UART satellite
+ahb_uart_satellite ahb_uart_inst (
+    .clk(clk),
+    .nrst(nrst),
+    .abif(uart_ahb),
     .rxd(rxd),
     .txd(txd),
-    .rxi(uart_rx_int),
-    .abif(uart_abif)
+    .rxi(uart_rx_int)
 );
 
-// GNSS satellite
-ahb_gnss_satellite gnss_inst (
+// AHB-Lite default satellite
+ahb_default_satellite ahb_default_inst (
     .clk(clk),
     .nrst(nrst),
-    .abif(gnss_abif),
-    .epoch(32'b0),
-    .snapshot(snapshot)
-);
-
-// Shared Instruction-Data RAM
-ram ram_inst (
-    .clk(clk),
-    .nrst(nrst),
-    .ram_if(ram_if)
+    .abif(def_ahb)
 );
 
 endmodule

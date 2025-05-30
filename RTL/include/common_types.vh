@@ -15,6 +15,10 @@ package common_types_pkg;
     parameter REG_W = 5;
     parameter IMM_W_I = 12;
     parameter IMM_W_U_J = 20;
+    parameter ICACHE_SET_IDX_W = 9;
+    parameter DCACHE_SET_IDX_W = 9;
+    parameter ICACHE_TAG_W = WORD_W - ICACHE_SET_IDX_W - 2;
+    parameter DCACHE_TAG_W = WORD_W - DCACHE_SET_IDX_W - 4;
 
     /*********/
     /* Types */
@@ -249,6 +253,32 @@ package common_types_pkg;
         HTRANS_NONSEQ = 2'b10,
         HTRANS_SEQ = 2'b11
     } htrans_t;
+
+    typedef struct packed {
+        logic [ICACHE_TAG_W-1:0] tag;
+        logic [ICACHE_SET_IDX_W-1:0] set_index;
+        logic [1:0] byte_off;
+    } icache_addr_t;
+
+    typedef struct packed {
+        logic [DCACHE_TAG_W-1:0] tag;
+        logic [DCACHE_SET_IDX_W-1:0] set_index;
+        logic [1:0] word_off;
+        logic [1:0] byte_off;
+    } dcache_addr_t;
+
+    typedef struct packed {
+        logic [ICACHE_TAG_W-1:0] tag;
+        logic valid;
+        logic lru;
+    } icache_meta_t;
+
+    typedef struct packed {
+        logic [DCACHE_TAG_W-1:0] tag;
+        logic valid;
+        logic dirty;
+        logic lru;
+    } dcache_meta_t;
 
 endpackage
 

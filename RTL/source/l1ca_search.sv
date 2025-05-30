@@ -7,7 +7,7 @@ import common_types_pkg::*;
 import common_gnss_types_pkg::*;
 
 localparam N_DOP = 21;
-localparam N_CODE = 2046;
+localparam N_CODE = 12'd4092;
 
 module l1ca_search (
     input logic clk, nrst,                      // Clock and reset
@@ -15,7 +15,7 @@ module l1ca_search (
     input logic start,                          // Start acquisition
     input sv_t sv,                              // SV number to search
     output word_t acc_out,                      // Maximum correlation
-    output logic [10:0] code_index,             // Chip index of maximum correlation
+    output logic [11:0] code_index,             // Chip index of maximum correlation
     output logic [4:0] dop_index,               // Doppler index of maximum correlation
     output logic busy                           // Busy signal
 );
@@ -42,13 +42,20 @@ logic [14:0] sample_ctr, next_sample_ctr;       // Sample counter
 logic sample_out;
 
 logic [4:0] dop_ctr, next_dop_ctr;              // Doppler bin counter
-logic [10:0] code_ctr, next_code_ctr;           // Code phase bin counter
+logic [11:0] code_ctr, next_code_ctr;           // Code phase bin counter
 
 logic [31:0] next_acc_out;                      // Maximum correlation output
-logic [10:0] next_code_index;                   // Next maximum code bin
+logic [11:0] next_code_index;                   // Next maximum code bin
 logic [4:0] next_dop_index;                     // Next maximum dop bin
 
 logic [1:0] max_calc_step, next_max_calc_step;  // Step for maximum calc: 0 - start, 1 - I*I, 2 - Q*Q, 3 - I+Q and compare
+
+// NCO and counter to count 1/4 code intervals
+// Used to compensate for code slippage between acquisition phases
+word_t delay_nco;
+logic [32:0] next_delay_nco;
+localparam DELAY_RATE = 32'd915364905;
+logic [24:0] delay_amt, next_delay_amt;
 
 // Sample memory
 xpm_memory_spram #(
@@ -143,6 +150,8 @@ localparam logic [15:0] LO_RATE [0:N_DOP-1] = {
 localparam LO_SIN = 4'b0011;
 localparam LO_COS = 4'b1001;
 
+logic [11:0] code_index_reg;
+logic [24:0] code_index_modified;
 always_ff @(posedge clk) begin
     if (!nrst) begin
         state <= IDLE;
@@ -156,11 +165,13 @@ always_ff @(posedge clk) begin
         code_ctr <= 0;
         code_phase <= 0;
         acc_out <= 0;
-        code_index <= 0;
+        code_index_reg <= 0;
         dop_index <= 0;
         max_calc_step <= 0;
         i_sqr <= 0;
         q_sqr <= 0;
+        delay_nco <= 0;
+        delay_amt <= 0;
     end else begin
         state <= next_state;
         for (int i = 0; i < N_DOP; i++) begin
@@ -173,11 +184,13 @@ always_ff @(posedge clk) begin
         code_ctr <= next_code_ctr;
         code_phase <= next_code_phase[31:0];
         acc_out <= next_acc_out;
-        code_index <= next_code_index;
+        code_index_reg <= next_code_index;
         dop_index <= next_dop_index;
         max_calc_step <= next_max_calc_step;
         i_sqr <= next_i_sqr;
         q_sqr <= next_q_sqr;
+        delay_nco <= next_delay_nco[31:0];
+        delay_amt <= next_delay_amt;
     end
 end
 
@@ -196,7 +209,7 @@ always_comb begin
             end
         end
         CODE_WIND: begin
-            if (code_num == code_ctr[10:1]) begin
+            if (code_num == code_ctr[11:2]) begin
                 next_state = DOP_SEARCH;
             end
         end
@@ -208,7 +221,7 @@ always_comb begin
         MAX_SEARCH: begin
             if (dop_ctr == N_DOP-5'd1 && max_calc_step == 2'd3) begin
                 // Next code phase or done
-                if (code_ctr == 11'd2046-11'd1) begin
+                if (code_ctr == 12'd4092-12'd1) begin
                     next_state = IDLE;
                 end else begin
                     next_state = CODE_WIND;
@@ -237,7 +250,7 @@ always_comb begin
     code_strobe = 0;
     code_clear = 0;
 
-    next_code_index = code_index;
+    next_code_index = code_index_reg;
     next_dop_index = dop_index;
 
     next_max_calc_step = max_calc_step;
@@ -252,13 +265,51 @@ always_comb begin
     mult_a = 0;
     mult_b = 0;
 
+    next_delay_nco = {1'b0, delay_nco} + {1'b0, DELAY_RATE};
+    next_delay_amt = delay_amt;
+    if (next_delay_nco[32]) begin
+        // If NCO is overflowing, increment delay amount
+        next_delay_amt = delay_amt + 25'd1;
+    end
+
     busy = 1'b1;
+
+    // Add slippage and doppler correction to code index
+    code_index_modified = ({13'd0, code_index_reg} + delay_amt);
+    case (dop_index)
+        5'd0: code_index_modified = code_index_modified - 25'd52;
+        5'd1: code_index_modified = code_index_modified - 25'd47;
+        5'd2: code_index_modified = code_index_modified - 25'd42;
+        5'd3: code_index_modified = code_index_modified - 25'd36;
+        5'd4: code_index_modified = code_index_modified - 25'd31;
+        5'd5: code_index_modified = code_index_modified - 25'd26;
+        5'd6: code_index_modified = code_index_modified - 25'd21;
+        5'd7: code_index_modified = code_index_modified - 25'd16;
+        5'd8: code_index_modified = code_index_modified - 25'd10;
+        5'd9: code_index_modified = code_index_modified - 25'd5;
+        5'd10: code_index_modified = code_index_modified;
+        5'd11: code_index_modified = code_index_modified + 25'd5;
+        5'd12: code_index_modified = code_index_modified + 25'd10;
+        5'd13: code_index_modified = code_index_modified + 25'd16;
+        5'd14: code_index_modified = code_index_modified + 25'd21;
+        5'd15: code_index_modified = code_index_modified + 25'd26;
+        5'd16: code_index_modified = code_index_modified + 25'd31;
+        5'd17: code_index_modified = code_index_modified + 25'd36;
+        5'd18: code_index_modified = code_index_modified + 25'd42;
+        5'd19: code_index_modified = code_index_modified + 25'd47;
+        5'd20: code_index_modified = code_index_modified + 25'd52;
+        default: code_index_modified = code_index_modified;
+    endcase
+    code_index_modified = code_index_modified % 25'd4092;
+    code_index = code_index_modified[11:0];
 
     case (state)
         IDLE: begin
             next_sample_ctr = 0;
             next_dop_ctr = 0;
             next_code_ctr = 0;
+            next_delay_nco = 0;
+            next_delay_amt = 0;
 
             code_clear = 1;
 
@@ -271,7 +322,7 @@ always_comb begin
             if (sample_ctr == 15'd19200-15'd1) begin
                 // Clear NCOs
                 for (int i = 0; i < N_DOP; i++) begin
-                    lo_phase[i] = 0;
+                    next_lo_phase[i] = 0;
                     next_acc_i[i] = 0;
                     next_acc_q[i] = 0;
                 end
@@ -288,13 +339,14 @@ always_comb begin
         CODE_WIND: begin
             code_strobe = 1;
 
-            if (code_num == code_ctr[10:1]) begin
+            if (code_num == code_ctr[11:2]) begin
                 // Half step
-                if (code_ctr[0]) begin
-                    next_code_phase = {1'b0, code_phase} + {1'b0, 32'h8000_0000};
-                end else begin
-                    next_code_phase = '0;
-                end
+                case (code_ctr[1:0])
+                    2'b00: next_code_phase = '0;
+                    2'b01: next_code_phase = {1'b0, 32'h4000_0000};
+                    2'b10: next_code_phase = {1'b0, 32'h8000_0000};
+                    2'b11: next_code_phase = {1'b0, 32'hC000_0000};
+                endcase
                 
                 // Stop incrementing
                 code_strobe = 0;

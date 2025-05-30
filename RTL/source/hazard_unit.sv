@@ -42,16 +42,6 @@ module hazard_unit (
             hazif.e2mif_en = 0;
             hazif.m2wif_en = 0;
         end
-        // Needed because during ld/st it has to wait for D access AND I access
-        // Also gate with branch signal, if the branch signal is high
-        // we don't need to worry about the stall anyway because we
-        // will be about to flush those instructions.
-        // else if(~hazif.ihit & ~hazif.branch_flush) begin
-        //     // Give NOP to FETCH/DECODE
-        //     hazif.f2dif_en = 0;
-        //     hazif.d2eif_en = 1;
-        //     hazif.d2eif_flush = 1;
-        // end
 
         /*******************/
         /* Load Use Hazard */

@@ -10,248 +10,280 @@ import common_gnss_types_pkg::*;
 module ahb_gnss_satellite (
     input logic clk, hclk, nrst,
     ahb_bus_if.satellite_to_mux abif,
-    input logic [31:0] epoch,           // Epoch signal from each channel
-    output logic snapshot               // Take snapshot signal to every channel
+    input logic search_busy,
+    input logic fine_search_busy,
+    output logic search_start,
+    output sv_t search_sv,
+    input word_t search_dop,
+    input word_t search_code,
+    input word_t search_corr
 );
 
-logic cdc_req_hclk, cdc_req_hclk_n; // Cross-domain clock request signal (in hclk domain)
-logic cdc_req_clk, cdc_req_clk_n; // Cross-domain clock request signal (in clk domain)
-logic cdc_ack_hclk, cdc_ack_hclk_n; // Cross-domain clock acknowledge signal (in hclk domain)
-logic cdc_ack_clk, cdc_ack_clk_n; // Cross-domain clock acknowledge signal (in clk domain)
+typedef enum logic [1:0] {
+    CTRL_IDLE,
+    CTRL_REG_ADDR,
+    CTRL_REQ,
+    CTRL_WAIT
+} controller_state_t;
 
-logic cdc_req_sync [2:0]; // Synchronization registers for request signal
-logic cdc_ack_sync [2:0]; // Synchronization registers for acknowledge signal
+typedef enum logic {
+    SAT_IDLE,
+    SAT_ACK
+} satellite_state_t;
 
-logic [1:0] rsel_hclk, rsel_hclk_n; // Read select signal (in hclk domain)
-logic [1:0] rsel_clk, rsel_clk_n; // Read select signal (in clk domain)
+controller_state_t controller_state, next_controller_state;
+satellite_state_t satellite_state, next_satellite_state;
 
-logic [1:0] wsel_hclk, wsel_hclk_n; // Read select signal (in hclk domain)
-logic [1:0] wsel_clk, wsel_clk_n; // Read select signal (in clk domain)
+// Save address phase signals
+word_t haddr_reg_hclk;
+logic hwrite_reg_hclk, hsel_reg_hclk, hready_reg_hclk;
+htrans_t htrans_reg_hclk;
+logic [2:0] hburst_reg_hclk;
+logic [1:0] hsize_reg_hclk;
 
-word_t wdata_clk, wdata_clk_n; // Read data (in clk domain)
-word_t wdata_hclk, wdata_hclk_n; // Read data (in hclk domain)
+word_t hwdata_reg;
+word_t haddr_reg;
+logic hwrite_reg, hsel_reg, hready_reg;
+htrans_t htrans_reg;
+logic [2:0] hburst_reg;
+logic [1:0] hsize_reg;
+word_t next_hrdata;
+logic next_hreadyout;
+logic next_hresp;
 
-word_t rdata_clk, rdata_clk_n; // Read data (in clk domain)
-word_t rdata_hclk, rdata_hclk_n; // Read data (in hclk domain)
+logic [1:0] req_reg;
+logic next_req;
+logic [1:0] ack_reg;
+logic next_ack;
 
-logic hreadyout_n;
+logic next_search_start;
+logic fine_search_busy_reg;
+logic search_done_reg, next_search_done_reg;
+sv_t next_search_sv;
 
-logic [31:0] epoch_edge; // Register the epoch signal to detect edges
-logic snapshot_n; // Snapshot next state
-word_t csr, csr_n; // Channel status register for the satellite
-
-// Epoch, snapshot, CSR FF
-always_ff @(posedge clk) begin
-    if (~nrst) begin
-        epoch_edge <= '0;
-        snapshot <= '0;
-        csr <= '0;
-    end else begin
-        epoch_edge <= epoch;
-        snapshot <= snapshot_n;
-        csr <= csr_n;
-    end
-end
-
-// Bus FF
+// Controller state machine
 always_ff @(posedge hclk) begin
-    if (~nrst) begin
-        abif.hreadyout <= 1'b1;
+    if (!nrst) begin
+        controller_state <= CTRL_IDLE;
+        abif.hrdata <= 32'b0;
+        abif.hreadyout <= 1'b0;
+        abif.hresp <= 1'b0;
+        ack_reg <= '0;
+
+        haddr_reg_hclk <= 32'b0;
+        hwrite_reg_hclk <= 1'b0;
+        hsel_reg_hclk <= 1'b0;
+        hready_reg_hclk <= 1'b0;
+        htrans_reg_hclk <= HTRANS_IDLE;
+        hburst_reg_hclk <= 3'b0;
+        hsize_reg_hclk <= 2'b0;
     end else begin
-        abif.hreadyout <= hreadyout_n;
-    end
-end
+        controller_state <= next_controller_state;
+        abif.hrdata <= next_hrdata;
+        abif.hreadyout <= next_hreadyout;
+        abif.hresp <= next_hresp;
+        ack_reg <= {ack_reg[0], next_ack};
 
-// Bus logic
-always_comb begin
-    rsel_hclk_n = rsel_hclk;
-    wsel_hclk_n = wsel_hclk;
-    hreadyout_n = abif.hreadyout;
-
-    abif.hrdata = '0;
-    
-    abif.hresp = '0;
-
-    // Service bus request
-    if (abif.hsel && abif.htrans == HTRANS_NONSEQ && abif.hready) begin
-        rsel_hclk_n = 2'd0;
-        wsel_hclk_n = 2'b0;
-        hreadyout_n = 1'b0; // Set hreadyout to 0 when a request is being processed
-
-        if (abif.hwrite) begin
-            // Decode the address to determine the read select signal
-            case (abif.haddr[9:0])
-                10'h000: wsel_hclk_n = 2'd1;
-                10'h004: wsel_hclk_n = 2'd2;
-                default: wsel_hclk_n = 2'd0; // Default case
-            endcase
-        end else begin
-            // Decode the address to determine the read select signal
-            case (abif.haddr[9:0])
-                10'h000: rsel_hclk_n = 2'd1;
-                10'h004: rsel_hclk_n = 2'd2;
-                default: rsel_hclk_n = 2'd0; // Default case
-            endcase
+        if (abif.htrans != HTRANS_IDLE && abif.hsel && abif.hready) begin
+            haddr_reg_hclk <= abif.haddr;
+            hwrite_reg_hclk <= abif.hwrite;
+            hsel_reg_hclk <= abif.hsel;
+            hready_reg_hclk <= abif.hready;
+            htrans_reg_hclk <= abif.htrans;
+            hburst_reg_hclk <= abif.hburst;
+            hsize_reg_hclk <= abif.hsize;
         end
     end
-
-    // Get wdata from the bus
-    wdata_hclk_n = abif.hwdata;
-
-    // Bus response (if ack is going high, set hreadyout to 1)
-    // Also clear rsel/wsel since we are done with the request
-    if (~cdc_ack_hclk & cdc_ack_hclk_n) begin
-        hreadyout_n = 1'b1;
-        rsel_hclk_n = 2'd0;
-        wsel_hclk_n = 2'b0;
-    end
-
-    // Give bus the data
-    if (abif.hreadyout) begin
-        abif.hrdata = rdata_hclk;
-    end
 end
 
-// Request signal generation
-always_comb begin
-    cdc_req_hclk_n = cdc_req_hclk;
-
-    // If we decided to read or write, send a request to the clk domain
-    if (rsel_hclk_n != 2'd0 || wsel_hclk_n != 2'd0) begin
-        cdc_req_hclk_n = 1'b1;
-    end
-
-    // If an acknowledge signal is received, clear the request signal
-    if (cdc_ack_hclk) begin
-        cdc_req_hclk_n = 1'b0;
-    end
-end
-
-// hclk domain
-always_ff @(posedge hclk) begin
-    if (~nrst) begin
-        cdc_req_hclk <= 1'b0;
-        cdc_ack_hclk <= 1'b0;
-        rdata_hclk <= 1'b0;
-        rsel_hclk <= '0;
-        wsel_hclk <= '0;
-        wdata_hclk <= '0;
-    end else begin
-        cdc_req_hclk <= cdc_req_hclk_n;
-        cdc_ack_hclk <= cdc_ack_hclk_n;
-        rdata_hclk <= rdata_hclk_n;
-        rsel_hclk <= rsel_hclk_n;
-        wsel_hclk <= wsel_hclk_n;
-        wdata_hclk <= wdata_hclk_n;
-    end
-end
-
-// clk domain
+// Satellite state machine
 always_ff @(posedge clk) begin
-    if (~nrst) begin
-        cdc_req_clk <= 1'b0;
-        cdc_ack_clk <= 1'b0;
-        rdata_clk <= 1'b0;
-        rsel_clk <= '0;
-        wsel_clk <= '0;
-        wdata_clk <= '0;
+    if (!nrst) begin
+        satellite_state <= SAT_IDLE;
+        hwdata_reg <= 32'b0;
+        haddr_reg <= 32'b0;
+        hwrite_reg <= 1'b0;
+        hsel_reg <= 1'b0;
+        hready_reg <= 1'b0;
+        htrans_reg <= HTRANS_IDLE;
+        hburst_reg <= 3'b0;
+        hsize_reg <= 2'b0;
+        req_reg <= '0;
     end else begin
-        cdc_req_clk <= cdc_req_clk_n;
-        cdc_ack_clk <= cdc_ack_clk_n;
-        rdata_clk <= rdata_clk_n;
-        rsel_clk <= rsel_clk_n;
-        wsel_clk <= wsel_clk_n;
-        wdata_clk <= wdata_clk_n;
+        satellite_state <= next_satellite_state;
+        hwdata_reg <= abif.hwdata;
+        haddr_reg <= haddr_reg_hclk;
+        hwrite_reg <= hwrite_reg_hclk;
+        hsel_reg <= hsel_reg_hclk;
+        hready_reg <= hready_reg_hclk;
+        htrans_reg <= htrans_reg_hclk;
+        hburst_reg <= hburst_reg_hclk;
+        hsize_reg <= hsize_reg_hclk;
+        req_reg <= {req_reg[0], next_req};
     end
 end
 
-// FF synchronizer (and edge detector) for request signal
-always_ff @(posedge clk) begin
-    if (~nrst) begin
-        cdc_req_sync[0] <= 1'b0;
-        cdc_req_sync[1] <= 1'b0;
-        cdc_req_sync[2] <= 1'b0;
-    end else begin
-        cdc_req_sync[0] <= cdc_req_hclk;
-        cdc_req_sync[1] <= cdc_req_sync[0];
-        cdc_req_sync[2] <= cdc_req_sync[1];
-    end
-end
-
-// FF synchronizer (and edge detector) for acknowledge signal
-always_ff @(posedge hclk) begin
-    if (~nrst) begin
-        cdc_ack_sync[0] <= 1'b0;
-        cdc_ack_sync[1] <= 1'b0;
-        cdc_ack_sync[2] <= 1'b0;
-    end else begin
-        cdc_ack_sync[0] <= cdc_ack_clk;
-        cdc_ack_sync[1] <= cdc_ack_sync[0];
-        cdc_ack_sync[2] <= cdc_ack_sync[1];
-    end
-end
-
-// Request and data latching from hclk to clk domain
+// Next state logic
 always_comb begin
-    cdc_req_clk_n = ~cdc_req_sync[2] & cdc_req_sync[1]; // Edge detector for request signal in clk domain
-    rsel_clk_n = rsel_clk;
-    wsel_clk_n = wsel_clk;
-    wdata_clk_n = wdata_clk;
+    next_controller_state = controller_state;
+    next_satellite_state = satellite_state;
 
-    // If request signal is going high, latch rsel_hclk to clk domain
-    if (~cdc_req_clk & cdc_req_clk_n) begin
-        rsel_clk_n = rsel_hclk;
-        wsel_clk_n = wsel_hclk;
-        wdata_clk_n = wdata_hclk;
-    end
-
-    // Decode rsel to determine the read data
-    // and send ack
-    rdata_clk_n = rdata_clk;
-    cdc_ack_clk_n = 1'b0;
-
-    // Registers
-    csr_n = csr;
-    snapshot_n = '0;
-
-    if (cdc_req_clk) begin
-        cdc_ack_clk_n = 1'b1; // Acknowledge the request signal
-
-        case (rsel_clk)
-            2'd1: begin
-                rdata_clk_n = csr;
+    case (controller_state)
+        CTRL_IDLE: begin
+            if (abif.htrans == HTRANS_NONSEQ && abif.hsel && abif.hready) begin
+                next_controller_state = CTRL_REG_ADDR;
             end
-            2'd2: begin
-                rdata_clk_n = {31'h0, snapshot};
+        end
+        CTRL_REG_ADDR: begin
+            next_controller_state = CTRL_REQ;
+        end
+        CTRL_REQ: begin
+            if (ack_reg[1]) begin
+                next_controller_state = CTRL_WAIT;
             end
-            default: begin
-                rdata_clk_n = '0; // Default case
+        end
+        CTRL_WAIT: begin
+            if (ack_reg == 2'b00) begin
+                next_controller_state = CTRL_IDLE;
             end
-        endcase
+        end
+    endcase
+    
+    case (satellite_state)
+        SAT_IDLE: begin
+            if (req_reg[1]) begin
+                next_satellite_state = SAT_ACK;
+            end
+        end
+        SAT_ACK: begin
+            if (!req_reg[1]) begin
+                next_satellite_state = SAT_IDLE;
+            end
+        end
+    endcase
+end
 
-        case (wsel_clk)
-            2'd1: begin
-                csr_n = csr & ~wdata_clk; // Clear bits in CSR register
-            end
-            2'd2: begin
-                snapshot_n = wdata_clk[0]; // Take snapshot if bit 0 is set
-            end
-            default: begin
-                csr_n = csr;
-            end
-        endcase
-    end
+// AHB output logic
+always_comb begin
+    next_hrdata = abif.hrdata;
+    next_hreadyout = abif.hreadyout;
+    next_hresp = abif.hresp;
+    next_req = 1'b0;
+    next_ack = 1'b0;
 
-    // Override csr value from hardware if an epoch edge is detected
-    csr_n = csr_n | (~epoch & epoch_edge); // Set positions in the CSR register where epoch edge is detected
+    case (controller_state)
+        CTRL_IDLE: begin
+            if (abif.htrans == HTRANS_NONSEQ && abif.hsel && abif.hready) begin
+                next_hreadyout = 1'b0;
+                next_hresp = 1'b0;
+                next_req = 1'b1;
+            end else begin
+                next_hreadyout = 1'b1;
+                next_req = 1'b0;
+            end
+        end
+        CTRL_REG_ADDR: begin
+            next_hreadyout = 1'b0;
+            next_req = 1'b0;
+        end
+        CTRL_REQ: begin
+            if (ack_reg[1]) begin
+                next_req = 1'b0;
+                next_hreadyout = 1'b0;
+            end else begin
+                next_req = 1'b1;
+                next_hreadyout = 1'b0;
+            end
+        end
+        CTRL_WAIT: begin
+            if (ack_reg == 2'b00) begin
+                next_req = 1'b0;
+                next_hreadyout = 1'b1;
+            end else begin
+                next_req = 1'b0;
+                next_hreadyout = 1'b0;
+            end
+        end
+    endcase
 
-    cdc_ack_hclk_n = ~cdc_ack_sync[2] & cdc_ack_sync[1]; // Edge detector for acknowledge signal in hclk domain
-    rdata_hclk_n = rdata_hclk;
+    case (satellite_state)
+        SAT_IDLE: begin
+            if (req_reg[1]) begin
+                next_ack = 1'b1;
+            end else begin
+                next_ack = 1'b0;
+            end
+        end
+        SAT_ACK: begin
+            if (!req_reg[1]) begin
+                next_ack = 1'b0;
+            end else begin
+                next_ack = 1'b1;
+            end
+        end
+    endcase
 
-    // If ack signal is going high, latch rdata_clk to hclk domain
-    if (~cdc_ack_hclk & cdc_ack_hclk_n) begin
-        rdata_hclk_n = rdata_clk;
+    // Register Read Logic
+    case (haddr_reg)
+        32'h2004_0100: begin // Status/Start
+            next_hrdata = {30'b0, search_done_reg, search_start};
+        end
+        32'h2004_0104: begin // Search SV
+            next_hrdata = {27'b0, search_sv};
+        end
+        32'h2004_0108: begin // Search DOP
+            next_hrdata = search_dop;
+        end
+        32'h2004_010C: begin // Search Code
+            next_hrdata = search_code;
+        end
+        32'h2004_0110: begin // Search Correlation
+            next_hrdata = search_corr;
+        end
+        default: begin
+            next_hrdata = 32'b0;
+        end
+    endcase
+end
+
+// Search Register Write Logic
+always_ff @(posedge clk) begin
+    if (!nrst) begin
+        fine_search_busy_reg <= 1'b0;
+        search_done_reg <= 1'b0;
+        search_start <= 1'b0;
+        search_sv <= '0;
+    end else begin
+        fine_search_busy_reg <= fine_search_busy;
+        search_done_reg <= next_search_done_reg;
+        search_start <= next_search_start;
+        search_sv <= next_search_sv;
     end
 end
 
-endmodule
+// Search Register Write Logic
+always_comb begin
+    // Assert done when the fine search completes
+    next_search_done_reg = (search_done_reg == 1'b0) ? !fine_search_busy && fine_search_busy_reg : search_done_reg;
+
+    // Disable the start signal when the coarse search starts
+    next_search_start = (search_start == 1'b1) ? !search_busy : 1'b0;
+    
+    next_search_sv = search_sv;
+
+    if (satellite_state == SAT_IDLE && next_satellite_state == SAT_ACK) begin
+        // Do the write here
+        if (hwrite_reg && haddr_reg == 32'h2004_0100) begin
+            // Status/Start
+            next_search_start = hwdata_reg[0]; // Start search if bit 0 is set
+            next_search_done_reg = (|hwdata_reg[1:0]) ? 1'b0 : search_done_reg; // Clear done if bit 1 or 0 is set
+        end
+        
+        if (hwrite_reg && haddr_reg == 32'h2004_0104) begin
+            // Configuration
+            next_search_sv = hwdata_reg[4:0];
+        end
+    end
+end
+
+endmodule 

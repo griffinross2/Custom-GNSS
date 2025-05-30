@@ -1,0 +1,432 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="axi_flash_controller_tb_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="axi_flash_controller_tb" />
+            <top_module name="common_types_pkg" />
+            <top_module name="glbl" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0.005000 us"></ZoomStartTime>
+      <ZoomEndTime time="6.845001 us"></ZoomEndTime>
+      <Cursor1Time time="1.475000 us"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="191"></NameColumnWidth>
+      <ValueColumnWidth column_width="156"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="9" />
+   <wvobject fp_name="/axi_flash_controller_tb/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/axi_flash_controller_tb/nrst" type="logic">
+      <obj_property name="ElementShortName">nrst</obj_property>
+      <obj_property name="ObjectShortName">nrst</obj_property>
+   </wvobject>
+   <wvobject fp_name="/axi_flash_controller_tb/flash_cs" type="logic">
+      <obj_property name="ElementShortName">flash_cs</obj_property>
+      <obj_property name="ObjectShortName">flash_cs</obj_property>
+   </wvobject>
+   <wvobject fp_name="/axi_flash_controller_tb/flash_dq" type="array">
+      <obj_property name="ElementShortName">flash_dq[3:0]</obj_property>
+      <obj_property name="ObjectShortName">flash_dq[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="group63" type="group">
+      <obj_property name="label">To controller</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <wvobject fp_name="/axi_flash_controller_tb/amif/read" type="logic">
+         <obj_property name="ElementShortName">read</obj_property>
+         <obj_property name="ObjectShortName">read</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_flash_controller_tb/amif/write" type="array">
+         <obj_property name="ElementShortName">write[1:0]</obj_property>
+         <obj_property name="ObjectShortName">write[1:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_flash_controller_tb/amif/addr" type="array">
+         <obj_property name="ElementShortName">addr[31:0]</obj_property>
+         <obj_property name="ObjectShortName">addr[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_flash_controller_tb/amif/store" type="array">
+         <obj_property name="ElementShortName">store[31:0]</obj_property>
+         <obj_property name="ObjectShortName">store[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_flash_controller_tb/amif/done" type="logic">
+         <obj_property name="ElementShortName">done</obj_property>
+         <obj_property name="ObjectShortName">done</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_flash_controller_tb/amif/ready" type="logic">
+         <obj_property name="ElementShortName">ready</obj_property>
+         <obj_property name="ObjectShortName">ready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_flash_controller_tb/amif/load" type="array">
+         <obj_property name="ElementShortName">load[31:0]</obj_property>
+         <obj_property name="ObjectShortName">load[31:0]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group101" type="group">
+      <obj_property name="label">AXI Bus</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <wvobject fp_name="/axi_flash_controller_tb/abif_controller/awid" type="array">
+         <obj_property name="ElementShortName">awid[3:0]</obj_property>
+         <obj_property name="ObjectShortName">awid[3:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_flash_controller_tb/abif_controller/awaddr" type="array">
+         <obj_property name="ElementShortName">awaddr[31:0]</obj_property>
+         <obj_property name="ObjectShortName">awaddr[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_flash_controller_tb/abif_controller/awlen" type="array">
+         <obj_property name="ElementShortName">awlen[7:0]</obj_property>
+         <obj_property name="ObjectShortName">awlen[7:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_flash_controller_tb/abif_controller/awsize" type="array">
+         <obj_property name="ElementShortName">awsize[2:0]</obj_property>
+         <obj_property name="ObjectShortName">awsize[2:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_flash_controller_tb/abif_controller/awburst" type="array">
+         <obj_property name="ElementShortName">awburst[1:0]</obj_property>
+         <obj_property name="ObjectShortName">awburst[1:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_flash_controller_tb/abif_controller/awlock" type="logic">
+         <obj_property name="ElementShortName">awlock</obj_property>
+         <obj_property name="ObjectShortName">awlock</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_flash_controller_tb/abif_controller/awcache" type="array">
+         <obj_property name="ElementShortName">awcache[3:0]</obj_property>
+         <obj_property name="ObjectShortName">awcache[3:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_flash_controller_tb/abif_controller/awprot" type="array">
+         <obj_property name="ElementShortName">awprot[2:0]</obj_property>
+         <obj_property name="ObjectShortName">awprot[2:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_flash_controller_tb/abif_controller/awqos" type="array">
+         <obj_property name="ElementShortName">awqos[3:0]</obj_property>
+         <obj_property name="ObjectShortName">awqos[3:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_flash_controller_tb/abif_controller/awvalid" type="logic">
+         <obj_property name="ElementShortName">awvalid</obj_property>
+         <obj_property name="ObjectShortName">awvalid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_flash_controller_tb/abif_controller/awready" type="logic">
+         <obj_property name="ElementShortName">awready</obj_property>
+         <obj_property name="ObjectShortName">awready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_flash_controller_tb/abif_controller/wdata" type="array">
+         <obj_property name="ElementShortName">wdata[31:0]</obj_property>
+         <obj_property name="ObjectShortName">wdata[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_flash_controller_tb/abif_controller/wstrb" type="array">
+         <obj_property name="ElementShortName">wstrb[3:0]</obj_property>
+         <obj_property name="ObjectShortName">wstrb[3:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_flash_controller_tb/abif_controller/wlast" type="logic">
+         <obj_property name="ElementShortName">wlast</obj_property>
+         <obj_property name="ObjectShortName">wlast</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_flash_controller_tb/abif_controller/wvalid" type="logic">
+         <obj_property name="ElementShortName">wvalid</obj_property>
+         <obj_property name="ObjectShortName">wvalid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_flash_controller_tb/abif_controller/wready" type="logic">
+         <obj_property name="ElementShortName">wready</obj_property>
+         <obj_property name="ObjectShortName">wready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_flash_controller_tb/abif_controller/bid" type="array">
+         <obj_property name="ElementShortName">bid[3:0]</obj_property>
+         <obj_property name="ObjectShortName">bid[3:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_flash_controller_tb/abif_controller/bresp" type="array">
+         <obj_property name="ElementShortName">bresp[1:0]</obj_property>
+         <obj_property name="ObjectShortName">bresp[1:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_flash_controller_tb/abif_controller/bvalid" type="logic">
+         <obj_property name="ElementShortName">bvalid</obj_property>
+         <obj_property name="ObjectShortName">bvalid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_flash_controller_tb/abif_controller/bready" type="logic">
+         <obj_property name="ElementShortName">bready</obj_property>
+         <obj_property name="ObjectShortName">bready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_flash_controller_tb/abif_controller/arid" type="array">
+         <obj_property name="ElementShortName">arid[3:0]</obj_property>
+         <obj_property name="ObjectShortName">arid[3:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_flash_controller_tb/abif_controller/araddr" type="array">
+         <obj_property name="ElementShortName">araddr[31:0]</obj_property>
+         <obj_property name="ObjectShortName">araddr[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_flash_controller_tb/abif_controller/arlen" type="array">
+         <obj_property name="ElementShortName">arlen[7:0]</obj_property>
+         <obj_property name="ObjectShortName">arlen[7:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_flash_controller_tb/abif_controller/arsize" type="array">
+         <obj_property name="ElementShortName">arsize[2:0]</obj_property>
+         <obj_property name="ObjectShortName">arsize[2:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_flash_controller_tb/abif_controller/arburst" type="array">
+         <obj_property name="ElementShortName">arburst[1:0]</obj_property>
+         <obj_property name="ObjectShortName">arburst[1:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_flash_controller_tb/abif_controller/arlock" type="logic">
+         <obj_property name="ElementShortName">arlock</obj_property>
+         <obj_property name="ObjectShortName">arlock</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_flash_controller_tb/abif_controller/arcache" type="array">
+         <obj_property name="ElementShortName">arcache[3:0]</obj_property>
+         <obj_property name="ObjectShortName">arcache[3:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_flash_controller_tb/abif_controller/arprot" type="array">
+         <obj_property name="ElementShortName">arprot[2:0]</obj_property>
+         <obj_property name="ObjectShortName">arprot[2:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_flash_controller_tb/abif_controller/arqos" type="array">
+         <obj_property name="ElementShortName">arqos[3:0]</obj_property>
+         <obj_property name="ObjectShortName">arqos[3:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_flash_controller_tb/abif_controller/arvalid" type="logic">
+         <obj_property name="ElementShortName">arvalid</obj_property>
+         <obj_property name="ObjectShortName">arvalid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_flash_controller_tb/abif_controller/arready" type="logic">
+         <obj_property name="ElementShortName">arready</obj_property>
+         <obj_property name="ObjectShortName">arready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_flash_controller_tb/abif_controller/rid" type="array">
+         <obj_property name="ElementShortName">rid[3:0]</obj_property>
+         <obj_property name="ObjectShortName">rid[3:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_flash_controller_tb/abif_controller/rdata" type="array">
+         <obj_property name="ElementShortName">rdata[31:0]</obj_property>
+         <obj_property name="ObjectShortName">rdata[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_flash_controller_tb/abif_controller/rresp" type="array">
+         <obj_property name="ElementShortName">rresp[1:0]</obj_property>
+         <obj_property name="ObjectShortName">rresp[1:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_flash_controller_tb/abif_controller/rlast" type="logic">
+         <obj_property name="ElementShortName">rlast</obj_property>
+         <obj_property name="ObjectShortName">rlast</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_flash_controller_tb/abif_controller/rvalid" type="logic">
+         <obj_property name="ElementShortName">rvalid</obj_property>
+         <obj_property name="ObjectShortName">rvalid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_flash_controller_tb/abif_controller/rready" type="logic">
+         <obj_property name="ElementShortName">rready</obj_property>
+         <obj_property name="ObjectShortName">rready</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group22" type="group">
+      <obj_property name="label">AXI Controller</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/axi_flash_controller_tb/axi_inst/clk" type="logic">
+         <obj_property name="ElementShortName">clk</obj_property>
+         <obj_property name="ObjectShortName">clk</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_flash_controller_tb/axi_inst/nrst" type="logic">
+         <obj_property name="ElementShortName">nrst</obj_property>
+         <obj_property name="ObjectShortName">nrst</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_flash_controller_tb/axi_inst/state" type="array">
+         <obj_property name="ElementShortName">state[2:0]</obj_property>
+         <obj_property name="ObjectShortName">state[2:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_flash_controller_tb/axi_inst/next_state" type="array">
+         <obj_property name="ElementShortName">next_state[2:0]</obj_property>
+         <obj_property name="ObjectShortName">next_state[2:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_flash_controller_tb/axi_inst/read_counter" type="array">
+         <obj_property name="ElementShortName">read_counter[7:0]</obj_property>
+         <obj_property name="ObjectShortName">read_counter[7:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_flash_controller_tb/axi_inst/next_read_counter" type="array">
+         <obj_property name="ElementShortName">next_read_counter[7:0]</obj_property>
+         <obj_property name="ObjectShortName">next_read_counter[7:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_flash_controller_tb/axi_inst/next_ready" type="logic">
+         <obj_property name="ElementShortName">next_ready</obj_property>
+         <obj_property name="ObjectShortName">next_ready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_flash_controller_tb/axi_inst/next_load" type="array">
+         <obj_property name="ElementShortName">next_load[31:0]</obj_property>
+         <obj_property name="ObjectShortName">next_load[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_flash_controller_tb/axi_inst/next_awaddr" type="array">
+         <obj_property name="ElementShortName">next_awaddr[31:0]</obj_property>
+         <obj_property name="ObjectShortName">next_awaddr[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_flash_controller_tb/axi_inst/next_awvalid" type="logic">
+         <obj_property name="ElementShortName">next_awvalid</obj_property>
+         <obj_property name="ObjectShortName">next_awvalid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_flash_controller_tb/axi_inst/next_wdata" type="array">
+         <obj_property name="ElementShortName">next_wdata[31:0]</obj_property>
+         <obj_property name="ObjectShortName">next_wdata[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_flash_controller_tb/axi_inst/next_wstrb" type="array">
+         <obj_property name="ElementShortName">next_wstrb[3:0]</obj_property>
+         <obj_property name="ObjectShortName">next_wstrb[3:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_flash_controller_tb/axi_inst/next_wvalid" type="logic">
+         <obj_property name="ElementShortName">next_wvalid</obj_property>
+         <obj_property name="ObjectShortName">next_wvalid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_flash_controller_tb/axi_inst/next_bready" type="logic">
+         <obj_property name="ElementShortName">next_bready</obj_property>
+         <obj_property name="ObjectShortName">next_bready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_flash_controller_tb/axi_inst/next_araddr" type="array">
+         <obj_property name="ElementShortName">next_araddr[31:0]</obj_property>
+         <obj_property name="ObjectShortName">next_araddr[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_flash_controller_tb/axi_inst/next_arvalid" type="logic">
+         <obj_property name="ElementShortName">next_arvalid</obj_property>
+         <obj_property name="ObjectShortName">next_arvalid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_flash_controller_tb/axi_inst/next_rready" type="logic">
+         <obj_property name="ElementShortName">next_rready</obj_property>
+         <obj_property name="ObjectShortName">next_rready</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group55" type="group">
+      <obj_property name="label">Flash Controller</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <wvobject fp_name="/axi_flash_controller_tb/axi_flash_inst/clk" type="logic">
+         <obj_property name="ElementShortName">clk</obj_property>
+         <obj_property name="ObjectShortName">clk</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_flash_controller_tb/axi_flash_inst/nrst" type="logic">
+         <obj_property name="ElementShortName">nrst</obj_property>
+         <obj_property name="ObjectShortName">nrst</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_flash_controller_tb/axi_flash_inst/clk_div" type="array">
+         <obj_property name="ElementShortName">clk_div[3:0]</obj_property>
+         <obj_property name="ObjectShortName">clk_div[3:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_flash_controller_tb/axi_flash_inst/flash_cs" type="logic">
+         <obj_property name="ElementShortName">flash_cs</obj_property>
+         <obj_property name="ObjectShortName">flash_cs</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_flash_controller_tb/axi_flash_inst/flash_dq" type="array">
+         <obj_property name="ElementShortName">flash_dq[3:0]</obj_property>
+         <obj_property name="ObjectShortName">flash_dq[3:0]</obj_property>
+         <obj_property name="isExpanded"></obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_flash_controller_tb/axi_flash_inst/flash_clk" type="logic">
+         <obj_property name="ElementShortName">flash_clk</obj_property>
+         <obj_property name="ObjectShortName">flash_clk</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_flash_controller_tb/axi_flash_inst/flash_clk_en" type="logic">
+         <obj_property name="ElementShortName">flash_clk_en</obj_property>
+         <obj_property name="ObjectShortName">flash_clk_en</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_flash_controller_tb/axi_flash_inst/flash_clk_div" type="logic">
+         <obj_property name="ElementShortName">flash_clk_div</obj_property>
+         <obj_property name="ObjectShortName">flash_clk_div</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_flash_controller_tb/axi_flash_inst/flash_clk_strobe" type="logic">
+         <obj_property name="ElementShortName">flash_clk_strobe</obj_property>
+         <obj_property name="ObjectShortName">flash_clk_strobe</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_flash_controller_tb/axi_flash_inst/clk_cnt" type="array">
+         <obj_property name="ElementShortName">clk_cnt[3:0]</obj_property>
+         <obj_property name="ObjectShortName">clk_cnt[3:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_flash_controller_tb/axi_flash_inst/state" type="array">
+         <obj_property name="ElementShortName">state[2:0]</obj_property>
+         <obj_property name="ObjectShortName">state[2:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_flash_controller_tb/axi_flash_inst/next_state" type="array">
+         <obj_property name="ElementShortName">next_state[2:0]</obj_property>
+         <obj_property name="ObjectShortName">next_state[2:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_flash_controller_tb/axi_flash_inst/cycle_counter" type="array">
+         <obj_property name="ElementShortName">cycle_counter[2:0]</obj_property>
+         <obj_property name="ObjectShortName">cycle_counter[2:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_flash_controller_tb/axi_flash_inst/next_cycle_counter" type="array">
+         <obj_property name="ElementShortName">next_cycle_counter[2:0]</obj_property>
+         <obj_property name="ObjectShortName">next_cycle_counter[2:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_flash_controller_tb/axi_flash_inst/flash_read_start" type="logic">
+         <obj_property name="ElementShortName">flash_read_start</obj_property>
+         <obj_property name="ObjectShortName">flash_read_start</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_flash_controller_tb/axi_flash_inst/flash_read_done" type="logic">
+         <obj_property name="ElementShortName">flash_read_done</obj_property>
+         <obj_property name="ObjectShortName">flash_read_done</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_flash_controller_tb/axi_flash_inst/flash_read_addr" type="array">
+         <obj_property name="ElementShortName">flash_read_addr[31:0]</obj_property>
+         <obj_property name="ObjectShortName">flash_read_addr[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_flash_controller_tb/axi_flash_inst/flash_read_data" type="array">
+         <obj_property name="ElementShortName">flash_read_data[31:0]</obj_property>
+         <obj_property name="ObjectShortName">flash_read_data[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_flash_controller_tb/axi_flash_inst/next_flash_read_data" type="array">
+         <obj_property name="ElementShortName">next_flash_read_data[31:0]</obj_property>
+         <obj_property name="ObjectShortName">next_flash_read_data[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_flash_controller_tb/axi_flash_inst/flash_tristate" type="logic">
+         <obj_property name="ElementShortName">flash_tristate</obj_property>
+         <obj_property name="ObjectShortName">flash_tristate</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_flash_controller_tb/axi_flash_inst/flash_dq_o" type="array">
+         <obj_property name="ElementShortName">flash_dq_o[3:0]</obj_property>
+         <obj_property name="ObjectShortName">flash_dq_o[3:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_flash_controller_tb/axi_flash_inst/next_flash_dq_o" type="array">
+         <obj_property name="ElementShortName">next_flash_dq_o[3:0]</obj_property>
+         <obj_property name="ObjectShortName">next_flash_dq_o[3:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_flash_controller_tb/axi_flash_inst/flash_dq_i" type="array">
+         <obj_property name="ElementShortName">flash_dq_i[3:0]</obj_property>
+         <obj_property name="ObjectShortName">flash_dq_i[3:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_flash_controller_tb/axi_flash_inst/axi_state" type="array">
+         <obj_property name="ElementShortName">axi_state[1:0]</obj_property>
+         <obj_property name="ObjectShortName">axi_state[1:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_flash_controller_tb/axi_flash_inst/next_axi_state" type="array">
+         <obj_property name="ElementShortName">next_axi_state[1:0]</obj_property>
+         <obj_property name="ObjectShortName">next_axi_state[1:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_flash_controller_tb/axi_flash_inst/next_flash_read_addr" type="array">
+         <obj_property name="ElementShortName">next_flash_read_addr[31:0]</obj_property>
+         <obj_property name="ObjectShortName">next_flash_read_addr[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_flash_controller_tb/axi_flash_inst/read_id" type="array">
+         <obj_property name="ElementShortName">read_id[3:0]</obj_property>
+         <obj_property name="ObjectShortName">read_id[3:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_flash_controller_tb/axi_flash_inst/next_read_id" type="array">
+         <obj_property name="ElementShortName">next_read_id[3:0]</obj_property>
+         <obj_property name="ObjectShortName">next_read_id[3:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_flash_controller_tb/axi_flash_inst/rvalid" type="logic">
+         <obj_property name="ElementShortName">rvalid</obj_property>
+         <obj_property name="ObjectShortName">rvalid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_flash_controller_tb/axi_flash_inst/next_rvalid" type="logic">
+         <obj_property name="ElementShortName">next_rvalid</obj_property>
+         <obj_property name="ObjectShortName">next_rvalid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_flash_controller_tb/axi_flash_inst/QIO_READ_LAT_CYCLES" type="array">
+         <obj_property name="ElementShortName">QIO_READ_LAT_CYCLES[2:0]</obj_property>
+         <obj_property name="ObjectShortName">QIO_READ_LAT_CYCLES[2:0]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="/axi_flash_controller_tb/flash_model_inst/state" type="array">
+      <obj_property name="ElementShortName">state[2:0]</obj_property>
+      <obj_property name="ObjectShortName">state[2:0]</obj_property>
+   </wvobject>
+</wave_config>

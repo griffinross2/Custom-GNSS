@@ -9,7 +9,7 @@
 import common_types_pkg::*;
 
 module ahb_uart_satellite #(
-    parameter BASE_ADDR = 32'h0002_0000
+    parameter BASE_ADDR = 32'h2002_0000
 )
 (
     input logic clk, nrst,

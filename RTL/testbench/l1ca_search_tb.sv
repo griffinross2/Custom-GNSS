@@ -9,7 +9,7 @@ module l1ca_search_tb;
     logic start;                        // Start acquisition
     sv_t sv;                            // SV number to search
     word_t acc_out;                     // Maximum correlation
-    logic [10:0] code_index;            // Chip index of maximum correlation
+    logic [11:0] code_index;            // Chip index of maximum correlation
     logic [4:0] dop_index;              // Doppler index of maximum correlation
     logic busy;
 

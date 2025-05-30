@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="axi_interconnect_tb_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="axi_interconnect_tb" />
+            <top_module name="common_types_pkg" />
+            <top_module name="glbl" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0.000 ns"></ZoomStartTime>
+      <ZoomEndTime time="668.001 ns"></ZoomEndTime>
+      <Cursor1Time time="123.090 ns"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="191"></NameColumnWidth>
+      <ValueColumnWidth column_width="172"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="22" />
+   <wvobject fp_name="/axi_interconnect_tb/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/axi_interconnect_tb/nrst" type="logic">
+      <obj_property name="ElementShortName">nrst</obj_property>
+      <obj_property name="ObjectShortName">nrst</obj_property>
+   </wvobject>
+   <wvobject fp_name="/axi_interconnect_tb/axi_inst/sram_state" type="other">
+      <obj_property name="ElementShortName">sram_state</obj_property>
+      <obj_property name="ObjectShortName">sram_state</obj_property>
+   </wvobject>
+   <wvobject fp_name="/axi_interconnect_tb/axi_inst/next_sram_state" type="other">
+      <obj_property name="ElementShortName">next_sram_state</obj_property>
+      <obj_property name="ObjectShortName">next_sram_state</obj_property>
+   </wvobject>
+   <wvobject fp_name="/axi_interconnect_tb/axi_inst/sram_controller" type="array">
+      <obj_property name="ElementShortName">sram_controller[1:0]</obj_property>
+      <obj_property name="ObjectShortName">sram_controller[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/axi_interconnect_tb/axi_inst/next_sram_controller" type="array">
+      <obj_property name="ElementShortName">next_sram_controller[1:0]</obj_property>
+      <obj_property name="ObjectShortName">next_sram_controller[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/axi_interconnect_tb/axi_inst/flash_state" type="other">
+      <obj_property name="ElementShortName">flash_state</obj_property>
+      <obj_property name="ObjectShortName">flash_state</obj_property>
+   </wvobject>
+   <wvobject fp_name="/axi_interconnect_tb/axi_inst/next_flash_state" type="other">
+      <obj_property name="ElementShortName">next_flash_state</obj_property>
+      <obj_property name="ObjectShortName">next_flash_state</obj_property>
+   </wvobject>
+   <wvobject fp_name="/axi_interconnect_tb/axi_inst/flash_controller" type="array">
+      <obj_property name="ElementShortName">flash_controller[1:0]</obj_property>
+      <obj_property name="ObjectShortName">flash_controller[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/axi_interconnect_tb/axi_inst/next_flash_controller" type="array">
+      <obj_property name="ElementShortName">next_flash_controller[1:0]</obj_property>
+      <obj_property name="ObjectShortName">next_flash_controller[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/axi_interconnect_tb/axi_inst/dram_state" type="other">
+      <obj_property name="ElementShortName">dram_state</obj_property>
+      <obj_property name="ObjectShortName">dram_state</obj_property>
+   </wvobject>
+   <wvobject fp_name="/axi_interconnect_tb/axi_inst/next_dram_state" type="other">
+      <obj_property name="ElementShortName">next_dram_state</obj_property>
+      <obj_property name="ObjectShortName">next_dram_state</obj_property>
+   </wvobject>
+   <wvobject fp_name="/axi_interconnect_tb/axi_inst/dram_controller" type="array">
+      <obj_property name="ElementShortName">dram_controller[1:0]</obj_property>
+      <obj_property name="ObjectShortName">dram_controller[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/axi_interconnect_tb/axi_inst/next_dram_controller" type="array">
+      <obj_property name="ElementShortName">next_dram_controller[1:0]</obj_property>
+      <obj_property name="ObjectShortName">next_dram_controller[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/axi_interconnect_tb/axi_inst/ahb_state" type="other">
+      <obj_property name="ElementShortName">ahb_state</obj_property>
+      <obj_property name="ObjectShortName">ahb_state</obj_property>
+   </wvobject>
+   <wvobject fp_name="/axi_interconnect_tb/axi_inst/next_ahb_state" type="other">
+      <obj_property name="ElementShortName">next_ahb_state</obj_property>
+      <obj_property name="ObjectShortName">next_ahb_state</obj_property>
+   </wvobject>
+   <wvobject fp_name="/axi_interconnect_tb/axi_inst/ahb_controller" type="array">
+      <obj_property name="ElementShortName">ahb_controller[1:0]</obj_property>
+      <obj_property name="ObjectShortName">ahb_controller[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/axi_interconnect_tb/axi_inst/next_ahb_controller" type="array">
+      <obj_property name="ElementShortName">next_ahb_controller[1:0]</obj_property>
+      <obj_property name="ObjectShortName">next_ahb_controller[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="group33" type="group">
+      <obj_property name="label">Flash Controller</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <wvobject fp_name="/axi_interconnect_tb/flash_inst/flash_cs" type="logic">
+         <obj_property name="ElementShortName">flash_cs</obj_property>
+         <obj_property name="ObjectShortName">flash_cs</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_interconnect_tb/flash_inst/flash_dq" type="array">
+         <obj_property name="ElementShortName">flash_dq[3:0]</obj_property>
+         <obj_property name="ObjectShortName">flash_dq[3:0]</obj_property>
+         <obj_property name="isExpanded"></obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_interconnect_tb/flash_inst/state" type="array">
+         <obj_property name="ElementShortName">state[2:0]</obj_property>
+         <obj_property name="ObjectShortName">state[2:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_interconnect_tb/flash_inst/cycle_counter" type="array">
+         <obj_property name="ElementShortName">cycle_counter[2:0]</obj_property>
+         <obj_property name="ObjectShortName">cycle_counter[2:0]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group28" type="group">
+      <obj_property name="label">ICache AMIF</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <wvobject fp_name="/axi_interconnect_tb/amif_icache/read" type="logic">
+         <obj_property name="ElementShortName">read</obj_property>
+         <obj_property name="ObjectShortName">read</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_interconnect_tb/amif_icache/write" type="array">
+         <obj_property name="ElementShortName">write[1:0]</obj_property>
+         <obj_property name="ObjectShortName">write[1:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_interconnect_tb/amif_icache/addr" type="array">
+         <obj_property name="ElementShortName">addr[31:0]</obj_property>
+         <obj_property name="ObjectShortName">addr[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_interconnect_tb/amif_icache/store" type="array">
+         <obj_property name="ElementShortName">store[31:0]</obj_property>
+         <obj_property name="ObjectShortName">store[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_interconnect_tb/amif_icache/done" type="logic">
+         <obj_property name="ElementShortName">done</obj_property>
+         <obj_property name="ObjectShortName">done</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_interconnect_tb/amif_icache/ready" type="logic">
+         <obj_property name="ElementShortName">ready</obj_property>
+         <obj_property name="ObjectShortName">ready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_interconnect_tb/amif_icache/load" type="array">
+         <obj_property name="ElementShortName">load[31:0]</obj_property>
+         <obj_property name="ObjectShortName">load[31:0]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group41" type="group">
+      <obj_property name="label">DCache AMIF</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <wvobject fp_name="/axi_interconnect_tb/amif_dcache/read" type="logic">
+         <obj_property name="ElementShortName">read</obj_property>
+         <obj_property name="ObjectShortName">read</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_interconnect_tb/amif_dcache/write" type="array">
+         <obj_property name="ElementShortName">write[1:0]</obj_property>
+         <obj_property name="ObjectShortName">write[1:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_interconnect_tb/amif_dcache/addr" type="array">
+         <obj_property name="ElementShortName">addr[31:0]</obj_property>
+         <obj_property name="ObjectShortName">addr[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_interconnect_tb/amif_dcache/store" type="array">
+         <obj_property name="ElementShortName">store[31:0]</obj_property>
+         <obj_property name="ObjectShortName">store[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_interconnect_tb/amif_dcache/done" type="logic">
+         <obj_property name="ElementShortName">done</obj_property>
+         <obj_property name="ObjectShortName">done</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_interconnect_tb/amif_dcache/ready" type="logic">
+         <obj_property name="ElementShortName">ready</obj_property>
+         <obj_property name="ObjectShortName">ready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_interconnect_tb/amif_dcache/load" type="array">
+         <obj_property name="ElementShortName">load[31:0]</obj_property>
+         <obj_property name="ObjectShortName">load[31:0]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group49" type="group">
+      <obj_property name="label">DMA AMIF</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <wvobject fp_name="/axi_interconnect_tb/amif_dma/read" type="logic">
+         <obj_property name="ElementShortName">read</obj_property>
+         <obj_property name="ObjectShortName">read</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_interconnect_tb/amif_dma/write" type="array">
+         <obj_property name="ElementShortName">write[1:0]</obj_property>
+         <obj_property name="ObjectShortName">write[1:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_interconnect_tb/amif_dma/addr" type="array">
+         <obj_property name="ElementShortName">addr[31:0]</obj_property>
+         <obj_property name="ObjectShortName">addr[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_interconnect_tb/amif_dma/store" type="array">
+         <obj_property name="ElementShortName">store[31:0]</obj_property>
+         <obj_property name="ObjectShortName">store[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_interconnect_tb/amif_dma/done" type="logic">
+         <obj_property name="ElementShortName">done</obj_property>
+         <obj_property name="ObjectShortName">done</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_interconnect_tb/amif_dma/ready" type="logic">
+         <obj_property name="ElementShortName">ready</obj_property>
+         <obj_property name="ObjectShortName">ready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_interconnect_tb/amif_dma/load" type="array">
+         <obj_property name="ElementShortName">load[31:0]</obj_property>
+         <obj_property name="ObjectShortName">load[31:0]</obj_property>
+      </wvobject>
+   </wvobject>
+</wave_config>

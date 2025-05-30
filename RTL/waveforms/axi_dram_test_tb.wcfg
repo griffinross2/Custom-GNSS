@@ -1,0 +1,460 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="axi_dram_test_tb_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="axi_dram_test_tb" />
+            <top_module name="common_types_pkg" />
+            <top_module name="glbl" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="144.413203667 us"></ZoomStartTime>
+      <ZoomEndTime time="1,472.413203668 us"></ZoomEndTime>
+      <Cursor1Time time="365.746537000 us"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="191"></NameColumnWidth>
+      <ValueColumnWidth column_width="176"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="47" />
+   <wvobject fp_name="/axi_dram_test_tb/sys_clk_i" type="logic">
+      <obj_property name="ElementShortName">sys_clk_i</obj_property>
+      <obj_property name="ObjectShortName">sys_clk_i</obj_property>
+   </wvobject>
+   <wvobject fp_name="/axi_dram_test_tb/ck_rst" type="logic">
+      <obj_property name="ElementShortName">ck_rst</obj_property>
+      <obj_property name="ObjectShortName">ck_rst</obj_property>
+   </wvobject>
+   <wvobject fp_name="/axi_dram_test_tb/ddr3_dq" type="array">
+      <obj_property name="ElementShortName">ddr3_dq[15:0]</obj_property>
+      <obj_property name="ObjectShortName">ddr3_dq[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/axi_dram_test_tb/ddr3_dm" type="array">
+      <obj_property name="ElementShortName">ddr3_dm[1:0]</obj_property>
+      <obj_property name="ObjectShortName">ddr3_dm[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/axi_dram_test_tb/ddr3_dqs_p" type="array">
+      <obj_property name="ElementShortName">ddr3_dqs_p[1:0]</obj_property>
+      <obj_property name="ObjectShortName">ddr3_dqs_p[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/axi_dram_test_tb/ddr3_dqs_n" type="array">
+      <obj_property name="ElementShortName">ddr3_dqs_n[1:0]</obj_property>
+      <obj_property name="ObjectShortName">ddr3_dqs_n[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/axi_dram_test_tb/ddr3_addr" type="array">
+      <obj_property name="ElementShortName">ddr3_addr[13:0]</obj_property>
+      <obj_property name="ObjectShortName">ddr3_addr[13:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/axi_dram_test_tb/ddr3_ba" type="array">
+      <obj_property name="ElementShortName">ddr3_ba[2:0]</obj_property>
+      <obj_property name="ObjectShortName">ddr3_ba[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/axi_dram_test_tb/ddr3_ck_p" type="array">
+      <obj_property name="ElementShortName">ddr3_ck_p[0:0]</obj_property>
+      <obj_property name="ObjectShortName">ddr3_ck_p[0:0]</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="/axi_dram_test_tb/ddr3_ck_n" type="array">
+      <obj_property name="ElementShortName">ddr3_ck_n[0:0]</obj_property>
+      <obj_property name="ObjectShortName">ddr3_ck_n[0:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/axi_dram_test_tb/ddr3_ras_n" type="logic">
+      <obj_property name="ElementShortName">ddr3_ras_n</obj_property>
+      <obj_property name="ObjectShortName">ddr3_ras_n</obj_property>
+   </wvobject>
+   <wvobject fp_name="/axi_dram_test_tb/ddr3_cas_n" type="logic">
+      <obj_property name="ElementShortName">ddr3_cas_n</obj_property>
+      <obj_property name="ObjectShortName">ddr3_cas_n</obj_property>
+   </wvobject>
+   <wvobject fp_name="/axi_dram_test_tb/ddr3_we_n" type="logic">
+      <obj_property name="ElementShortName">ddr3_we_n</obj_property>
+      <obj_property name="ObjectShortName">ddr3_we_n</obj_property>
+   </wvobject>
+   <wvobject fp_name="/axi_dram_test_tb/ddr3_reset_n" type="logic">
+      <obj_property name="ElementShortName">ddr3_reset_n</obj_property>
+      <obj_property name="ObjectShortName">ddr3_reset_n</obj_property>
+   </wvobject>
+   <wvobject fp_name="/axi_dram_test_tb/ddr3_cke" type="array">
+      <obj_property name="ElementShortName">ddr3_cke[0:0]</obj_property>
+      <obj_property name="ObjectShortName">ddr3_cke[0:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/axi_dram_test_tb/ddr3_odt" type="array">
+      <obj_property name="ElementShortName">ddr3_odt[0:0]</obj_property>
+      <obj_property name="ObjectShortName">ddr3_odt[0:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/axi_dram_test_tb/ddr3_cs_n" type="array">
+      <obj_property name="ElementShortName">ddr3_cs_n[0:0]</obj_property>
+      <obj_property name="ObjectShortName">ddr3_cs_n[0:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/axi_dram_test_tb/UART_TXD" type="logic">
+      <obj_property name="ElementShortName">UART_TXD</obj_property>
+      <obj_property name="ObjectShortName">UART_TXD</obj_property>
+   </wvobject>
+   <wvobject fp_name="/axi_dram_test_tb/LED" type="array">
+      <obj_property name="ElementShortName">LED[0:3]</obj_property>
+      <obj_property name="ObjectShortName">LED[0:3]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/axi_dram_test_tb/led0_r" type="logic">
+      <obj_property name="ElementShortName">led0_r</obj_property>
+      <obj_property name="ObjectShortName">led0_r</obj_property>
+   </wvobject>
+   <wvobject fp_name="/axi_dram_test_tb/led0_g" type="logic">
+      <obj_property name="ElementShortName">led0_g</obj_property>
+      <obj_property name="ObjectShortName">led0_g</obj_property>
+   </wvobject>
+   <wvobject fp_name="/axi_dram_test_tb/ui_clk" type="logic">
+      <obj_property name="ElementShortName">ui_clk</obj_property>
+      <obj_property name="ObjectShortName">ui_clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/axi_dram_test_tb/ui_clk_sync_rst" type="logic">
+      <obj_property name="ElementShortName">ui_clk_sync_rst</obj_property>
+      <obj_property name="ObjectShortName">ui_clk_sync_rst</obj_property>
+   </wvobject>
+   <wvobject fp_name="/axi_dram_test_tb/ui_ref_clk" type="logic">
+      <obj_property name="ElementShortName">ui_ref_clk</obj_property>
+      <obj_property name="ObjectShortName">ui_ref_clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/axi_dram_test_tb/mmcm_locked" type="logic">
+      <obj_property name="ElementShortName">mmcm_locked</obj_property>
+      <obj_property name="ObjectShortName">mmcm_locked</obj_property>
+   </wvobject>
+   <wvobject fp_name="/axi_dram_test_tb/aresetn" type="logic">
+      <obj_property name="ElementShortName">aresetn</obj_property>
+      <obj_property name="ObjectShortName">aresetn</obj_property>
+   </wvobject>
+   <wvobject fp_name="/axi_dram_test_tb/app_sr_req" type="logic">
+      <obj_property name="ElementShortName">app_sr_req</obj_property>
+      <obj_property name="ObjectShortName">app_sr_req</obj_property>
+   </wvobject>
+   <wvobject fp_name="/axi_dram_test_tb/app_ref_req" type="logic">
+      <obj_property name="ElementShortName">app_ref_req</obj_property>
+      <obj_property name="ObjectShortName">app_ref_req</obj_property>
+   </wvobject>
+   <wvobject fp_name="/axi_dram_test_tb/app_zq_req" type="logic">
+      <obj_property name="ElementShortName">app_zq_req</obj_property>
+      <obj_property name="ObjectShortName">app_zq_req</obj_property>
+   </wvobject>
+   <wvobject fp_name="/axi_dram_test_tb/app_sr_active" type="logic">
+      <obj_property name="ElementShortName">app_sr_active</obj_property>
+      <obj_property name="ObjectShortName">app_sr_active</obj_property>
+   </wvobject>
+   <wvobject fp_name="/axi_dram_test_tb/app_ref_ack" type="logic">
+      <obj_property name="ElementShortName">app_ref_ack</obj_property>
+      <obj_property name="ObjectShortName">app_ref_ack</obj_property>
+   </wvobject>
+   <wvobject fp_name="/axi_dram_test_tb/app_zq_ack" type="logic">
+      <obj_property name="ElementShortName">app_zq_ack</obj_property>
+      <obj_property name="ObjectShortName">app_zq_ack</obj_property>
+   </wvobject>
+   <wvobject fp_name="/axi_dram_test_tb/init_calib_complete" type="logic">
+      <obj_property name="ElementShortName">init_calib_complete</obj_property>
+      <obj_property name="ObjectShortName">init_calib_complete</obj_property>
+   </wvobject>
+   <wvobject fp_name="/axi_dram_test_tb/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/axi_dram_test_tb/nrst" type="logic">
+      <obj_property name="ElementShortName">nrst</obj_property>
+      <obj_property name="ObjectShortName">nrst</obj_property>
+   </wvobject>
+   <wvobject fp_name="/axi_dram_test_tb/uart_done" type="logic">
+      <obj_property name="ElementShortName">uart_done</obj_property>
+      <obj_property name="ObjectShortName">uart_done</obj_property>
+   </wvobject>
+   <wvobject fp_name="/axi_dram_test_tb/state" type="array">
+      <obj_property name="ElementShortName">state[2:0]</obj_property>
+      <obj_property name="ObjectShortName">state[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/axi_dram_test_tb/next_state" type="array">
+      <obj_property name="ElementShortName">next_state[2:0]</obj_property>
+      <obj_property name="ObjectShortName">next_state[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/axi_dram_test_tb/led0_b" type="logic">
+      <obj_property name="ElementShortName">led0_b</obj_property>
+      <obj_property name="ObjectShortName">led0_b</obj_property>
+   </wvobject>
+   <wvobject fp_name="/axi_dram_test_tb/BIT_PERIOD" type="array">
+      <obj_property name="ElementShortName">BIT_PERIOD[31:0]</obj_property>
+      <obj_property name="ObjectShortName">BIT_PERIOD[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/axi_dram_test_tb/u_mig_7series_0/u_mig_7series_0_mig/u_ddr3_infrastructure/pll_clk3" type="logic">
+      <obj_property name="ElementShortName">pll_clk3</obj_property>
+      <obj_property name="ObjectShortName">pll_clk3</obj_property>
+   </wvobject>
+   <wvobject fp_name="/axi_dram_test_tb/u_mig_7series_0/ui_addn_clk_0" type="logic">
+      <obj_property name="ElementShortName">ui_addn_clk_0</obj_property>
+      <obj_property name="ObjectShortName">ui_addn_clk_0</obj_property>
+   </wvobject>
+   <wvobject fp_name="/axi_dram_test_tb/u_mig_7series_0/u_mig_7series_0_mig/u_ddr3_infrastructure/mmcm_clkout0" type="logic">
+      <obj_property name="ElementShortName">mmcm_clkout0</obj_property>
+      <obj_property name="ObjectShortName">mmcm_clkout0</obj_property>
+   </wvobject>
+   <wvobject fp_name="/axi_dram_test_tb/u_mig_7series_0/u_mig_7series_0_mig/u_ddr3_infrastructure/mmcm_ps_clk_bufg_in" type="logic">
+      <obj_property name="ElementShortName">mmcm_ps_clk_bufg_in</obj_property>
+      <obj_property name="ObjectShortName">mmcm_ps_clk_bufg_in</obj_property>
+   </wvobject>
+   <wvobject fp_name="group60" type="group">
+      <obj_property name="label">AXI</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <wvobject fp_name="/axi_dram_test_tb/axi_inst/state" type="array">
+         <obj_property name="ElementShortName">state[2:0]</obj_property>
+         <obj_property name="ObjectShortName">state[2:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_dram_test_tb/axi_inst/read_counter" type="array">
+         <obj_property name="ElementShortName">read_counter[7:0]</obj_property>
+         <obj_property name="ObjectShortName">read_counter[7:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_dram_test_tb/abif_controller/awid" type="array">
+         <obj_property name="ElementShortName">awid[3:0]</obj_property>
+         <obj_property name="ObjectShortName">awid[3:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_dram_test_tb/abif_controller/awaddr" type="array">
+         <obj_property name="ElementShortName">awaddr[31:0]</obj_property>
+         <obj_property name="ObjectShortName">awaddr[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_dram_test_tb/abif_controller/awlen" type="array">
+         <obj_property name="ElementShortName">awlen[7:0]</obj_property>
+         <obj_property name="ObjectShortName">awlen[7:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_dram_test_tb/abif_controller/awsize" type="array">
+         <obj_property name="ElementShortName">awsize[2:0]</obj_property>
+         <obj_property name="ObjectShortName">awsize[2:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_dram_test_tb/abif_controller/awburst" type="array">
+         <obj_property name="ElementShortName">awburst[1:0]</obj_property>
+         <obj_property name="ObjectShortName">awburst[1:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_dram_test_tb/abif_controller/awlock" type="logic">
+         <obj_property name="ElementShortName">awlock</obj_property>
+         <obj_property name="ObjectShortName">awlock</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_dram_test_tb/abif_controller/awcache" type="array">
+         <obj_property name="ElementShortName">awcache[3:0]</obj_property>
+         <obj_property name="ObjectShortName">awcache[3:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_dram_test_tb/abif_controller/awprot" type="array">
+         <obj_property name="ElementShortName">awprot[2:0]</obj_property>
+         <obj_property name="ObjectShortName">awprot[2:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_dram_test_tb/abif_controller/awqos" type="array">
+         <obj_property name="ElementShortName">awqos[3:0]</obj_property>
+         <obj_property name="ObjectShortName">awqos[3:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_dram_test_tb/abif_controller/awvalid" type="logic">
+         <obj_property name="ElementShortName">awvalid</obj_property>
+         <obj_property name="ObjectShortName">awvalid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_dram_test_tb/abif_controller/awready" type="logic">
+         <obj_property name="ElementShortName">awready</obj_property>
+         <obj_property name="ObjectShortName">awready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_dram_test_tb/abif_controller/wdata" type="array">
+         <obj_property name="ElementShortName">wdata[31:0]</obj_property>
+         <obj_property name="ObjectShortName">wdata[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_dram_test_tb/abif_controller/wstrb" type="array">
+         <obj_property name="ElementShortName">wstrb[3:0]</obj_property>
+         <obj_property name="ObjectShortName">wstrb[3:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_dram_test_tb/abif_controller/wlast" type="logic">
+         <obj_property name="ElementShortName">wlast</obj_property>
+         <obj_property name="ObjectShortName">wlast</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_dram_test_tb/abif_controller/wvalid" type="logic">
+         <obj_property name="ElementShortName">wvalid</obj_property>
+         <obj_property name="ObjectShortName">wvalid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_dram_test_tb/abif_controller/wready" type="logic">
+         <obj_property name="ElementShortName">wready</obj_property>
+         <obj_property name="ObjectShortName">wready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_dram_test_tb/abif_controller/bid" type="array">
+         <obj_property name="ElementShortName">bid[3:0]</obj_property>
+         <obj_property name="ObjectShortName">bid[3:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_dram_test_tb/abif_controller/bresp" type="array">
+         <obj_property name="ElementShortName">bresp[1:0]</obj_property>
+         <obj_property name="ObjectShortName">bresp[1:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_dram_test_tb/abif_controller/bvalid" type="logic">
+         <obj_property name="ElementShortName">bvalid</obj_property>
+         <obj_property name="ObjectShortName">bvalid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_dram_test_tb/abif_controller/bready" type="logic">
+         <obj_property name="ElementShortName">bready</obj_property>
+         <obj_property name="ObjectShortName">bready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_dram_test_tb/abif_controller/arid" type="array">
+         <obj_property name="ElementShortName">arid[3:0]</obj_property>
+         <obj_property name="ObjectShortName">arid[3:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_dram_test_tb/abif_controller/araddr" type="array">
+         <obj_property name="ElementShortName">araddr[31:0]</obj_property>
+         <obj_property name="ObjectShortName">araddr[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_dram_test_tb/abif_controller/arlen" type="array">
+         <obj_property name="ElementShortName">arlen[7:0]</obj_property>
+         <obj_property name="ObjectShortName">arlen[7:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_dram_test_tb/abif_controller/arsize" type="array">
+         <obj_property name="ElementShortName">arsize[2:0]</obj_property>
+         <obj_property name="ObjectShortName">arsize[2:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_dram_test_tb/abif_controller/arburst" type="array">
+         <obj_property name="ElementShortName">arburst[1:0]</obj_property>
+         <obj_property name="ObjectShortName">arburst[1:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_dram_test_tb/abif_controller/arlock" type="logic">
+         <obj_property name="ElementShortName">arlock</obj_property>
+         <obj_property name="ObjectShortName">arlock</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_dram_test_tb/abif_controller/arcache" type="array">
+         <obj_property name="ElementShortName">arcache[3:0]</obj_property>
+         <obj_property name="ObjectShortName">arcache[3:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_dram_test_tb/abif_controller/arprot" type="array">
+         <obj_property name="ElementShortName">arprot[2:0]</obj_property>
+         <obj_property name="ObjectShortName">arprot[2:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_dram_test_tb/abif_controller/arqos" type="array">
+         <obj_property name="ElementShortName">arqos[3:0]</obj_property>
+         <obj_property name="ObjectShortName">arqos[3:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_dram_test_tb/abif_controller/arvalid" type="logic">
+         <obj_property name="ElementShortName">arvalid</obj_property>
+         <obj_property name="ObjectShortName">arvalid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_dram_test_tb/abif_controller/arready" type="logic">
+         <obj_property name="ElementShortName">arready</obj_property>
+         <obj_property name="ObjectShortName">arready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_dram_test_tb/abif_controller/rid" type="array">
+         <obj_property name="ElementShortName">rid[3:0]</obj_property>
+         <obj_property name="ObjectShortName">rid[3:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_dram_test_tb/abif_controller/rdata" type="array">
+         <obj_property name="ElementShortName">rdata[31:0]</obj_property>
+         <obj_property name="ObjectShortName">rdata[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_dram_test_tb/abif_controller/rresp" type="array">
+         <obj_property name="ElementShortName">rresp[1:0]</obj_property>
+         <obj_property name="ObjectShortName">rresp[1:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_dram_test_tb/abif_controller/rlast" type="logic">
+         <obj_property name="ElementShortName">rlast</obj_property>
+         <obj_property name="ObjectShortName">rlast</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_dram_test_tb/abif_controller/rvalid" type="logic">
+         <obj_property name="ElementShortName">rvalid</obj_property>
+         <obj_property name="ObjectShortName">rvalid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_dram_test_tb/abif_controller/rready" type="logic">
+         <obj_property name="ElementShortName">rready</obj_property>
+         <obj_property name="ObjectShortName">rready</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group68" type="group">
+      <obj_property name="label">Controller iface</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <wvobject fp_name="/axi_dram_test_tb/amif/read" type="logic">
+         <obj_property name="ElementShortName">read</obj_property>
+         <obj_property name="ObjectShortName">read</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_dram_test_tb/amif/write" type="array">
+         <obj_property name="ElementShortName">write[1:0]</obj_property>
+         <obj_property name="ObjectShortName">write[1:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_dram_test_tb/amif/addr" type="array">
+         <obj_property name="ElementShortName">addr[31:0]</obj_property>
+         <obj_property name="ObjectShortName">addr[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_dram_test_tb/amif/store" type="array">
+         <obj_property name="ElementShortName">store[31:0]</obj_property>
+         <obj_property name="ObjectShortName">store[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_dram_test_tb/amif/done" type="logic">
+         <obj_property name="ElementShortName">done</obj_property>
+         <obj_property name="ObjectShortName">done</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_dram_test_tb/amif/ready" type="logic">
+         <obj_property name="ElementShortName">ready</obj_property>
+         <obj_property name="ObjectShortName">ready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_dram_test_tb/amif/load" type="array">
+         <obj_property name="ElementShortName">load[31:0]</obj_property>
+         <obj_property name="ObjectShortName">load[31:0]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group125" type="group">
+      <obj_property name="label">UART</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <wvobject fp_name="/axi_dram_test_tb/uart_inst/clk" type="logic">
+         <obj_property name="ElementShortName">clk</obj_property>
+         <obj_property name="ObjectShortName">clk</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_dram_test_tb/uart_inst/nrst" type="logic">
+         <obj_property name="ElementShortName">nrst</obj_property>
+         <obj_property name="ObjectShortName">nrst</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_dram_test_tb/uart_inst/bit_period" type="array">
+         <obj_property name="ElementShortName">bit_period[15:0]</obj_property>
+         <obj_property name="ObjectShortName">bit_period[15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_dram_test_tb/uart_inst/data" type="array">
+         <obj_property name="ElementShortName">data[7:0]</obj_property>
+         <obj_property name="ObjectShortName">data[7:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_dram_test_tb/uart_inst/start" type="logic">
+         <obj_property name="ElementShortName">start</obj_property>
+         <obj_property name="ObjectShortName">start</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_dram_test_tb/uart_inst/serial_out" type="logic">
+         <obj_property name="ElementShortName">serial_out</obj_property>
+         <obj_property name="ObjectShortName">serial_out</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_dram_test_tb/uart_inst/tx_busy" type="logic">
+         <obj_property name="ElementShortName">tx_busy</obj_property>
+         <obj_property name="ObjectShortName">tx_busy</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_dram_test_tb/uart_inst/tx_done" type="logic">
+         <obj_property name="ElementShortName">tx_done</obj_property>
+         <obj_property name="ObjectShortName">tx_done</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_dram_test_tb/uart_inst/state" type="array">
+         <obj_property name="ElementShortName">state[1:0]</obj_property>
+         <obj_property name="ObjectShortName">state[1:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_dram_test_tb/uart_inst/state_n" type="array">
+         <obj_property name="ElementShortName">state_n[1:0]</obj_property>
+         <obj_property name="ObjectShortName">state_n[1:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_dram_test_tb/uart_inst/bit_count" type="array">
+         <obj_property name="ElementShortName">bit_count[2:0]</obj_property>
+         <obj_property name="ObjectShortName">bit_count[2:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_dram_test_tb/uart_inst/bit_count_n" type="array">
+         <obj_property name="ElementShortName">bit_count_n[2:0]</obj_property>
+         <obj_property name="ObjectShortName">bit_count_n[2:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_dram_test_tb/uart_inst/serial_out_n" type="logic">
+         <obj_property name="ElementShortName">serial_out_n</obj_property>
+         <obj_property name="ObjectShortName">serial_out_n</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_dram_test_tb/uart_inst/bit_strobe" type="logic">
+         <obj_property name="ElementShortName">bit_strobe</obj_property>
+         <obj_property name="ObjectShortName">bit_strobe</obj_property>
+      </wvobject>
+      <wvobject fp_name="/axi_dram_test_tb/uart_inst/bit_strobe_count" type="array">
+         <obj_property name="ElementShortName">bit_strobe_count[15:0]</obj_property>
+         <obj_property name="ObjectShortName">bit_strobe_count[15:0]</obj_property>
+      </wvobject>
+   </wvobject>
+</wave_config>

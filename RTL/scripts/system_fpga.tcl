@@ -32,28 +32,52 @@
     add_files -fileset sources_1 [ glob ./source/*.sv ]
     add_files -fileset sources_1 [ glob ./testbench/system_fpga.sv ]
 
-    add_files -fileset sources_1 -norecurse ./raminit.mem
-    # set_property file_type "Memory Initialization Files" [get_files ./raminit.mem]
+    add_files -fileset sources_1 -norecurse ./bootloader.mem
 
     set_property include_dirs ./include [current_fileset]
 
     check_syntax -fileset sources_1
 
-    update_compile_order -fileset sources_1
-    
     set_property top system_fpga [get_fileset sources_1]
+    update_compile_order -fileset sources_1
 
-    synth_design -top system_fpga -part $part
+    # synth_design
 
-    opt_design
-    place_design
-    route_design
+    # opt_design
+    # place_design
+    # route_design
 
-    write_bitstream -force -file system_fpga.bit
-    write_cfgmem -format mcs -size 16 -interface SPIx4 -loadbit "up 0x0 system_fpga.bit" -file system_fpga.mcs
+    # write_bitstream -force -file system_fpga.bit
+    # write_cfgmem -force -format mcs -size 16 -interface SPIx4 -loadbit "up 0x0 system_fpga.bit" -loaddata "up 0x00800000 program.bin" -file system_fpga.mcs
 
-    open_hw_manager
-    connect_hw_server -url localhost:3121
-    open_hw_target
-    set_property PROGRAM.FILE {system_fpga.bit} [current_hw_device]
-    program_hw_devices
+    # # Open Device
+    # open_hw_manager
+    # connect_hw_server -url localhost:3121
+    # open_hw_target
+
+    # # Create Configuration Memory Device
+    # create_hw_cfgmem -hw_device [lindex [get_hw_devices xc7s50_0] 0] [lindex [get_cfgmem_parts {s25fl128sxxxxxx0-spi-x1_x2_x4}] 0]
+    # set_property PROGRAM.BLANK_CHECK  0 [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7s50_0] 0]]
+    # set_property PROGRAM.ERASE  1 [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7s50_0] 0]]
+    # set_property PROGRAM.CFG_PROGRAM  1 [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7s50_0] 0]]
+    # set_property PROGRAM.VERIFY  1 [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7s50_0] 0]]
+    # set_property PROGRAM.CHECKSUM  0 [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7s50_0] 0]]
+    # refresh_hw_device [lindex [get_hw_devices xc7s50_0] 0]
+
+    # # Program the configuration memory device
+    # set_property PROGRAM.ADDRESS_RANGE  {use_file} [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7s50_0] 0]]
+    # set_property PROGRAM.FILES [list "D:/github_repos/RISC-V-Core/RTL/system_fpga.mcs" ] [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7s50_0] 0]]
+    # set_property PROGRAM.PRM_FILE {} [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7s50_0] 0]]
+    # set_property PROGRAM.UNUSED_PIN_TERMINATION {pull-none} [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7s50_0] 0]]
+    # set_property PROGRAM.BLANK_CHECK  0 [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7s50_0] 0]]
+    # set_property PROGRAM.ERASE  1 [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7s50_0] 0]]
+    # set_property PROGRAM.CFG_PROGRAM  1 [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7s50_0] 0]]
+    # set_property PROGRAM.VERIFY  1 [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7s50_0] 0]]
+    # set_property PROGRAM.CHECKSUM  0 [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7s50_0] 0]]
+    # startgroup 
+    # create_hw_bitstream -hw_device [lindex [get_hw_devices xc7s50_0] 0] [get_property PROGRAM.HW_CFGMEM_BITFILE [ lindex [get_hw_devices xc7s50_0] 0]]; program_hw_devices [lindex [get_hw_devices xc7s50_0] 0]; refresh_hw_device [lindex [get_hw_devices xc7s50_0] 0];
+    # program_hw_cfgmem -hw_cfgmem [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7s50_0] 0]]
+    # endgroup
+
+    # set_property PROGRAM.FILE {system_fpga.bit} [current_hw_device]
+    # program_hw_devices
