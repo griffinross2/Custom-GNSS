@@ -5,22 +5,22 @@
    <db_ref_list>
       <db_ref path="system_tb_behav.wdb" id="1">
          <top_modules>
-            <top_module name="\$unit_ahb_controller_sv_467245099 " />
             <top_module name="common_gnss_types_pkg" />
             <top_module name="common_types_pkg" />
             <top_module name="glbl" />
             <top_module name="system_tb" />
+            <top_module name="vcomponents" />
          </top_modules>
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="0.000000000 ms"></ZoomStartTime>
-      <ZoomEndTime time="7.050000001 ms"></ZoomEndTime>
-      <Cursor1Time time="0.000000000 ms"></Cursor1Time>
+      <ZoomStartTime time="349.517505000 ms"></ZoomStartTime>
+      <ZoomEndTime time="572.417505001 ms"></ZoomEndTime>
+      <Cursor1Time time="436.717505000 ms"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="222"></NameColumnWidth>
-      <ValueColumnWidth column_width="104"></ValueColumnWidth>
+      <ValueColumnWidth column_width="100"></ValueColumnWidth>
    </column_width_setting>
    <WVObjectSize size="40" />
    <wvobject fp_name="/system_tb/clk" type="logic">
@@ -2440,56 +2440,24 @@
          <obj_property name="ObjectShortName">start</obj_property>
       </wvobject>
       <wvobject fp_name="/system_tb/system_inst/gnss_inst/l1ca_search_inst/sv" type="array">
-         <obj_property name="ElementShortName">sv[4:0]</obj_property>
-         <obj_property name="ObjectShortName">sv[4:0]</obj_property>
+         <obj_property name="ElementShortName">sv[5:0]</obj_property>
+         <obj_property name="ObjectShortName">sv[5:0]</obj_property>
       </wvobject>
       <wvobject fp_name="/system_tb/system_inst/gnss_inst/l1ca_search_inst/acc_out" type="array">
          <obj_property name="ElementShortName">acc_out[31:0]</obj_property>
          <obj_property name="ObjectShortName">acc_out[31:0]</obj_property>
       </wvobject>
       <wvobject fp_name="/system_tb/system_inst/gnss_inst/l1ca_search_inst/code_index" type="array">
-         <obj_property name="ElementShortName">code_index[10:0]</obj_property>
-         <obj_property name="ObjectShortName">code_index[10:0]</obj_property>
+         <obj_property name="ElementShortName">code_index[9:0]</obj_property>
+         <obj_property name="ObjectShortName">code_index[9:0]</obj_property>
       </wvobject>
       <wvobject fp_name="/system_tb/system_inst/gnss_inst/l1ca_search_inst/dop_index" type="array">
-         <obj_property name="ElementShortName">dop_index[4:0]</obj_property>
-         <obj_property name="ObjectShortName">dop_index[4:0]</obj_property>
+         <obj_property name="ElementShortName">dop_index[5:0]</obj_property>
+         <obj_property name="ObjectShortName">dop_index[5:0]</obj_property>
       </wvobject>
       <wvobject fp_name="/system_tb/system_inst/gnss_inst/l1ca_search_inst/busy" type="logic">
          <obj_property name="ElementShortName">busy</obj_property>
          <obj_property name="ObjectShortName">busy</obj_property>
-      </wvobject>
-      <wvobject fp_name="/system_tb/system_inst/gnss_inst/l1ca_search_inst/acc_i" type="array">
-         <obj_property name="ElementShortName">acc_i[0:20][15:0]</obj_property>
-         <obj_property name="ObjectShortName">acc_i[0:20][15:0]</obj_property>
-      </wvobject>
-      <wvobject fp_name="/system_tb/system_inst/gnss_inst/l1ca_search_inst/next_acc_i" type="array">
-         <obj_property name="ElementShortName">next_acc_i[0:20][15:0]</obj_property>
-         <obj_property name="ObjectShortName">next_acc_i[0:20][15:0]</obj_property>
-      </wvobject>
-      <wvobject fp_name="/system_tb/system_inst/gnss_inst/l1ca_search_inst/acc_q" type="array">
-         <obj_property name="ElementShortName">acc_q[0:20][15:0]</obj_property>
-         <obj_property name="ObjectShortName">acc_q[0:20][15:0]</obj_property>
-      </wvobject>
-      <wvobject fp_name="/system_tb/system_inst/gnss_inst/l1ca_search_inst/next_acc_q" type="array">
-         <obj_property name="ElementShortName">next_acc_q[0:20][15:0]</obj_property>
-         <obj_property name="ObjectShortName">next_acc_q[0:20][15:0]</obj_property>
-      </wvobject>
-      <wvobject fp_name="/system_tb/system_inst/gnss_inst/l1ca_search_inst/i_sqr" type="array">
-         <obj_property name="ElementShortName">i_sqr[31:0]</obj_property>
-         <obj_property name="ObjectShortName">i_sqr[31:0]</obj_property>
-      </wvobject>
-      <wvobject fp_name="/system_tb/system_inst/gnss_inst/l1ca_search_inst/next_i_sqr" type="array">
-         <obj_property name="ElementShortName">next_i_sqr[31:0]</obj_property>
-         <obj_property name="ObjectShortName">next_i_sqr[31:0]</obj_property>
-      </wvobject>
-      <wvobject fp_name="/system_tb/system_inst/gnss_inst/l1ca_search_inst/q_sqr" type="array">
-         <obj_property name="ElementShortName">q_sqr[31:0]</obj_property>
-         <obj_property name="ObjectShortName">q_sqr[31:0]</obj_property>
-      </wvobject>
-      <wvobject fp_name="/system_tb/system_inst/gnss_inst/l1ca_search_inst/next_q_sqr" type="array">
-         <obj_property name="ElementShortName">next_q_sqr[31:0]</obj_property>
-         <obj_property name="ObjectShortName">next_q_sqr[31:0]</obj_property>
       </wvobject>
       <wvobject fp_name="/system_tb/system_inst/gnss_inst/l1ca_search_inst/state" type="array">
          <obj_property name="ElementShortName">state[2:0]</obj_property>
@@ -2507,53 +2475,17 @@
          <obj_property name="ElementShortName">sample_ren</obj_property>
          <obj_property name="ObjectShortName">sample_ren</obj_property>
       </wvobject>
-      <wvobject fp_name="/system_tb/system_inst/gnss_inst/l1ca_search_inst/sample_ctr" type="array">
-         <obj_property name="ElementShortName">sample_ctr[14:0]</obj_property>
-         <obj_property name="ObjectShortName">sample_ctr[14:0]</obj_property>
-      </wvobject>
-      <wvobject fp_name="/system_tb/system_inst/gnss_inst/l1ca_search_inst/next_sample_ctr" type="array">
-         <obj_property name="ElementShortName">next_sample_ctr[14:0]</obj_property>
-         <obj_property name="ObjectShortName">next_sample_ctr[14:0]</obj_property>
-      </wvobject>
-      <wvobject fp_name="/system_tb/system_inst/gnss_inst/l1ca_search_inst/sample_out" type="logic">
-         <obj_property name="ElementShortName">sample_out</obj_property>
-         <obj_property name="ObjectShortName">sample_out</obj_property>
-      </wvobject>
-      <wvobject fp_name="/system_tb/system_inst/gnss_inst/l1ca_search_inst/dop_ctr" type="array">
-         <obj_property name="ElementShortName">dop_ctr[4:0]</obj_property>
-         <obj_property name="ObjectShortName">dop_ctr[4:0]</obj_property>
-      </wvobject>
-      <wvobject fp_name="/system_tb/system_inst/gnss_inst/l1ca_search_inst/next_dop_ctr" type="array">
-         <obj_property name="ElementShortName">next_dop_ctr[4:0]</obj_property>
-         <obj_property name="ObjectShortName">next_dop_ctr[4:0]</obj_property>
-      </wvobject>
-      <wvobject fp_name="/system_tb/system_inst/gnss_inst/l1ca_search_inst/code_ctr" type="array">
-         <obj_property name="ElementShortName">code_ctr[10:0]</obj_property>
-         <obj_property name="ObjectShortName">code_ctr[10:0]</obj_property>
-      </wvobject>
-      <wvobject fp_name="/system_tb/system_inst/gnss_inst/l1ca_search_inst/next_code_ctr" type="array">
-         <obj_property name="ElementShortName">next_code_ctr[10:0]</obj_property>
-         <obj_property name="ObjectShortName">next_code_ctr[10:0]</obj_property>
-      </wvobject>
       <wvobject fp_name="/system_tb/system_inst/gnss_inst/l1ca_search_inst/next_acc_out" type="array">
          <obj_property name="ElementShortName">next_acc_out[31:0]</obj_property>
          <obj_property name="ObjectShortName">next_acc_out[31:0]</obj_property>
       </wvobject>
       <wvobject fp_name="/system_tb/system_inst/gnss_inst/l1ca_search_inst/next_code_index" type="array">
-         <obj_property name="ElementShortName">next_code_index[10:0]</obj_property>
-         <obj_property name="ObjectShortName">next_code_index[10:0]</obj_property>
+         <obj_property name="ElementShortName">next_code_index[9:0]</obj_property>
+         <obj_property name="ObjectShortName">next_code_index[9:0]</obj_property>
       </wvobject>
       <wvobject fp_name="/system_tb/system_inst/gnss_inst/l1ca_search_inst/next_dop_index" type="array">
-         <obj_property name="ElementShortName">next_dop_index[4:0]</obj_property>
-         <obj_property name="ObjectShortName">next_dop_index[4:0]</obj_property>
-      </wvobject>
-      <wvobject fp_name="/system_tb/system_inst/gnss_inst/l1ca_search_inst/max_calc_step" type="array">
-         <obj_property name="ElementShortName">max_calc_step[1:0]</obj_property>
-         <obj_property name="ObjectShortName">max_calc_step[1:0]</obj_property>
-      </wvobject>
-      <wvobject fp_name="/system_tb/system_inst/gnss_inst/l1ca_search_inst/next_max_calc_step" type="array">
-         <obj_property name="ElementShortName">next_max_calc_step[1:0]</obj_property>
-         <obj_property name="ObjectShortName">next_max_calc_step[1:0]</obj_property>
+         <obj_property name="ElementShortName">next_dop_index[5:0]</obj_property>
+         <obj_property name="ObjectShortName">next_dop_index[5:0]</obj_property>
       </wvobject>
       <wvobject fp_name="/system_tb/system_inst/gnss_inst/l1ca_search_inst/code_strobe" type="logic">
          <obj_property name="ElementShortName">code_strobe</obj_property>
@@ -2571,26 +2503,6 @@
          <obj_property name="ElementShortName">code_num[9:0]</obj_property>
          <obj_property name="ObjectShortName">code_num[9:0]</obj_property>
       </wvobject>
-      <wvobject fp_name="/system_tb/system_inst/gnss_inst/l1ca_search_inst/mult_a" type="array">
-         <obj_property name="ElementShortName">mult_a[15:0]</obj_property>
-         <obj_property name="ObjectShortName">mult_a[15:0]</obj_property>
-      </wvobject>
-      <wvobject fp_name="/system_tb/system_inst/gnss_inst/l1ca_search_inst/mult_b" type="array">
-         <obj_property name="ElementShortName">mult_b[15:0]</obj_property>
-         <obj_property name="ObjectShortName">mult_b[15:0]</obj_property>
-      </wvobject>
-      <wvobject fp_name="/system_tb/system_inst/gnss_inst/l1ca_search_inst/mult_p" type="array">
-         <obj_property name="ElementShortName">mult_p[31:0]</obj_property>
-         <obj_property name="ObjectShortName">mult_p[31:0]</obj_property>
-      </wvobject>
-      <wvobject fp_name="/system_tb/system_inst/gnss_inst/l1ca_search_inst/mult_start" type="logic">
-         <obj_property name="ElementShortName">mult_start</obj_property>
-         <obj_property name="ObjectShortName">mult_start</obj_property>
-      </wvobject>
-      <wvobject fp_name="/system_tb/system_inst/gnss_inst/l1ca_search_inst/mult_busy" type="logic">
-         <obj_property name="ElementShortName">mult_busy</obj_property>
-         <obj_property name="ObjectShortName">mult_busy</obj_property>
-      </wvobject>
       <wvobject fp_name="/system_tb/system_inst/gnss_inst/l1ca_search_inst/code_phase" type="array">
          <obj_property name="ElementShortName">code_phase[31:0]</obj_property>
          <obj_property name="ObjectShortName">code_phase[31:0]</obj_property>
@@ -2600,20 +2512,20 @@
          <obj_property name="ObjectShortName">next_code_phase[32:0]</obj_property>
       </wvobject>
       <wvobject fp_name="/system_tb/system_inst/gnss_inst/l1ca_search_inst/lo_phase" type="array">
-         <obj_property name="ElementShortName">lo_phase[0:20][15:0]</obj_property>
-         <obj_property name="ObjectShortName">lo_phase[0:20][15:0]</obj_property>
+         <obj_property name="ElementShortName">lo_phase[17:0]</obj_property>
+         <obj_property name="ObjectShortName">lo_phase[17:0]</obj_property>
       </wvobject>
       <wvobject fp_name="/system_tb/system_inst/gnss_inst/l1ca_search_inst/next_lo_phase" type="array">
-         <obj_property name="ElementShortName">next_lo_phase[0:20][15:0]</obj_property>
-         <obj_property name="ObjectShortName">next_lo_phase[0:20][15:0]</obj_property>
+         <obj_property name="ElementShortName">next_lo_phase[17:0]</obj_property>
+         <obj_property name="ObjectShortName">next_lo_phase[17:0]</obj_property>
       </wvobject>
       <wvobject fp_name="/system_tb/system_inst/gnss_inst/l1ca_search_inst/CODE_RATE" type="array">
-         <obj_property name="ElementShortName">CODE_RATE[31:0]</obj_property>
-         <obj_property name="ObjectShortName">CODE_RATE[31:0]</obj_property>
+         <obj_property name="ElementShortName">CODE_RATE[32:0]</obj_property>
+         <obj_property name="ObjectShortName">CODE_RATE[32:0]</obj_property>
       </wvobject>
       <wvobject fp_name="/system_tb/system_inst/gnss_inst/l1ca_search_inst/LO_RATE" type="array">
-         <obj_property name="ElementShortName">LO_RATE[0:20][15:0]</obj_property>
-         <obj_property name="ObjectShortName">LO_RATE[0:20][15:0]</obj_property>
+         <obj_property name="ElementShortName">LO_RATE[17:0]</obj_property>
+         <obj_property name="ObjectShortName">LO_RATE[17:0]</obj_property>
       </wvobject>
       <wvobject fp_name="/system_tb/system_inst/gnss_inst/l1ca_search_inst/LO_SIN" type="array">
          <obj_property name="ElementShortName">LO_SIN[3:0]</obj_property>
@@ -2696,8 +2608,8 @@
          <obj_property name="ObjectShortName">search_start</obj_property>
       </wvobject>
       <wvobject fp_name="/system_tb/system_inst/gnss_inst/ahb_sat_inst/search_sv" type="array">
-         <obj_property name="ElementShortName">search_sv[4:0]</obj_property>
-         <obj_property name="ObjectShortName">search_sv[4:0]</obj_property>
+         <obj_property name="ElementShortName">search_sv[5:0]</obj_property>
+         <obj_property name="ObjectShortName">search_sv[5:0]</obj_property>
       </wvobject>
       <wvobject fp_name="/system_tb/system_inst/gnss_inst/ahb_sat_inst/search_dop" type="array">
          <obj_property name="ElementShortName">search_dop[31:0]</obj_property>
@@ -2832,8 +2744,8 @@
          <obj_property name="ObjectShortName">next_search_done_reg</obj_property>
       </wvobject>
       <wvobject fp_name="/system_tb/system_inst/gnss_inst/ahb_sat_inst/next_search_sv" type="array">
-         <obj_property name="ElementShortName">next_search_sv[4:0]</obj_property>
-         <obj_property name="ObjectShortName">next_search_sv[4:0]</obj_property>
+         <obj_property name="ElementShortName">next_search_sv[5:0]</obj_property>
+         <obj_property name="ObjectShortName">next_search_sv[5:0]</obj_property>
       </wvobject>
    </wvobject>
 </wave_config>

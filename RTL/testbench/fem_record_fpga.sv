@@ -18,8 +18,8 @@ module fem_record_fpga (
 
     logic sck, sda, cs;
 
-    // assign {jb_5, jb_4, jb_7} = {sck, sda, cs};
-    assign {jb_5, jb_4, jb_7} = 3'b100;
+    assign {jb_5, jb_4, jb_7} = {sck, sda, cs};
+    // assign {jb_5, jb_4, jb_7} = 3'b100;
 
     assign inp_i = {jb_3, jb_2};
     assign inp_q = {jb_1, jb_0};
@@ -55,10 +55,10 @@ module fem_record_fpga (
     logic [27:0] pllconf;
     logic [27:0] pllint;
     // assign conf1 = {1'b1, 1'b0, 4'b1111, 2'b11, 2'b11, 2'b11, 1'b0, 2'b00, 1'b1, 1'b1, 6'b001011, 2'b10, 1'b0, 1'b1, 1'b1};
-    assign conf1 = {1'b1, 1'b0, 4'b1111, 2'b11, 2'b11, 2'b11, 1'b0, 2'b00, 1'b1, 1'b1, 6'b001101, 2'b00, 1'b0, 1'b1, 1'b1};
-    assign conf2 = {1'b0, 12'b000010101010, 2'b00, 2'b00, 2'b01, 3'b010, 2'b00, 1'b1, 1'b0, 2'b00};
-    assign conf3 = {6'b111010, 1'b1, 1'b0, 1'b1, 1'b1, 1'b1, 1'b1, 1'b0, 1'b1, 1'b1, 1'b0, 1'b0, 1'b0, 1'b0, 3'b111, 2'b11, 1'b0, 1'b0, 1'b0, 1'b0};
-    assign pllconf = {1'b1, 1'b0, 1'b0, 1'b1, 1'b1, 2'b11, 2'b01, 5'b10000, 4'b0000, 1'b1, 1'b0, 1'b0, 3'b000, 1'b1, 1'b0, 1'b0, 1'b0};
+    assign conf1 = {1'b1, 1'b0, 4'b1000, 2'b10, 2'b10, 2'b01, 1'b0, 2'b00, 1'b1, 1'b1, 6'b101011, 2'b10, 1'b0, 1'b1, 1'b1};
+    assign conf2 = {1'b0, 12'b000010101010, 2'b00, 2'b00, 2'b01, 3'b010, 2'b00, 1'b1, 1'b1, 2'b00};
+    assign conf3 = {6'b111010, 1'b1, 1'b0, 1'b1, 1'b1, 1'b1, 1'b1, 1'b1, 1'b1, 1'b1, 1'b0, 1'b0, 1'b0, 1'b0, 3'b111, 2'b01, 1'b1, 1'b1, 1'b0, 1'b0};
+    assign pllconf = {1'b1, 1'b0, 1'b0, 1'b1, 1'b1, 2'b11, 2'b01, 5'b10000, 4'b0000, 1'b0, 1'b0, 1'b0, 3'b000, 1'b1, 1'b0, 1'b0, 1'b0};
     assign pllint = {15'd7857, 10'd96, 3'b000};
 
     logic [31:0] serial_word;

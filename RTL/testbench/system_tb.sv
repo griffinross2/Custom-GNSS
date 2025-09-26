@@ -54,6 +54,8 @@ module system_tb;
   wire flash_cs;
   wire [3:0] flash_dq;
 
+  logic signal_in;
+
   // Fake flash
   flash_model flash_inst (
     .clk(cpuclk),

@@ -29,6 +29,7 @@
         }
     }
 
+    import_ip D:/github_repos/RISC-V-Core/RTL/IP/xfft_0/xfft_0.xci
     add_files -fileset sources_1 [ glob ./source/*.sv ]
     add_files -fileset sources_1 [ glob ./testbench/system_fpga.sv ]
 

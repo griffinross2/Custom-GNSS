@@ -1,0 +1,531 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="ac_pca_search_tb_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="ac_pca_search_tb" />
+            <top_module name="common_gnss_types_pkg" />
+            <top_module name="common_types_pkg" />
+            <top_module name="glbl" />
+            <top_module name="vcomponents" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0.000000000 ms"></ZoomStartTime>
+      <ZoomEndTime time="40.420000001 ms"></ZoomEndTime>
+      <Cursor1Time time="5.092386000 ms"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="313"></NameColumnWidth>
+      <ValueColumnWidth column_width="217"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="16" />
+   <wvobject fp_name="/ac_pca_search_tb/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/ac_pca_search_tb/nrst" type="logic">
+      <obj_property name="ElementShortName">nrst</obj_property>
+      <obj_property name="ObjectShortName">nrst</obj_property>
+   </wvobject>
+   <wvobject fp_name="/ac_pca_search_tb/signal_in" type="logic">
+      <obj_property name="ElementShortName">signal_in</obj_property>
+      <obj_property name="ObjectShortName">signal_in</obj_property>
+   </wvobject>
+   <wvobject fp_name="/ac_pca_search_tb/start" type="logic">
+      <obj_property name="ElementShortName">start</obj_property>
+      <obj_property name="ObjectShortName">start</obj_property>
+   </wvobject>
+   <wvobject fp_name="/ac_pca_search_tb/sv" type="array">
+      <obj_property name="ElementShortName">sv[4:0]</obj_property>
+      <obj_property name="ObjectShortName">sv[4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/ac_pca_search_tb/acc_out" type="array">
+      <obj_property name="ElementShortName">acc_out[31:0]</obj_property>
+      <obj_property name="ObjectShortName">acc_out[31:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/ac_pca_search_tb/code_index" type="array">
+      <obj_property name="ElementShortName">code_index[9:0]</obj_property>
+      <obj_property name="ObjectShortName">code_index[9:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/ac_pca_search_tb/start_index" type="array">
+      <obj_property name="ElementShortName">start_index[4:0]</obj_property>
+      <obj_property name="ObjectShortName">start_index[4:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/ac_pca_search_tb/dop_index" type="array">
+      <obj_property name="ElementShortName">dop_index[5:0]</obj_property>
+      <obj_property name="ObjectShortName">dop_index[5:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/ac_pca_search_tb/busy" type="logic">
+      <obj_property name="ElementShortName">busy</obj_property>
+      <obj_property name="ObjectShortName">busy</obj_property>
+   </wvobject>
+   <wvobject fp_name="/ac_pca_search_tb/fd" type="array">
+      <obj_property name="ElementShortName">fd[31:0]</obj_property>
+      <obj_property name="ObjectShortName">fd[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/ac_pca_search_tb/bit_count" type="array">
+      <obj_property name="ElementShortName">bit_count[2:0]</obj_property>
+      <obj_property name="ObjectShortName">bit_count[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/ac_pca_search_tb/signal_byte" type="array">
+      <obj_property name="ElementShortName">signal_byte[7:0]</obj_property>
+      <obj_property name="ObjectShortName">signal_byte[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="group67" type="group">
+      <obj_property name="label">DUT</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <wvobject fp_name="/ac_pca_search_tb/dut/clk" type="logic">
+         <obj_property name="ElementShortName">clk</obj_property>
+         <obj_property name="ObjectShortName">clk</obj_property>
+      </wvobject>
+      <wvobject fp_name="/ac_pca_search_tb/dut/nrst" type="logic">
+         <obj_property name="ElementShortName">nrst</obj_property>
+         <obj_property name="ObjectShortName">nrst</obj_property>
+      </wvobject>
+      <wvobject fp_name="/ac_pca_search_tb/dut/signal_in" type="logic">
+         <obj_property name="ElementShortName">signal_in</obj_property>
+         <obj_property name="ObjectShortName">signal_in</obj_property>
+      </wvobject>
+      <wvobject fp_name="/ac_pca_search_tb/dut/start" type="logic">
+         <obj_property name="ElementShortName">start</obj_property>
+         <obj_property name="ObjectShortName">start</obj_property>
+      </wvobject>
+      <wvobject fp_name="/ac_pca_search_tb/dut/sv" type="array">
+         <obj_property name="ElementShortName">sv[4:0]</obj_property>
+         <obj_property name="ObjectShortName">sv[4:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/ac_pca_search_tb/dut/acc_out" type="array">
+         <obj_property name="ElementShortName">acc_out[31:0]</obj_property>
+         <obj_property name="ObjectShortName">acc_out[31:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/ac_pca_search_tb/dut/code_index" type="array">
+         <obj_property name="ElementShortName">code_index[9:0]</obj_property>
+         <obj_property name="ObjectShortName">code_index[9:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/ac_pca_search_tb/dut/start_index" type="array">
+         <obj_property name="ElementShortName">start_index[4:0]</obj_property>
+         <obj_property name="ObjectShortName">start_index[4:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/ac_pca_search_tb/dut/dop_index" type="array">
+         <obj_property name="ElementShortName">dop_index[5:0]</obj_property>
+         <obj_property name="ObjectShortName">dop_index[5:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/ac_pca_search_tb/dut/busy" type="logic">
+         <obj_property name="ElementShortName">busy</obj_property>
+         <obj_property name="ObjectShortName">busy</obj_property>
+      </wvobject>
+      <wvobject fp_name="/ac_pca_search_tb/dut/state" type="array">
+         <obj_property name="ElementShortName">state[2:0]</obj_property>
+         <obj_property name="ObjectShortName">state[2:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/ac_pca_search_tb/dut/next_state" type="array">
+         <obj_property name="ElementShortName">next_state[2:0]</obj_property>
+         <obj_property name="ObjectShortName">next_state[2:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/ac_pca_search_tb/dut/fft_state" type="array">
+         <obj_property name="ElementShortName">fft_state[1:0]</obj_property>
+         <obj_property name="ObjectShortName">fft_state[1:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/ac_pca_search_tb/dut/next_fft_state" type="array">
+         <obj_property name="ElementShortName">next_fft_state[1:0]</obj_property>
+         <obj_property name="ObjectShortName">next_fft_state[1:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/ac_pca_search_tb/dut/s_axis_config_tdata" type="array">
+         <obj_property name="ElementShortName">s_axis_config_tdata[15:0]</obj_property>
+         <obj_property name="ObjectShortName">s_axis_config_tdata[15:0]</obj_property>
+         <obj_property name="Radix">BINARYRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/ac_pca_search_tb/dut/s_axis_config_tvalid" type="logic">
+         <obj_property name="ElementShortName">s_axis_config_tvalid</obj_property>
+         <obj_property name="ObjectShortName">s_axis_config_tvalid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/ac_pca_search_tb/dut/s_axis_config_tready" type="logic">
+         <obj_property name="ElementShortName">s_axis_config_tready</obj_property>
+         <obj_property name="ObjectShortName">s_axis_config_tready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/ac_pca_search_tb/dut/s_axis_data_tdata" type="array">
+         <obj_property name="ElementShortName">s_axis_data_tdata[31:0]</obj_property>
+         <obj_property name="ObjectShortName">s_axis_data_tdata[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/ac_pca_search_tb/dut/s_axis_data_tvalid" type="logic">
+         <obj_property name="ElementShortName">s_axis_data_tvalid</obj_property>
+         <obj_property name="ObjectShortName">s_axis_data_tvalid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/ac_pca_search_tb/dut/s_axis_data_tready" type="logic">
+         <obj_property name="ElementShortName">s_axis_data_tready</obj_property>
+         <obj_property name="ObjectShortName">s_axis_data_tready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/ac_pca_search_tb/dut/s_axis_data_tlast" type="logic">
+         <obj_property name="ElementShortName">s_axis_data_tlast</obj_property>
+         <obj_property name="ObjectShortName">s_axis_data_tlast</obj_property>
+      </wvobject>
+      <wvobject fp_name="/ac_pca_search_tb/dut/m_axis_data_tdata" type="array">
+         <obj_property name="ElementShortName">m_axis_data_tdata[31:0]</obj_property>
+         <obj_property name="ObjectShortName">m_axis_data_tdata[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/ac_pca_search_tb/dut/m_axis_data_tuser" type="array">
+         <obj_property name="ElementShortName">m_axis_data_tuser[15:0]</obj_property>
+         <obj_property name="ObjectShortName">m_axis_data_tuser[15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/ac_pca_search_tb/dut/m_axis_data_tvalid" type="logic">
+         <obj_property name="ElementShortName">m_axis_data_tvalid</obj_property>
+         <obj_property name="ObjectShortName">m_axis_data_tvalid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/ac_pca_search_tb/dut/m_axis_data_tready" type="logic">
+         <obj_property name="ElementShortName">m_axis_data_tready</obj_property>
+         <obj_property name="ObjectShortName">m_axis_data_tready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/ac_pca_search_tb/dut/m_axis_data_tlast" type="logic">
+         <obj_property name="ElementShortName">m_axis_data_tlast</obj_property>
+         <obj_property name="ObjectShortName">m_axis_data_tlast</obj_property>
+      </wvobject>
+      <wvobject fp_name="/ac_pca_search_tb/dut/event_frame_started" type="logic">
+         <obj_property name="ElementShortName">event_frame_started</obj_property>
+         <obj_property name="ObjectShortName">event_frame_started</obj_property>
+      </wvobject>
+      <wvobject fp_name="/ac_pca_search_tb/dut/event_tlast_unexpected" type="logic">
+         <obj_property name="ElementShortName">event_tlast_unexpected</obj_property>
+         <obj_property name="ObjectShortName">event_tlast_unexpected</obj_property>
+      </wvobject>
+      <wvobject fp_name="/ac_pca_search_tb/dut/event_tlast_missing" type="logic">
+         <obj_property name="ElementShortName">event_tlast_missing</obj_property>
+         <obj_property name="ObjectShortName">event_tlast_missing</obj_property>
+      </wvobject>
+      <wvobject fp_name="/ac_pca_search_tb/dut/event_status_channel_halt" type="logic">
+         <obj_property name="ElementShortName">event_status_channel_halt</obj_property>
+         <obj_property name="ObjectShortName">event_status_channel_halt</obj_property>
+      </wvobject>
+      <wvobject fp_name="/ac_pca_search_tb/dut/event_data_in_channel_halt" type="logic">
+         <obj_property name="ElementShortName">event_data_in_channel_halt</obj_property>
+         <obj_property name="ObjectShortName">event_data_in_channel_halt</obj_property>
+      </wvobject>
+      <wvobject fp_name="/ac_pca_search_tb/dut/event_data_out_channel_halt" type="logic">
+         <obj_property name="ElementShortName">event_data_out_channel_halt</obj_property>
+         <obj_property name="ObjectShortName">event_data_out_channel_halt</obj_property>
+      </wvobject>
+      <wvobject fp_name="/ac_pca_search_tb/dut/sample_addr" type="array">
+         <obj_property name="ElementShortName">sample_addr[11:0]</obj_property>
+         <obj_property name="ObjectShortName">sample_addr[11:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/ac_pca_search_tb/dut/next_sample_addr" type="array">
+         <obj_property name="ElementShortName">next_sample_addr[11:0]</obj_property>
+         <obj_property name="ObjectShortName">next_sample_addr[11:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/ac_pca_search_tb/dut/sample_fft_addr" type="array">
+         <obj_property name="ElementShortName">sample_fft_addr[11:0]</obj_property>
+         <obj_property name="ObjectShortName">sample_fft_addr[11:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/ac_pca_search_tb/dut/next_sample_fft_addr" type="array">
+         <obj_property name="ElementShortName">next_sample_fft_addr[11:0]</obj_property>
+         <obj_property name="ObjectShortName">next_sample_fft_addr[11:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/ac_pca_search_tb/dut/code_fft_addr" type="array">
+         <obj_property name="ElementShortName">code_fft_addr[11:0]</obj_property>
+         <obj_property name="ObjectShortName">code_fft_addr[11:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/ac_pca_search_tb/dut/next_code_fft_addr" type="array">
+         <obj_property name="ElementShortName">next_code_fft_addr[11:0]</obj_property>
+         <obj_property name="ObjectShortName">next_code_fft_addr[11:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/ac_pca_search_tb/dut/sample_fft_addr_override" type="array">
+         <obj_property name="ElementShortName">sample_fft_addr_override[11:0]</obj_property>
+         <obj_property name="ObjectShortName">sample_fft_addr_override[11:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/ac_pca_search_tb/dut/code_fft_addr_override" type="array">
+         <obj_property name="ElementShortName">code_fft_addr_override[11:0]</obj_property>
+         <obj_property name="ObjectShortName">code_fft_addr_override[11:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/ac_pca_search_tb/dut/sample_i_avg" type="array">
+         <obj_property name="ElementShortName">sample_i_avg[5:0]</obj_property>
+         <obj_property name="ObjectShortName">sample_i_avg[5:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+         <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+      </wvobject>
+      <wvobject fp_name="/ac_pca_search_tb/dut/next_sample_i_avg" type="array">
+         <obj_property name="ElementShortName">next_sample_i_avg[5:0]</obj_property>
+         <obj_property name="ObjectShortName">next_sample_i_avg[5:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/ac_pca_search_tb/dut/sample_i_avg_plus_sample" type="array">
+         <obj_property name="ElementShortName">sample_i_avg_plus_sample[5:0]</obj_property>
+         <obj_property name="ObjectShortName">sample_i_avg_plus_sample[5:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/ac_pca_search_tb/dut/sample_q_avg" type="array">
+         <obj_property name="ElementShortName">sample_q_avg[5:0]</obj_property>
+         <obj_property name="ObjectShortName">sample_q_avg[5:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+         <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+      </wvobject>
+      <wvobject fp_name="/ac_pca_search_tb/dut/next_sample_q_avg" type="array">
+         <obj_property name="ElementShortName">next_sample_q_avg[5:0]</obj_property>
+         <obj_property name="ObjectShortName">next_sample_q_avg[5:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/ac_pca_search_tb/dut/sample_q_avg_plus_sample" type="array">
+         <obj_property name="ElementShortName">sample_q_avg_plus_sample[5:0]</obj_property>
+         <obj_property name="ObjectShortName">sample_q_avg_plus_sample[5:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/ac_pca_search_tb/dut/sample_downsample_i_in" type="logic">
+         <obj_property name="ElementShortName">sample_downsample_i_in</obj_property>
+         <obj_property name="ObjectShortName">sample_downsample_i_in</obj_property>
+      </wvobject>
+      <wvobject fp_name="/ac_pca_search_tb/dut/sample_downsample_q_in" type="logic">
+         <obj_property name="ElementShortName">sample_downsample_q_in</obj_property>
+         <obj_property name="ObjectShortName">sample_downsample_q_in</obj_property>
+      </wvobject>
+      <wvobject fp_name="/ac_pca_search_tb/dut/sample_downsample_i_out" type="logic">
+         <obj_property name="ElementShortName">sample_downsample_i_out</obj_property>
+         <obj_property name="ObjectShortName">sample_downsample_i_out</obj_property>
+      </wvobject>
+      <wvobject fp_name="/ac_pca_search_tb/dut/sample_downsample_q_out" type="logic">
+         <obj_property name="ElementShortName">sample_downsample_q_out</obj_property>
+         <obj_property name="ObjectShortName">sample_downsample_q_out</obj_property>
+      </wvobject>
+      <wvobject fp_name="/ac_pca_search_tb/dut/sample_wen" type="logic">
+         <obj_property name="ElementShortName">sample_wen</obj_property>
+         <obj_property name="ObjectShortName">sample_wen</obj_property>
+      </wvobject>
+      <wvobject fp_name="/ac_pca_search_tb/dut/sample_ren" type="logic">
+         <obj_property name="ElementShortName">sample_ren</obj_property>
+         <obj_property name="ObjectShortName">sample_ren</obj_property>
+      </wvobject>
+      <wvobject fp_name="/ac_pca_search_tb/dut/sample_fft_wen" type="logic">
+         <obj_property name="ElementShortName">sample_fft_wen</obj_property>
+         <obj_property name="ObjectShortName">sample_fft_wen</obj_property>
+      </wvobject>
+      <wvobject fp_name="/ac_pca_search_tb/dut/sample_fft_ren" type="logic">
+         <obj_property name="ElementShortName">sample_fft_ren</obj_property>
+         <obj_property name="ObjectShortName">sample_fft_ren</obj_property>
+      </wvobject>
+      <wvobject fp_name="/ac_pca_search_tb/dut/code_fft_wen" type="logic">
+         <obj_property name="ElementShortName">code_fft_wen</obj_property>
+         <obj_property name="ObjectShortName">code_fft_wen</obj_property>
+      </wvobject>
+      <wvobject fp_name="/ac_pca_search_tb/dut/code_fft_ren" type="logic">
+         <obj_property name="ElementShortName">code_fft_ren</obj_property>
+         <obj_property name="ObjectShortName">code_fft_ren</obj_property>
+      </wvobject>
+      <wvobject fp_name="/ac_pca_search_tb/dut/sample_fft_i_out" type="array">
+         <obj_property name="ElementShortName">sample_fft_i_out[15:0]</obj_property>
+         <obj_property name="ObjectShortName">sample_fft_i_out[15:0]</obj_property>
+         <obj_property name="Radix">REALRADIX</obj_property>
+         <obj_property name="radix_realType">SIGNEDFIXEDPOINTRADIX</obj_property>
+         <obj_property name="radix_fractionWidth">15</obj_property>
+         <obj_property name="radix_otherWidth">0</obj_property>
+         <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+         <obj_property name="CellHeight">100</obj_property>
+         <obj_property name="AnalogYRangeType">ANALOG_YRANGETYPE_FIXED</obj_property>
+         <obj_property name="AnalogYRangeMin">-0.070000</obj_property>
+         <obj_property name="AnalogYRRangeMax">0.070000</obj_property>
+         <obj_property name="AnalogInterpolation">ANALOG_INTERPOLATION_LINEAR</obj_property>
+         <obj_property name="AnalogOffscale">ANALOG_OFFSCALE_HIDE</obj_property>
+         <obj_property name="AnalogHorizLine">0.000000</obj_property>
+      </wvobject>
+      <wvobject fp_name="/ac_pca_search_tb/dut/sample_fft_q_out" type="array">
+         <obj_property name="ElementShortName">sample_fft_q_out[15:0]</obj_property>
+         <obj_property name="ObjectShortName">sample_fft_q_out[15:0]</obj_property>
+         <obj_property name="Radix">REALRADIX</obj_property>
+         <obj_property name="radix_realType">SIGNEDFIXEDPOINTRADIX</obj_property>
+         <obj_property name="radix_fractionWidth">15</obj_property>
+         <obj_property name="radix_otherWidth">0</obj_property>
+         <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+         <obj_property name="CellHeight">100</obj_property>
+         <obj_property name="AnalogYRangeType">ANALOG_YRANGETYPE_FIXED</obj_property>
+         <obj_property name="AnalogYRangeMin">-0.100000</obj_property>
+         <obj_property name="AnalogYRRangeMax">0.100000</obj_property>
+         <obj_property name="AnalogInterpolation">ANALOG_INTERPOLATION_LINEAR</obj_property>
+         <obj_property name="AnalogOffscale">ANALOG_OFFSCALE_HIDE</obj_property>
+         <obj_property name="AnalogHorizLine">0.000000</obj_property>
+      </wvobject>
+      <wvobject fp_name="/ac_pca_search_tb/dut/code_fft_i_out" type="array">
+         <obj_property name="ElementShortName">code_fft_i_out[15:0]</obj_property>
+         <obj_property name="ObjectShortName">code_fft_i_out[15:0]</obj_property>
+         <obj_property name="Radix">REALRADIX</obj_property>
+         <obj_property name="radix_realType">SIGNEDFIXEDPOINTRADIX</obj_property>
+         <obj_property name="radix_fractionWidth">15</obj_property>
+         <obj_property name="radix_otherWidth">0</obj_property>
+         <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+         <obj_property name="AnalogYRangeType">ANALOG_YRANGETYPE_FIXED</obj_property>
+         <obj_property name="AnalogYRangeMin">-0.070000</obj_property>
+         <obj_property name="AnalogYRRangeMax">0.070000</obj_property>
+         <obj_property name="AnalogInterpolation">ANALOG_INTERPOLATION_LINEAR</obj_property>
+         <obj_property name="AnalogOffscale">ANALOG_OFFSCALE_HIDE</obj_property>
+         <obj_property name="AnalogHorizLine">0.000000</obj_property>
+      </wvobject>
+      <wvobject fp_name="/ac_pca_search_tb/dut/code_fft_q_out" type="array">
+         <obj_property name="ElementShortName">code_fft_q_out[15:0]</obj_property>
+         <obj_property name="ObjectShortName">code_fft_q_out[15:0]</obj_property>
+         <obj_property name="Radix">REALRADIX</obj_property>
+         <obj_property name="radix_realType">SIGNEDFIXEDPOINTRADIX</obj_property>
+         <obj_property name="radix_fractionWidth">15</obj_property>
+         <obj_property name="radix_otherWidth">0</obj_property>
+         <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+         <obj_property name="AnalogYRangeType">ANALOG_YRANGETYPE_FIXED</obj_property>
+         <obj_property name="AnalogYRangeMin">-0.070000</obj_property>
+         <obj_property name="AnalogYRRangeMax">0.070000</obj_property>
+         <obj_property name="AnalogInterpolation">ANALOG_INTERPOLATION_LINEAR</obj_property>
+         <obj_property name="AnalogOffscale">ANALOG_OFFSCALE_HIDE</obj_property>
+         <obj_property name="AnalogHorizLine">0.000000</obj_property>
+      </wvobject>
+      <wvobject fp_name="/ac_pca_search_tb/dut/si_ci_prod" type="array">
+         <obj_property name="ElementShortName">si_ci_prod[31:0]</obj_property>
+         <obj_property name="ObjectShortName">si_ci_prod[31:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="radix_realType">SIGNEDFIXEDPOINTRADIX</obj_property>
+         <obj_property name="radix_fractionWidth">30</obj_property>
+         <obj_property name="radix_otherWidth">0</obj_property>
+      </wvobject>
+      <wvobject fp_name="/ac_pca_search_tb/dut/sq_cq_prod" type="array">
+         <obj_property name="ElementShortName">sq_cq_prod[31:0]</obj_property>
+         <obj_property name="ObjectShortName">sq_cq_prod[31:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="radix_realType">SIGNEDFIXEDPOINTRADIX</obj_property>
+         <obj_property name="radix_fractionWidth">30</obj_property>
+         <obj_property name="radix_otherWidth">0</obj_property>
+      </wvobject>
+      <wvobject fp_name="/ac_pca_search_tb/dut/si_cq_prod" type="array">
+         <obj_property name="ElementShortName">si_cq_prod[31:0]</obj_property>
+         <obj_property name="ObjectShortName">si_cq_prod[31:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="radix_realType">SIGNEDFIXEDPOINTRADIX</obj_property>
+         <obj_property name="radix_fractionWidth">30</obj_property>
+         <obj_property name="radix_otherWidth">0</obj_property>
+      </wvobject>
+      <wvobject fp_name="/ac_pca_search_tb/dut/sq_ci_prod" type="array">
+         <obj_property name="ElementShortName">sq_ci_prod[31:0]</obj_property>
+         <obj_property name="ObjectShortName">sq_ci_prod[31:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="radix_realType">SIGNEDFIXEDPOINTRADIX</obj_property>
+         <obj_property name="radix_fractionWidth">30</obj_property>
+         <obj_property name="radix_otherWidth">0</obj_property>
+      </wvobject>
+      <wvobject fp_name="/ac_pca_search_tb/dut/doppler_step" type="array">
+         <obj_property name="ElementShortName">doppler_step[5:0]</obj_property>
+         <obj_property name="ObjectShortName">doppler_step[5:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/ac_pca_search_tb/dut/next_doppler_step" type="array">
+         <obj_property name="ElementShortName">next_doppler_step[5:0]</obj_property>
+         <obj_property name="ObjectShortName">next_doppler_step[5:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/ac_pca_search_tb/dut/acc_magnitude" type="array">
+         <obj_property name="ElementShortName">acc_magnitude[31:0]</obj_property>
+         <obj_property name="ObjectShortName">acc_magnitude[31:0]</obj_property>
+         <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+         <obj_property name="AnalogYRangeType">ANALOG_YRANGETYPE_FIXED</obj_property>
+         <obj_property name="AnalogYRangeMin">0.000000</obj_property>
+         <obj_property name="AnalogYRRangeMax">10000.000000</obj_property>
+         <obj_property name="AnalogInterpolation">ANALOG_INTERPOLATION_LINEAR</obj_property>
+         <obj_property name="AnalogOffscale">ANALOG_OFFSCALE_HIDE</obj_property>
+         <obj_property name="AnalogHorizLine">0.000000</obj_property>
+      </wvobject>
+      <wvobject fp_name="/ac_pca_search_tb/dut/start_step" type="array">
+         <obj_property name="ElementShortName">start_step[4:0]</obj_property>
+         <obj_property name="ObjectShortName">start_step[4:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/ac_pca_search_tb/dut/next_start_step" type="array">
+         <obj_property name="ElementShortName">next_start_step[4:0]</obj_property>
+         <obj_property name="ObjectShortName">next_start_step[4:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/ac_pca_search_tb/dut/next_acc_out" type="array">
+         <obj_property name="ElementShortName">next_acc_out[31:0]</obj_property>
+         <obj_property name="ObjectShortName">next_acc_out[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/ac_pca_search_tb/dut/next_code_index" type="array">
+         <obj_property name="ElementShortName">next_code_index[9:0]</obj_property>
+         <obj_property name="ObjectShortName">next_code_index[9:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/ac_pca_search_tb/dut/next_start_index" type="array">
+         <obj_property name="ElementShortName">next_start_index[4:0]</obj_property>
+         <obj_property name="ObjectShortName">next_start_index[4:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/ac_pca_search_tb/dut/next_dop_index" type="array">
+         <obj_property name="ElementShortName">next_dop_index[5:0]</obj_property>
+         <obj_property name="ObjectShortName">next_dop_index[5:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/ac_pca_search_tb/dut/code_phase" type="array">
+         <obj_property name="ElementShortName">code_phase[31:0]</obj_property>
+         <obj_property name="ObjectShortName">code_phase[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/ac_pca_search_tb/dut/next_code_phase" type="array">
+         <obj_property name="ElementShortName">next_code_phase[32:0]</obj_property>
+         <obj_property name="ObjectShortName">next_code_phase[32:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/ac_pca_search_tb/dut/lo_phase" type="array">
+         <obj_property name="ElementShortName">lo_phase[17:0]</obj_property>
+         <obj_property name="ObjectShortName">lo_phase[17:0]</obj_property>
+         <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+      </wvobject>
+      <wvobject fp_name="/ac_pca_search_tb/dut/next_lo_phase" type="array">
+         <obj_property name="ElementShortName">next_lo_phase[17:0]</obj_property>
+         <obj_property name="ObjectShortName">next_lo_phase[17:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/ac_pca_search_tb/dut/code_strobe" type="logic">
+         <obj_property name="ElementShortName">code_strobe</obj_property>
+         <obj_property name="ObjectShortName">code_strobe</obj_property>
+      </wvobject>
+      <wvobject fp_name="/ac_pca_search_tb/dut/code_clear" type="logic">
+         <obj_property name="ElementShortName">code_clear</obj_property>
+         <obj_property name="ObjectShortName">code_clear</obj_property>
+      </wvobject>
+      <wvobject fp_name="/ac_pca_search_tb/dut/code" type="logic">
+         <obj_property name="ElementShortName">code</obj_property>
+         <obj_property name="ObjectShortName">code</obj_property>
+      </wvobject>
+      <wvobject fp_name="/ac_pca_search_tb/dut/code_num" type="array">
+         <obj_property name="ElementShortName">code_num[9:0]</obj_property>
+         <obj_property name="ObjectShortName">code_num[9:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/ac_pca_search_tb/dut/CODE_RATE" type="array">
+         <obj_property name="ElementShortName">CODE_RATE[32:0]</obj_property>
+         <obj_property name="ObjectShortName">CODE_RATE[32:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/ac_pca_search_tb/dut/LO_RATE" type="array">
+         <obj_property name="ElementShortName">LO_RATE[17:0]</obj_property>
+         <obj_property name="ObjectShortName">LO_RATE[17:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/ac_pca_search_tb/dut/LO_SIN" type="array">
+         <obj_property name="ElementShortName">LO_SIN[3:0]</obj_property>
+         <obj_property name="ObjectShortName">LO_SIN[3:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/ac_pca_search_tb/dut/LO_COS" type="array">
+         <obj_property name="ElementShortName">LO_COS[3:0]</obj_property>
+         <obj_property name="ObjectShortName">LO_COS[3:0]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="/ac_pca_search_tb/dut/code_slip" type="array">
+      <obj_property name="ElementShortName">code_slip[23:0]</obj_property>
+      <obj_property name="ObjectShortName">code_slip[23:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/ac_pca_search_tb/dut/code_slip_phase" type="array">
+      <obj_property name="ElementShortName">code_slip_phase[31:0]</obj_property>
+      <obj_property name="ObjectShortName">code_slip_phase[31:0]</obj_property>
+   </wvobject>
+</wave_config>

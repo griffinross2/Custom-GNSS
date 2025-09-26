@@ -71,13 +71,29 @@ private:
     double w_0p;   // PLL Natural frequency
     double w_0_2p; // PLL Squared natural frequency
     double w_0_3p; // PLL Cubed natural frequency
-    double w_0f;   // PLL Natural frequency
-    double w_0_2f; // PLL Squared natural frequency
+    double w_0f;   // FLL Natural frequency
+    double w_0_2f; // FLL Squared natural frequency
     double a_3;    // Coefficient
     double b_3;    // Coefficient
     double a_2;    // Coefficient
     double acc1;   // First Accumulator
     double acc2;   // Second Accumulator
+};
+
+class SecondOrderFLLAssistedPLL : public PLL
+{
+public:
+    SecondOrderFLLAssistedPLL(double noise_bandwidth_fll, double noise_bandwidth_pll, double acc0 = 0.0);
+
+    double update(double fll_input, double pll_input, double int_time);
+    void set_bandwidth(double noise_bandwidth_fll, double noise_bandwidth_pll);
+
+private:
+    double w_0p;   // PLL Natural frequency
+    double w_0_2p; // PLL Squared natural frequency
+    double w_0f;   // FLL Natural frequency
+    double a_2;    // Coefficient
+    double acc1;   // First Accumulator
 };
 
 #endif // FILTERS_H

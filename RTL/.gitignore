@@ -7,6 +7,9 @@
 *.mem
 *.hex
 *.tcl
+*.mcs
+*.prm
+program.bin
 !scripts/*.tcl
 *.o
 obj_dir/

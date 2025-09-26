@@ -15,12 +15,14 @@ module icache (
 );
 
 typedef enum logic [1:0] {
+    CACHE_INIT,
     CACHE_IDLE,
     CACHE_CHECK,
     CACHE_READ
 } icache_state_t;
 
 icache_state_t state, next_state;
+logic [ICACHE_SET_IDX_W-1:0] init_idx; // For initialization
 logic hit;
 logic block_idx;    // which block in set got a hit
 logic lru_idx;      // which block in set is Least Recently Used
@@ -38,9 +40,11 @@ icache_meta_t rmeta1; // Tag + valid bit + lru bit
 
 always_ff @(posedge clk) begin
     if (~nrst) begin
-        state <= CACHE_IDLE;
+        state <= CACHE_INIT;
+        init_idx <= '0;
     end else begin
         state <= next_state;
+        init_idx <= init_idx + 1;
     end
 end
 
@@ -48,6 +52,14 @@ end
 always_comb begin
     next_state = state;
     case (state)
+        CACHE_INIT: begin
+            if (init_idx + {{ICACHE_SET_IDX_W-1{1'b0}}, 1'b1} == '0) begin
+                next_state = CACHE_IDLE;
+            end else begin
+                next_state = CACHE_INIT;
+            end
+        end
+        
         CACHE_IDLE: begin
             if (cif.read) begin
                 next_state = CACHE_CHECK;
@@ -126,6 +138,20 @@ always_comb begin
     // State output
 
     case (state)
+        CACHE_INIT: begin
+            // Initialize the cache
+            wen = 1'b1;
+
+            // Set the address to the current index
+            addr.set_index = init_idx;
+
+            // Write default values to metadata
+            wmeta0.valid = 1'b0;
+            wmeta0.lru = 1'b0;
+            wmeta1.valid = 1'b0;
+            wmeta1.lru = 1'b0;
+        end
+        
         CACHE_IDLE: begin
             if (cif.read) begin
                 // Signal BRAM to read

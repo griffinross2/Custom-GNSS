@@ -1,0 +1,991 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="gnss_tb_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="common_gnss_types_pkg" />
+            <top_module name="common_types_pkg" />
+            <top_module name="glbl" />
+            <top_module name="gnss_tb" />
+            <top_module name="vcomponents" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0.000000000 ms"></ZoomStartTime>
+      <ZoomEndTime time="10,145.000000001 ms"></ZoomEndTime>
+      <Cursor1Time time="226.833646000 ms"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="321"></NameColumnWidth>
+      <ValueColumnWidth column_width="201"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="11" />
+   <wvobject fp_name="/gnss_tb/gnssclk" type="logic">
+      <obj_property name="ElementShortName">gnssclk</obj_property>
+      <obj_property name="ObjectShortName">gnssclk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/gnss_tb/cpuclk" type="logic">
+      <obj_property name="ElementShortName">cpuclk</obj_property>
+      <obj_property name="ObjectShortName">cpuclk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/gnss_tb/nrst" type="logic">
+      <obj_property name="ElementShortName">nrst</obj_property>
+      <obj_property name="ObjectShortName">nrst</obj_property>
+   </wvobject>
+   <wvobject fp_name="/gnss_tb/signal_in" type="logic">
+      <obj_property name="ElementShortName">signal_in</obj_property>
+      <obj_property name="ObjectShortName">signal_in</obj_property>
+   </wvobject>
+   <wvobject fp_name="/gnss_tb/fd" type="array">
+      <obj_property name="ElementShortName">fd[31:0]</obj_property>
+      <obj_property name="ObjectShortName">fd[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/gnss_tb/bit_count" type="array">
+      <obj_property name="ElementShortName">bit_count[2:0]</obj_property>
+      <obj_property name="ObjectShortName">bit_count[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/gnss_tb/signal_byte" type="array">
+      <obj_property name="ElementShortName">signal_byte[7:0]</obj_property>
+      <obj_property name="ObjectShortName">signal_byte[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="group36" type="group">
+      <obj_property name="label">GNSS</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/gnss_tb/dut/gnssclk" type="logic">
+         <obj_property name="ElementShortName">gnssclk</obj_property>
+         <obj_property name="ObjectShortName">gnssclk</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/cpuclk" type="logic">
+         <obj_property name="ElementShortName">cpuclk</obj_property>
+         <obj_property name="ObjectShortName">cpuclk</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/nrst" type="logic">
+         <obj_property name="ElementShortName">nrst</obj_property>
+         <obj_property name="ObjectShortName">nrst</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/signal_in" type="logic">
+         <obj_property name="ElementShortName">signal_in</obj_property>
+         <obj_property name="ObjectShortName">signal_in</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/search_busy" type="logic">
+         <obj_property name="ElementShortName">search_busy</obj_property>
+         <obj_property name="ObjectShortName">search_busy</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/search_start" type="logic">
+         <obj_property name="ElementShortName">search_start</obj_property>
+         <obj_property name="ObjectShortName">search_start</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/search_sv" type="array">
+         <obj_property name="ElementShortName">search_sv[5:0]</obj_property>
+         <obj_property name="ObjectShortName">search_sv[5:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/channel_sv" type="array">
+         <obj_property name="ElementShortName">channel_sv[5:0]</obj_property>
+         <obj_property name="ObjectShortName">channel_sv[5:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/channel_start" type="logic">
+         <obj_property name="ElementShortName">channel_start</obj_property>
+         <obj_property name="ObjectShortName">channel_start</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/search_channel_in" type="array">
+         <obj_property name="ElementShortName">search_channel_in[5:0]</obj_property>
+         <obj_property name="ObjectShortName">search_channel_in[5:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/search_channel_out" type="array">
+         <obj_property name="ElementShortName">search_channel_out[5:0]</obj_property>
+         <obj_property name="ObjectShortName">search_channel_out[5:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/search_dop" type="array">
+         <obj_property name="ElementShortName">search_dop[5:0]</obj_property>
+         <obj_property name="ObjectShortName">search_dop[5:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/search_corr" type="array">
+         <obj_property name="ElementShortName">search_corr[31:0]</obj_property>
+         <obj_property name="ObjectShortName">search_corr[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/search_code" type="array">
+         <obj_property name="ElementShortName">search_code[9:0]</obj_property>
+         <obj_property name="ObjectShortName">search_code[9:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/search_code_adjusted" type="array">
+         <obj_property name="ElementShortName">search_code_adjusted[9:0]</obj_property>
+         <obj_property name="ObjectShortName">search_code_adjusted[9:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/search_subcode" type="array">
+         <obj_property name="ElementShortName">search_subcode[4:0]</obj_property>
+         <obj_property name="ObjectShortName">search_subcode[4:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/search_subcode_adjusted" type="array">
+         <obj_property name="ElementShortName">search_subcode_adjusted[4:0]</obj_property>
+         <obj_property name="ObjectShortName">search_subcode_adjusted[4:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/channel_0_regs" type="array">
+         <obj_property name="ElementShortName">channel_0_regs</obj_property>
+         <obj_property name="ObjectShortName">channel_0_regs</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/epoch_0" type="logic">
+         <obj_property name="ElementShortName">epoch_0</obj_property>
+         <obj_property name="ObjectShortName">epoch_0</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/chip_0" type="array">
+         <obj_property name="ElementShortName">chip_0[9:0]</obj_property>
+         <obj_property name="ObjectShortName">chip_0[9:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/ie_0" type="array">
+         <obj_property name="ElementShortName">ie_0[15:0]</obj_property>
+         <obj_property name="ObjectShortName">ie_0[15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/qe_0" type="array">
+         <obj_property name="ElementShortName">qe_0[15:0]</obj_property>
+         <obj_property name="ObjectShortName">qe_0[15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/ip_0" type="array">
+         <obj_property name="ElementShortName">ip_0[15:0]</obj_property>
+         <obj_property name="ObjectShortName">ip_0[15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/qp_0" type="array">
+         <obj_property name="ElementShortName">qp_0[15:0]</obj_property>
+         <obj_property name="ObjectShortName">qp_0[15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/il_0" type="array">
+         <obj_property name="ElementShortName">il_0[15:0]</obj_property>
+         <obj_property name="ObjectShortName">il_0[15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/ql_0" type="array">
+         <obj_property name="ElementShortName">ql_0[15:0]</obj_property>
+         <obj_property name="ObjectShortName">ql_0[15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/code_phase_0" type="array">
+         <obj_property name="ElementShortName">code_phase_0[31:0]</obj_property>
+         <obj_property name="ObjectShortName">code_phase_0[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/lo_phase_0" type="array">
+         <obj_property name="ElementShortName">lo_phase_0[31:0]</obj_property>
+         <obj_property name="ObjectShortName">lo_phase_0[31:0]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group136" type="group">
+      <obj_property name="label">Satellite</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/gnss_tb/dut/ahb_sat_inst/clk" type="logic">
+         <obj_property name="ElementShortName">clk</obj_property>
+         <obj_property name="ObjectShortName">clk</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/ahb_sat_inst/hclk" type="logic">
+         <obj_property name="ElementShortName">hclk</obj_property>
+         <obj_property name="ObjectShortName">hclk</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/ahb_sat_inst/nrst" type="logic">
+         <obj_property name="ElementShortName">nrst</obj_property>
+         <obj_property name="ObjectShortName">nrst</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/ahb_sat_inst/search_busy" type="logic">
+         <obj_property name="ElementShortName">search_busy</obj_property>
+         <obj_property name="ObjectShortName">search_busy</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/ahb_sat_inst/search_dop" type="array">
+         <obj_property name="ElementShortName">search_dop[31:0]</obj_property>
+         <obj_property name="ObjectShortName">search_dop[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/ahb_sat_inst/search_code" type="array">
+         <obj_property name="ElementShortName">search_code[31:0]</obj_property>
+         <obj_property name="ObjectShortName">search_code[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/ahb_sat_inst/search_subcode" type="array">
+         <obj_property name="ElementShortName">search_subcode[31:0]</obj_property>
+         <obj_property name="ObjectShortName">search_subcode[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/ahb_sat_inst/search_corr" type="array">
+         <obj_property name="ElementShortName">search_corr[31:0]</obj_property>
+         <obj_property name="ObjectShortName">search_corr[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/ahb_sat_inst/search_channel_in" type="array">
+         <obj_property name="ElementShortName">search_channel_in[5:0]</obj_property>
+         <obj_property name="ObjectShortName">search_channel_in[5:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/ahb_sat_inst/search_done" type="logic">
+         <obj_property name="ElementShortName">search_done</obj_property>
+         <obj_property name="ObjectShortName">search_done</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/ahb_sat_inst/search_start" type="logic">
+         <obj_property name="ElementShortName">search_start</obj_property>
+         <obj_property name="ObjectShortName">search_start</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/ahb_sat_inst/search_sv" type="array">
+         <obj_property name="ElementShortName">search_sv[5:0]</obj_property>
+         <obj_property name="ObjectShortName">search_sv[5:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/ahb_sat_inst/search_channel" type="array">
+         <obj_property name="ElementShortName">search_channel[5:0]</obj_property>
+         <obj_property name="ObjectShortName">search_channel[5:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/ahb_sat_inst/channel_0" type="array">
+         <obj_property name="ElementShortName">channel_0</obj_property>
+         <obj_property name="ObjectShortName">channel_0</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/ahb_sat_inst/next_channel_0" type="array">
+         <obj_property name="ElementShortName">next_channel_0</obj_property>
+         <obj_property name="ObjectShortName">next_channel_0</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/ahb_sat_inst/controller_state" type="array">
+         <obj_property name="ElementShortName">controller_state[1:0]</obj_property>
+         <obj_property name="ObjectShortName">controller_state[1:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/ahb_sat_inst/next_controller_state" type="array">
+         <obj_property name="ElementShortName">next_controller_state[1:0]</obj_property>
+         <obj_property name="ObjectShortName">next_controller_state[1:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/ahb_sat_inst/satellite_state" type="other">
+         <obj_property name="ElementShortName">satellite_state</obj_property>
+         <obj_property name="ObjectShortName">satellite_state</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/ahb_sat_inst/next_satellite_state" type="other">
+         <obj_property name="ElementShortName">next_satellite_state</obj_property>
+         <obj_property name="ObjectShortName">next_satellite_state</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/ahb_sat_inst/haddr_reg_hclk" type="array">
+         <obj_property name="ElementShortName">haddr_reg_hclk[31:0]</obj_property>
+         <obj_property name="ObjectShortName">haddr_reg_hclk[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/ahb_sat_inst/hwrite_reg_hclk" type="logic">
+         <obj_property name="ElementShortName">hwrite_reg_hclk</obj_property>
+         <obj_property name="ObjectShortName">hwrite_reg_hclk</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/ahb_sat_inst/hsel_reg_hclk" type="logic">
+         <obj_property name="ElementShortName">hsel_reg_hclk</obj_property>
+         <obj_property name="ObjectShortName">hsel_reg_hclk</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/ahb_sat_inst/hready_reg_hclk" type="logic">
+         <obj_property name="ElementShortName">hready_reg_hclk</obj_property>
+         <obj_property name="ObjectShortName">hready_reg_hclk</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/ahb_sat_inst/htrans_reg_hclk" type="array">
+         <obj_property name="ElementShortName">htrans_reg_hclk[1:0]</obj_property>
+         <obj_property name="ObjectShortName">htrans_reg_hclk[1:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/ahb_sat_inst/hburst_reg_hclk" type="array">
+         <obj_property name="ElementShortName">hburst_reg_hclk[2:0]</obj_property>
+         <obj_property name="ObjectShortName">hburst_reg_hclk[2:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/ahb_sat_inst/hsize_reg_hclk" type="array">
+         <obj_property name="ElementShortName">hsize_reg_hclk[1:0]</obj_property>
+         <obj_property name="ObjectShortName">hsize_reg_hclk[1:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/ahb_sat_inst/hwdata_reg" type="array">
+         <obj_property name="ElementShortName">hwdata_reg[31:0]</obj_property>
+         <obj_property name="ObjectShortName">hwdata_reg[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/ahb_sat_inst/haddr_reg" type="array">
+         <obj_property name="ElementShortName">haddr_reg[31:0]</obj_property>
+         <obj_property name="ObjectShortName">haddr_reg[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/ahb_sat_inst/hwrite_reg" type="logic">
+         <obj_property name="ElementShortName">hwrite_reg</obj_property>
+         <obj_property name="ObjectShortName">hwrite_reg</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/ahb_sat_inst/hsel_reg" type="logic">
+         <obj_property name="ElementShortName">hsel_reg</obj_property>
+         <obj_property name="ObjectShortName">hsel_reg</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/ahb_sat_inst/hready_reg" type="logic">
+         <obj_property name="ElementShortName">hready_reg</obj_property>
+         <obj_property name="ObjectShortName">hready_reg</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/ahb_sat_inst/htrans_reg" type="array">
+         <obj_property name="ElementShortName">htrans_reg[1:0]</obj_property>
+         <obj_property name="ObjectShortName">htrans_reg[1:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/ahb_sat_inst/hburst_reg" type="array">
+         <obj_property name="ElementShortName">hburst_reg[2:0]</obj_property>
+         <obj_property name="ObjectShortName">hburst_reg[2:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/ahb_sat_inst/hsize_reg" type="array">
+         <obj_property name="ElementShortName">hsize_reg[1:0]</obj_property>
+         <obj_property name="ObjectShortName">hsize_reg[1:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/ahb_sat_inst/next_hrdata" type="array">
+         <obj_property name="ElementShortName">next_hrdata[31:0]</obj_property>
+         <obj_property name="ObjectShortName">next_hrdata[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/ahb_sat_inst/next_hreadyout" type="logic">
+         <obj_property name="ElementShortName">next_hreadyout</obj_property>
+         <obj_property name="ObjectShortName">next_hreadyout</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/ahb_sat_inst/next_hresp" type="logic">
+         <obj_property name="ElementShortName">next_hresp</obj_property>
+         <obj_property name="ObjectShortName">next_hresp</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/ahb_sat_inst/req_reg" type="array">
+         <obj_property name="ElementShortName">req_reg[1:0]</obj_property>
+         <obj_property name="ObjectShortName">req_reg[1:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/ahb_sat_inst/next_req" type="logic">
+         <obj_property name="ElementShortName">next_req</obj_property>
+         <obj_property name="ObjectShortName">next_req</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/ahb_sat_inst/ack_reg" type="array">
+         <obj_property name="ElementShortName">ack_reg[1:0]</obj_property>
+         <obj_property name="ObjectShortName">ack_reg[1:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/ahb_sat_inst/next_ack" type="logic">
+         <obj_property name="ElementShortName">next_ack</obj_property>
+         <obj_property name="ObjectShortName">next_ack</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/ahb_sat_inst/next_search_start" type="logic">
+         <obj_property name="ElementShortName">next_search_start</obj_property>
+         <obj_property name="ObjectShortName">next_search_start</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/ahb_sat_inst/search_busy_reg" type="logic">
+         <obj_property name="ElementShortName">search_busy_reg</obj_property>
+         <obj_property name="ObjectShortName">search_busy_reg</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/ahb_sat_inst/search_done_reg" type="logic">
+         <obj_property name="ElementShortName">search_done_reg</obj_property>
+         <obj_property name="ObjectShortName">search_done_reg</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/ahb_sat_inst/next_search_done_reg" type="logic">
+         <obj_property name="ElementShortName">next_search_done_reg</obj_property>
+         <obj_property name="ObjectShortName">next_search_done_reg</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/ahb_sat_inst/next_search_sv" type="array">
+         <obj_property name="ElementShortName">next_search_sv[5:0]</obj_property>
+         <obj_property name="ObjectShortName">next_search_sv[5:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/ahb_sat_inst/next_search_channel" type="array">
+         <obj_property name="ElementShortName">next_search_channel[5:0]</obj_property>
+         <obj_property name="ObjectShortName">next_search_channel[5:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/ahb_sat_inst/code_nco_for_dop" type="array">
+         <obj_property name="ElementShortName">code_nco_for_dop[31:0]</obj_property>
+         <obj_property name="ObjectShortName">code_nco_for_dop[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/ahb_sat_inst/lo_nco_for_dop" type="array">
+         <obj_property name="ElementShortName">lo_nco_for_dop[31:0]</obj_property>
+         <obj_property name="ObjectShortName">lo_nco_for_dop[31:0]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group231" type="group">
+      <obj_property name="label">Search</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <wvobject fp_name="/gnss_tb/dut/l1ca_search_inst/clk" type="logic">
+         <obj_property name="ElementShortName">clk</obj_property>
+         <obj_property name="ObjectShortName">clk</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/l1ca_search_inst/nrst" type="logic">
+         <obj_property name="ElementShortName">nrst</obj_property>
+         <obj_property name="ObjectShortName">nrst</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/l1ca_search_inst/signal_in" type="logic">
+         <obj_property name="ElementShortName">signal_in</obj_property>
+         <obj_property name="ObjectShortName">signal_in</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/l1ca_search_inst/start" type="logic">
+         <obj_property name="ElementShortName">start</obj_property>
+         <obj_property name="ObjectShortName">start</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/l1ca_search_inst/sv" type="array">
+         <obj_property name="ElementShortName">sv[5:0]</obj_property>
+         <obj_property name="ObjectShortName">sv[5:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/l1ca_search_inst/channel_in" type="array">
+         <obj_property name="ElementShortName">channel_in[5:0]</obj_property>
+         <obj_property name="ObjectShortName">channel_in[5:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/l1ca_search_inst/acc_out" type="array">
+         <obj_property name="ElementShortName">acc_out[31:0]</obj_property>
+         <obj_property name="ObjectShortName">acc_out[31:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/l1ca_search_inst/code_index" type="array">
+         <obj_property name="ElementShortName">code_index[9:0]</obj_property>
+         <obj_property name="ObjectShortName">code_index[9:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/l1ca_search_inst/start_index" type="array">
+         <obj_property name="ElementShortName">start_index[4:0]</obj_property>
+         <obj_property name="ObjectShortName">start_index[4:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/l1ca_search_inst/dop_index" type="array">
+         <obj_property name="ElementShortName">dop_index[5:0]</obj_property>
+         <obj_property name="ObjectShortName">dop_index[5:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/l1ca_search_inst/channel_out" type="array">
+         <obj_property name="ElementShortName">channel_out[5:0]</obj_property>
+         <obj_property name="ObjectShortName">channel_out[5:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/l1ca_search_inst/sv_out" type="array">
+         <obj_property name="ElementShortName">sv_out[5:0]</obj_property>
+         <obj_property name="ObjectShortName">sv_out[5:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/l1ca_search_inst/start_out" type="logic">
+         <obj_property name="ElementShortName">start_out</obj_property>
+         <obj_property name="ObjectShortName">start_out</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/l1ca_search_inst/busy" type="logic">
+         <obj_property name="ElementShortName">busy</obj_property>
+         <obj_property name="ObjectShortName">busy</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/l1ca_search_inst/state" type="array">
+         <obj_property name="ElementShortName">state[2:0]</obj_property>
+         <obj_property name="ObjectShortName">state[2:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/l1ca_search_inst/next_state" type="array">
+         <obj_property name="ElementShortName">next_state[2:0]</obj_property>
+         <obj_property name="ObjectShortName">next_state[2:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/l1ca_search_inst/fft_state" type="array">
+         <obj_property name="ElementShortName">fft_state[1:0]</obj_property>
+         <obj_property name="ObjectShortName">fft_state[1:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/l1ca_search_inst/next_fft_state" type="array">
+         <obj_property name="ElementShortName">next_fft_state[1:0]</obj_property>
+         <obj_property name="ObjectShortName">next_fft_state[1:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/l1ca_search_inst/s_axis_config_tdata" type="array">
+         <obj_property name="ElementShortName">s_axis_config_tdata[15:0]</obj_property>
+         <obj_property name="ObjectShortName">s_axis_config_tdata[15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/l1ca_search_inst/s_axis_config_tvalid" type="logic">
+         <obj_property name="ElementShortName">s_axis_config_tvalid</obj_property>
+         <obj_property name="ObjectShortName">s_axis_config_tvalid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/l1ca_search_inst/s_axis_config_tready" type="logic">
+         <obj_property name="ElementShortName">s_axis_config_tready</obj_property>
+         <obj_property name="ObjectShortName">s_axis_config_tready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/l1ca_search_inst/s_axis_data_tdata" type="array">
+         <obj_property name="ElementShortName">s_axis_data_tdata[31:0]</obj_property>
+         <obj_property name="ObjectShortName">s_axis_data_tdata[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/l1ca_search_inst/s_axis_data_tvalid" type="logic">
+         <obj_property name="ElementShortName">s_axis_data_tvalid</obj_property>
+         <obj_property name="ObjectShortName">s_axis_data_tvalid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/l1ca_search_inst/s_axis_data_tready" type="logic">
+         <obj_property name="ElementShortName">s_axis_data_tready</obj_property>
+         <obj_property name="ObjectShortName">s_axis_data_tready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/l1ca_search_inst/s_axis_data_tlast" type="logic">
+         <obj_property name="ElementShortName">s_axis_data_tlast</obj_property>
+         <obj_property name="ObjectShortName">s_axis_data_tlast</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/l1ca_search_inst/m_axis_data_tdata" type="array">
+         <obj_property name="ElementShortName">m_axis_data_tdata[31:0]</obj_property>
+         <obj_property name="ObjectShortName">m_axis_data_tdata[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/l1ca_search_inst/m_axis_data_tuser" type="array">
+         <obj_property name="ElementShortName">m_axis_data_tuser[15:0]</obj_property>
+         <obj_property name="ObjectShortName">m_axis_data_tuser[15:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/l1ca_search_inst/m_axis_data_tvalid" type="logic">
+         <obj_property name="ElementShortName">m_axis_data_tvalid</obj_property>
+         <obj_property name="ObjectShortName">m_axis_data_tvalid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/l1ca_search_inst/m_axis_data_tready" type="logic">
+         <obj_property name="ElementShortName">m_axis_data_tready</obj_property>
+         <obj_property name="ObjectShortName">m_axis_data_tready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/l1ca_search_inst/m_axis_data_tlast" type="logic">
+         <obj_property name="ElementShortName">m_axis_data_tlast</obj_property>
+         <obj_property name="ObjectShortName">m_axis_data_tlast</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/l1ca_search_inst/event_frame_started" type="logic">
+         <obj_property name="ElementShortName">event_frame_started</obj_property>
+         <obj_property name="ObjectShortName">event_frame_started</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/l1ca_search_inst/event_tlast_unexpected" type="logic">
+         <obj_property name="ElementShortName">event_tlast_unexpected</obj_property>
+         <obj_property name="ObjectShortName">event_tlast_unexpected</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/l1ca_search_inst/event_tlast_missing" type="logic">
+         <obj_property name="ElementShortName">event_tlast_missing</obj_property>
+         <obj_property name="ObjectShortName">event_tlast_missing</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/l1ca_search_inst/event_status_channel_halt" type="logic">
+         <obj_property name="ElementShortName">event_status_channel_halt</obj_property>
+         <obj_property name="ObjectShortName">event_status_channel_halt</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/l1ca_search_inst/event_data_in_channel_halt" type="logic">
+         <obj_property name="ElementShortName">event_data_in_channel_halt</obj_property>
+         <obj_property name="ObjectShortName">event_data_in_channel_halt</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/l1ca_search_inst/event_data_out_channel_halt" type="logic">
+         <obj_property name="ElementShortName">event_data_out_channel_halt</obj_property>
+         <obj_property name="ObjectShortName">event_data_out_channel_halt</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/l1ca_search_inst/sample_addr" type="array">
+         <obj_property name="ElementShortName">sample_addr[16:0]</obj_property>
+         <obj_property name="ObjectShortName">sample_addr[16:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/l1ca_search_inst/next_sample_addr" type="array">
+         <obj_property name="ElementShortName">next_sample_addr[16:0]</obj_property>
+         <obj_property name="ObjectShortName">next_sample_addr[16:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/l1ca_search_inst/sample_fft_addr" type="array">
+         <obj_property name="ElementShortName">sample_fft_addr[11:0]</obj_property>
+         <obj_property name="ObjectShortName">sample_fft_addr[11:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/l1ca_search_inst/next_sample_fft_addr" type="array">
+         <obj_property name="ElementShortName">next_sample_fft_addr[11:0]</obj_property>
+         <obj_property name="ObjectShortName">next_sample_fft_addr[11:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/l1ca_search_inst/code_fft_addr" type="array">
+         <obj_property name="ElementShortName">code_fft_addr[11:0]</obj_property>
+         <obj_property name="ObjectShortName">code_fft_addr[11:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/l1ca_search_inst/next_code_fft_addr" type="array">
+         <obj_property name="ElementShortName">next_code_fft_addr[11:0]</obj_property>
+         <obj_property name="ObjectShortName">next_code_fft_addr[11:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/l1ca_search_inst/sample_fft_addr_override" type="array">
+         <obj_property name="ElementShortName">sample_fft_addr_override[11:0]</obj_property>
+         <obj_property name="ObjectShortName">sample_fft_addr_override[11:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/l1ca_search_inst/code_fft_addr_override" type="array">
+         <obj_property name="ElementShortName">code_fft_addr_override[11:0]</obj_property>
+         <obj_property name="ObjectShortName">code_fft_addr_override[11:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/l1ca_search_inst/sample_i_avg" type="array">
+         <obj_property name="ElementShortName">sample_i_avg[5:0]</obj_property>
+         <obj_property name="ObjectShortName">sample_i_avg[5:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/l1ca_search_inst/next_sample_i_avg" type="array">
+         <obj_property name="ElementShortName">next_sample_i_avg[5:0]</obj_property>
+         <obj_property name="ObjectShortName">next_sample_i_avg[5:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/l1ca_search_inst/sample_i_avg_plus_sample" type="array">
+         <obj_property name="ElementShortName">sample_i_avg_plus_sample[5:0]</obj_property>
+         <obj_property name="ObjectShortName">sample_i_avg_plus_sample[5:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/l1ca_search_inst/sample_q_avg" type="array">
+         <obj_property name="ElementShortName">sample_q_avg[5:0]</obj_property>
+         <obj_property name="ObjectShortName">sample_q_avg[5:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/l1ca_search_inst/next_sample_q_avg" type="array">
+         <obj_property name="ElementShortName">next_sample_q_avg[5:0]</obj_property>
+         <obj_property name="ObjectShortName">next_sample_q_avg[5:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/l1ca_search_inst/sample_q_avg_plus_sample" type="array">
+         <obj_property name="ElementShortName">sample_q_avg_plus_sample[5:0]</obj_property>
+         <obj_property name="ObjectShortName">sample_q_avg_plus_sample[5:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/l1ca_search_inst/sample_wen" type="logic">
+         <obj_property name="ElementShortName">sample_wen</obj_property>
+         <obj_property name="ObjectShortName">sample_wen</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/l1ca_search_inst/sample_ren" type="logic">
+         <obj_property name="ElementShortName">sample_ren</obj_property>
+         <obj_property name="ObjectShortName">sample_ren</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/l1ca_search_inst/sample_fft_wen" type="logic">
+         <obj_property name="ElementShortName">sample_fft_wen</obj_property>
+         <obj_property name="ObjectShortName">sample_fft_wen</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/l1ca_search_inst/sample_fft_ren" type="logic">
+         <obj_property name="ElementShortName">sample_fft_ren</obj_property>
+         <obj_property name="ObjectShortName">sample_fft_ren</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/l1ca_search_inst/code_fft_wen" type="logic">
+         <obj_property name="ElementShortName">code_fft_wen</obj_property>
+         <obj_property name="ObjectShortName">code_fft_wen</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/l1ca_search_inst/code_fft_ren" type="logic">
+         <obj_property name="ElementShortName">code_fft_ren</obj_property>
+         <obj_property name="ObjectShortName">code_fft_ren</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/l1ca_search_inst/product_fft_wen" type="logic">
+         <obj_property name="ElementShortName">product_fft_wen</obj_property>
+         <obj_property name="ObjectShortName">product_fft_wen</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/l1ca_search_inst/product_fft_ren" type="logic">
+         <obj_property name="ElementShortName">product_fft_ren</obj_property>
+         <obj_property name="ObjectShortName">product_fft_ren</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/l1ca_search_inst/sample_fft_i_out" type="array">
+         <obj_property name="ElementShortName">sample_fft_i_out[15:0]</obj_property>
+         <obj_property name="ObjectShortName">sample_fft_i_out[15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/l1ca_search_inst/sample_fft_q_out" type="array">
+         <obj_property name="ElementShortName">sample_fft_q_out[15:0]</obj_property>
+         <obj_property name="ObjectShortName">sample_fft_q_out[15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/l1ca_search_inst/code_fft_i_out" type="array">
+         <obj_property name="ElementShortName">code_fft_i_out[15:0]</obj_property>
+         <obj_property name="ObjectShortName">code_fft_i_out[15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/l1ca_search_inst/code_fft_q_out" type="array">
+         <obj_property name="ElementShortName">code_fft_q_out[15:0]</obj_property>
+         <obj_property name="ObjectShortName">code_fft_q_out[15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/l1ca_search_inst/si_ci_prod" type="array">
+         <obj_property name="ElementShortName">si_ci_prod[31:0]</obj_property>
+         <obj_property name="ObjectShortName">si_ci_prod[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/l1ca_search_inst/sq_cq_prod" type="array">
+         <obj_property name="ElementShortName">sq_cq_prod[31:0]</obj_property>
+         <obj_property name="ObjectShortName">sq_cq_prod[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/l1ca_search_inst/si_cq_prod" type="array">
+         <obj_property name="ElementShortName">si_cq_prod[31:0]</obj_property>
+         <obj_property name="ObjectShortName">si_cq_prod[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/l1ca_search_inst/sq_ci_prod" type="array">
+         <obj_property name="ElementShortName">sq_ci_prod[31:0]</obj_property>
+         <obj_property name="ObjectShortName">sq_ci_prod[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/l1ca_search_inst/doppler_step" type="array">
+         <obj_property name="ElementShortName">doppler_step[5:0]</obj_property>
+         <obj_property name="ObjectShortName">doppler_step[5:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/l1ca_search_inst/next_doppler_step" type="array">
+         <obj_property name="ElementShortName">next_doppler_step[5:0]</obj_property>
+         <obj_property name="ObjectShortName">next_doppler_step[5:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/l1ca_search_inst/start_step" type="array">
+         <obj_property name="ElementShortName">start_step[4:0]</obj_property>
+         <obj_property name="ObjectShortName">start_step[4:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/l1ca_search_inst/next_start_step" type="array">
+         <obj_property name="ElementShortName">next_start_step[4:0]</obj_property>
+         <obj_property name="ObjectShortName">next_start_step[4:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/l1ca_search_inst/acc_magnitude" type="array">
+         <obj_property name="ElementShortName">acc_magnitude[31:0]</obj_property>
+         <obj_property name="ObjectShortName">acc_magnitude[31:0]</obj_property>
+         <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+         <obj_property name="AnalogYRangeType">ANALOG_YRANGETYPE_FIXED</obj_property>
+         <obj_property name="AnalogYRangeMin">0.000000</obj_property>
+         <obj_property name="AnalogYRRangeMax">60000.000000</obj_property>
+         <obj_property name="AnalogInterpolation">ANALOG_INTERPOLATION_LINEAR</obj_property>
+         <obj_property name="AnalogOffscale">ANALOG_OFFSCALE_HIDE</obj_property>
+         <obj_property name="AnalogHorizLine">0.000000</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/l1ca_search_inst/next_acc_out" type="array">
+         <obj_property name="ElementShortName">next_acc_out[31:0]</obj_property>
+         <obj_property name="ObjectShortName">next_acc_out[31:0]</obj_property>
+         <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+         <obj_property name="AnalogYRangeType">ANALOG_YRANGETYPE_FIXED</obj_property>
+         <obj_property name="AnalogYRangeMin">0.000000</obj_property>
+         <obj_property name="AnalogYRRangeMax">40000.000000</obj_property>
+         <obj_property name="AnalogInterpolation">ANALOG_INTERPOLATION_LINEAR</obj_property>
+         <obj_property name="AnalogOffscale">ANALOG_OFFSCALE_HIDE</obj_property>
+         <obj_property name="AnalogHorizLine">0.000000</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/l1ca_search_inst/next_code_index" type="array">
+         <obj_property name="ElementShortName">next_code_index[9:0]</obj_property>
+         <obj_property name="ObjectShortName">next_code_index[9:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/l1ca_search_inst/next_start_index" type="array">
+         <obj_property name="ElementShortName">next_start_index[4:0]</obj_property>
+         <obj_property name="ObjectShortName">next_start_index[4:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/l1ca_search_inst/next_dop_index" type="array">
+         <obj_property name="ElementShortName">next_dop_index[5:0]</obj_property>
+         <obj_property name="ObjectShortName">next_dop_index[5:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/l1ca_search_inst/next_channel_out" type="array">
+         <obj_property name="ElementShortName">next_channel_out[5:0]</obj_property>
+         <obj_property name="ObjectShortName">next_channel_out[5:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/l1ca_search_inst/next_sv_out" type="array">
+         <obj_property name="ElementShortName">next_sv_out[5:0]</obj_property>
+         <obj_property name="ObjectShortName">next_sv_out[5:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/l1ca_search_inst/next_start_out" type="logic">
+         <obj_property name="ElementShortName">next_start_out</obj_property>
+         <obj_property name="ObjectShortName">next_start_out</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/l1ca_search_inst/code_phase" type="array">
+         <obj_property name="ElementShortName">code_phase[31:0]</obj_property>
+         <obj_property name="ObjectShortName">code_phase[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/l1ca_search_inst/next_code_phase" type="array">
+         <obj_property name="ElementShortName">next_code_phase[32:0]</obj_property>
+         <obj_property name="ObjectShortName">next_code_phase[32:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/l1ca_search_inst/lo_phase" type="array">
+         <obj_property name="ElementShortName">lo_phase[17:0]</obj_property>
+         <obj_property name="ObjectShortName">lo_phase[17:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/l1ca_search_inst/next_lo_phase" type="array">
+         <obj_property name="ElementShortName">next_lo_phase[17:0]</obj_property>
+         <obj_property name="ObjectShortName">next_lo_phase[17:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/l1ca_search_inst/code_strobe" type="logic">
+         <obj_property name="ElementShortName">code_strobe</obj_property>
+         <obj_property name="ObjectShortName">code_strobe</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/l1ca_search_inst/code_clear" type="logic">
+         <obj_property name="ElementShortName">code_clear</obj_property>
+         <obj_property name="ObjectShortName">code_clear</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/l1ca_search_inst/code" type="logic">
+         <obj_property name="ElementShortName">code</obj_property>
+         <obj_property name="ObjectShortName">code</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/l1ca_search_inst/code_num" type="array">
+         <obj_property name="ElementShortName">code_num[9:0]</obj_property>
+         <obj_property name="ObjectShortName">code_num[9:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/l1ca_search_inst/CODE_RATE" type="array">
+         <obj_property name="ElementShortName">CODE_RATE[32:0]</obj_property>
+         <obj_property name="ObjectShortName">CODE_RATE[32:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/l1ca_search_inst/LO_RATE" type="array">
+         <obj_property name="ElementShortName">LO_RATE[17:0]</obj_property>
+         <obj_property name="ObjectShortName">LO_RATE[17:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/l1ca_search_inst/LO_SIN" type="array">
+         <obj_property name="ElementShortName">LO_SIN[3:0]</obj_property>
+         <obj_property name="ObjectShortName">LO_SIN[3:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/l1ca_search_inst/LO_COS" type="array">
+         <obj_property name="ElementShortName">LO_COS[3:0]</obj_property>
+         <obj_property name="ObjectShortName">LO_COS[3:0]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group283" type="group">
+      <obj_property name="label">Channel 0</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/gnss_tb/dut/l1ca_channel_0/clk" type="logic">
+         <obj_property name="ElementShortName">clk</obj_property>
+         <obj_property name="ObjectShortName">clk</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/l1ca_channel_0/nrst" type="logic">
+         <obj_property name="ElementShortName">nrst</obj_property>
+         <obj_property name="ObjectShortName">nrst</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/l1ca_channel_0/start" type="logic">
+         <obj_property name="ElementShortName">start</obj_property>
+         <obj_property name="ObjectShortName">start</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/l1ca_channel_0/sv" type="array">
+         <obj_property name="ElementShortName">sv[5:0]</obj_property>
+         <obj_property name="ObjectShortName">sv[5:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/l1ca_channel_0/code_rate" type="array">
+         <obj_property name="ElementShortName">code_rate[31:0]</obj_property>
+         <obj_property name="ObjectShortName">code_rate[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/l1ca_channel_0/lo_rate" type="array">
+         <obj_property name="ElementShortName">lo_rate[31:0]</obj_property>
+         <obj_property name="ObjectShortName">lo_rate[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/l1ca_channel_0/signal_in" type="logic">
+         <obj_property name="ElementShortName">signal_in</obj_property>
+         <obj_property name="ObjectShortName">signal_in</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/l1ca_channel_0/code_index" type="array">
+         <obj_property name="ElementShortName">code_index[9:0]</obj_property>
+         <obj_property name="ObjectShortName">code_index[9:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/l1ca_channel_0/start_index" type="array">
+         <obj_property name="ElementShortName">start_index[4:0]</obj_property>
+         <obj_property name="ObjectShortName">start_index[4:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/l1ca_channel_0/epoch" type="logic">
+         <obj_property name="ElementShortName">epoch</obj_property>
+         <obj_property name="ObjectShortName">epoch</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/l1ca_channel_0/chip" type="array">
+         <obj_property name="ElementShortName">chip[9:0]</obj_property>
+         <obj_property name="ObjectShortName">chip[9:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/l1ca_channel_0/ie" type="array">
+         <obj_property name="ElementShortName">ie[15:0]</obj_property>
+         <obj_property name="ObjectShortName">ie[15:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/l1ca_channel_0/qe" type="array">
+         <obj_property name="ElementShortName">qe[15:0]</obj_property>
+         <obj_property name="ObjectShortName">qe[15:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/l1ca_channel_0/ip" type="array">
+         <obj_property name="ElementShortName">ip[15:0]</obj_property>
+         <obj_property name="ObjectShortName">ip[15:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/l1ca_channel_0/qp" type="array">
+         <obj_property name="ElementShortName">qp[15:0]</obj_property>
+         <obj_property name="ObjectShortName">qp[15:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/l1ca_channel_0/il" type="array">
+         <obj_property name="ElementShortName">il[15:0]</obj_property>
+         <obj_property name="ObjectShortName">il[15:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/l1ca_channel_0/ql" type="array">
+         <obj_property name="ElementShortName">ql[15:0]</obj_property>
+         <obj_property name="ObjectShortName">ql[15:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/l1ca_channel_0/code_phase" type="array">
+         <obj_property name="ElementShortName">code_phase[31:0]</obj_property>
+         <obj_property name="ObjectShortName">code_phase[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/l1ca_channel_0/lo_phase" type="array">
+         <obj_property name="ElementShortName">lo_phase[31:0]</obj_property>
+         <obj_property name="ObjectShortName">lo_phase[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/l1ca_channel_0/state" type="array">
+         <obj_property name="ElementShortName">state[1:0]</obj_property>
+         <obj_property name="ObjectShortName">state[1:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/l1ca_channel_0/next_state" type="array">
+         <obj_property name="ElementShortName">next_state[1:0]</obj_property>
+         <obj_property name="ObjectShortName">next_state[1:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/l1ca_channel_0/epoch_reg" type="logic">
+         <obj_property name="ElementShortName">epoch_reg</obj_property>
+         <obj_property name="ObjectShortName">epoch_reg</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/l1ca_channel_0/code_index_reg" type="array">
+         <obj_property name="ElementShortName">code_index_reg[9:0]</obj_property>
+         <obj_property name="ObjectShortName">code_index_reg[9:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/l1ca_channel_0/start_index_reg" type="array">
+         <obj_property name="ElementShortName">start_index_reg[4:0]</obj_property>
+         <obj_property name="ObjectShortName">start_index_reg[4:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/l1ca_channel_0/code_wind_slip" type="array">
+         <obj_property name="ElementShortName">code_wind_slip[9:0]</obj_property>
+         <obj_property name="ObjectShortName">code_wind_slip[9:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/l1ca_channel_0/next_code_wind_slip" type="array">
+         <obj_property name="ElementShortName">next_code_wind_slip[9:0]</obj_property>
+         <obj_property name="ObjectShortName">next_code_wind_slip[9:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/l1ca_channel_0/sv_reg" type="array">
+         <obj_property name="ElementShortName">sv_reg[5:0]</obj_property>
+         <obj_property name="ObjectShortName">sv_reg[5:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/l1ca_channel_0/next_sv" type="array">
+         <obj_property name="ElementShortName">next_sv[5:0]</obj_property>
+         <obj_property name="ObjectShortName">next_sv[5:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/l1ca_channel_0/next_ie" type="array">
+         <obj_property name="ElementShortName">next_ie[15:0]</obj_property>
+         <obj_property name="ObjectShortName">next_ie[15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/l1ca_channel_0/next_qe" type="array">
+         <obj_property name="ElementShortName">next_qe[15:0]</obj_property>
+         <obj_property name="ObjectShortName">next_qe[15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/l1ca_channel_0/next_ip" type="array">
+         <obj_property name="ElementShortName">next_ip[15:0]</obj_property>
+         <obj_property name="ObjectShortName">next_ip[15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/l1ca_channel_0/next_qp" type="array">
+         <obj_property name="ElementShortName">next_qp[15:0]</obj_property>
+         <obj_property name="ObjectShortName">next_qp[15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/l1ca_channel_0/next_il" type="array">
+         <obj_property name="ElementShortName">next_il[15:0]</obj_property>
+         <obj_property name="ObjectShortName">next_il[15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/l1ca_channel_0/next_ql" type="array">
+         <obj_property name="ElementShortName">next_ql[15:0]</obj_property>
+         <obj_property name="ObjectShortName">next_ql[15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/l1ca_channel_0/die" type="logic">
+         <obj_property name="ElementShortName">die</obj_property>
+         <obj_property name="ObjectShortName">die</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/l1ca_channel_0/dip" type="logic">
+         <obj_property name="ElementShortName">dip</obj_property>
+         <obj_property name="ObjectShortName">dip</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/l1ca_channel_0/dil" type="logic">
+         <obj_property name="ElementShortName">dil</obj_property>
+         <obj_property name="ObjectShortName">dil</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/l1ca_channel_0/dqe" type="logic">
+         <obj_property name="ElementShortName">dqe</obj_property>
+         <obj_property name="ObjectShortName">dqe</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/l1ca_channel_0/dqp" type="logic">
+         <obj_property name="ElementShortName">dqp</obj_property>
+         <obj_property name="ObjectShortName">dqp</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/l1ca_channel_0/dql" type="logic">
+         <obj_property name="ElementShortName">dql</obj_property>
+         <obj_property name="ObjectShortName">dql</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/l1ca_channel_0/next_code_phase" type="array">
+         <obj_property name="ElementShortName">next_code_phase[32:0]</obj_property>
+         <obj_property name="ObjectShortName">next_code_phase[32:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/l1ca_channel_0/code_strobe" type="logic">
+         <obj_property name="ElementShortName">code_strobe</obj_property>
+         <obj_property name="ObjectShortName">code_strobe</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/l1ca_channel_0/delay_strobe" type="logic">
+         <obj_property name="ElementShortName">delay_strobe</obj_property>
+         <obj_property name="ObjectShortName">delay_strobe</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/l1ca_channel_0/code_early" type="logic">
+         <obj_property name="ElementShortName">code_early</obj_property>
+         <obj_property name="ObjectShortName">code_early</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/l1ca_channel_0/code_prompt" type="logic">
+         <obj_property name="ElementShortName">code_prompt</obj_property>
+         <obj_property name="ObjectShortName">code_prompt</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/l1ca_channel_0/code_late" type="logic">
+         <obj_property name="ElementShortName">code_late</obj_property>
+         <obj_property name="ObjectShortName">code_late</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/l1ca_channel_0/next_code_prompt" type="logic">
+         <obj_property name="ElementShortName">next_code_prompt</obj_property>
+         <obj_property name="ObjectShortName">next_code_prompt</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/l1ca_channel_0/next_code_late" type="logic">
+         <obj_property name="ElementShortName">next_code_late</obj_property>
+         <obj_property name="ObjectShortName">next_code_late</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/l1ca_channel_0/next_lo_phase" type="array">
+         <obj_property name="ElementShortName">next_lo_phase[31:0]</obj_property>
+         <obj_property name="ObjectShortName">next_lo_phase[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/l1ca_channel_0/lo_cos" type="logic">
+         <obj_property name="ElementShortName">lo_cos</obj_property>
+         <obj_property name="ObjectShortName">lo_cos</obj_property>
+      </wvobject>
+      <wvobject fp_name="/gnss_tb/dut/l1ca_channel_0/lo_sin" type="logic">
+         <obj_property name="ElementShortName">lo_sin</obj_property>
+         <obj_property name="ObjectShortName">lo_sin</obj_property>
+      </wvobject>
+   </wvobject>
+</wave_config>

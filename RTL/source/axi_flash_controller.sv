@@ -54,7 +54,7 @@ module axi_flash_controller (
     end
 
     // Flash clock output
-    STARTUPE2 #(
+    (* keep = "true", dont_touch = "true" *) STARTUPE2 #(
         .PROG_USR("FALSE"),
         .SIM_CCLK_FREQ(0)
     ) startupe2_inst (

@@ -109,3 +109,30 @@ void ThirdOrderFLLAssistedPLL::set_bandwidth(double noise_bandwidth_fll, double 
     w_0f = noise_bandwidth_fll / 0.53;
     w_0_2f = w_0f * w_0f;
 }
+
+SecondOrderFLLAssistedPLL::SecondOrderFLLAssistedPLL(double noise_bandwidth_fll, double noise_bandwidth_pll, double acc0)
+{
+    w_0p = noise_bandwidth_pll / 0.53;
+    w_0_2p = w_0p * w_0p;
+    w_0f = noise_bandwidth_fll / 0.25;
+    a_2 = 1.414;
+    acc1 = acc0;
+}
+
+double SecondOrderFLLAssistedPLL::update(double fll_input, double pll_input, double int_time)
+{
+    // Update the accumulator and produce the output
+    double code_error;
+    double new_acc_1 = (((fll_input * w_0f) + (pll_input * w_0_2p)) * int_time) + acc1;
+    code_error = (new_acc_1 + acc1) * 0.5 + (a_2 * w_0p * pll_input);
+    acc1 = new_acc_1;
+
+    return code_error;
+}
+
+void SecondOrderFLLAssistedPLL::set_bandwidth(double noise_bandwidth_fll, double noise_bandwidth_pll)
+{
+    w_0p = noise_bandwidth_pll / 0.53;
+    w_0_2p = w_0p * w_0p;
+    w_0f = noise_bandwidth_fll / 0.25;
+}

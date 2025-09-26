@@ -24,16 +24,24 @@ def check_frequency(sample):
 
     # Get the magnitude of the spectrum
     magnitude = np.abs(spectrum)
+    magnitude[0] = 0  # Remove DC component
 
+    plt.figure()
     plt.plot(freq, magnitude)
-    plt.show()
+    plt.show(block=False)
 
     # Find the peak frequency
+    max_idx = np.argmax(magnitude)
     peak_freq = freq[np.argmax(magnitude)]
+    print(f"Max: {peak_freq} at {max_idx}")
 
     return peak_freq
 
 if __name__ == "__main__":
-    sample = gen_sample("capture-5-4-25-sign-3.bin")
+    sample = gen_sample("capture_preset.bin")
     peak_freq = check_frequency(sample)
-    print(peak_freq)
+
+    sample = gen_sample("capture_spi.bin")
+    peak_freq = check_frequency(sample)
+
+    plt.show()

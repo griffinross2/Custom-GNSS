@@ -41,6 +41,7 @@
     # add_files -fileset sources_1 [ glob ./IP/mig_7series_0/mig_7series_0/example_design/sim/*.sv ]
     # add_files -fileset sources_1 [ glob ./IP/mig_7series_0/mig_7series_0/example_design/sim/*.v ]
     # add_files -fileset sources_1 [ glob ./IP/mig_7series_0/mig_7series_0/example_design/sim/*.vh ]
+    import_ip D:/github_repos/RISC-V-Core/RTL/IP/xfft_0/xfft_0.xci
     add_files -fileset sources_1 [ glob ./source/*.sv ]
     add_files -fileset sim_1 [ glob ./testbench/system_tb.sv ]
     add_files -fileset sim_1 [ glob ./testbench/flash_model.sv ]

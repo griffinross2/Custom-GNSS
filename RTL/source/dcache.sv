@@ -14,7 +14,8 @@ module dcache (
     cache_if.cache cif
 );
 
-typedef enum logic [3:0] {
+typedef enum logic [4:0] {
+    INIT,
     IDLE,
     CHECK,
     READ_0,
@@ -34,6 +35,7 @@ typedef enum logic [3:0] {
 } dcache_state_t;
 
 dcache_state_t state, next_state;
+logic [DCACHE_SET_IDX_W-1:0] init_idx; // For initialization
 logic hit;
 logic block_idx;    // which block in set got a hit
 logic lru_idx;      // which block in set is Least Recently Used
@@ -52,13 +54,15 @@ dcache_meta_t rmeta1;   // Tag + valid bit + dirty bit + lru bit
 dcache_meta_t rmeta [0:1];
 assign rmeta[0] = rmeta0;
 assign rmeta[1] = rmeta1;
-logic [ICACHE_SET_IDX_W:0] flush_block, next_flush_block;
+logic [DCACHE_SET_IDX_W:0] flush_block, next_flush_block;
 
 always_ff @(posedge clk) begin
     if (~nrst) begin
         state <= IDLE;
+        init_idx <= '0;
     end else begin
         state <= next_state;
+        init_idx <= init_idx + 1;
     end
 end
 
@@ -66,6 +70,14 @@ end
 always_comb begin
     next_state = state;
     case (state)
+        INIT: begin
+            if (init_idx + {{DCACHE_SET_IDX_W-1{1'b0}}, 1'b1} == '0) begin
+                next_state = IDLE;
+            end else begin
+                next_state = INIT;
+            end
+        end
+
         IDLE: begin
             if (!cif.halt && (cif.read || |cif.write)) begin
                 next_state = CHECK;
@@ -202,6 +214,20 @@ always_comb begin
     // State output
 
     case (state)
+        INIT: begin
+            // Initialize the cache
+            wen = 1'b1;
+
+            // Set the address to the current index
+            addr.set_index = init_idx;
+
+            // Write default values to metadata
+            wmeta0.valid = 1'b0;
+            wmeta0.lru = 1'b0;
+            wmeta1.valid = 1'b0;
+            wmeta1.lru = 1'b0;
+        end
+
         IDLE: begin
             if (!cif.halt && cif.read || |cif.write) begin
                 // Signal BRAM to read

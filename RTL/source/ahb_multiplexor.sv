@@ -50,6 +50,7 @@ module ahb_multiplexor (
         if (abif_to_controller.htrans != HTRANS_IDLE && abif_to_controller.haddr >= 32'h2002_0000 && abif_to_controller.haddr < 32'h2002_0010) begin
             abif_to_uart.hsel = 1'b1;
             sel_i = 1;
+        // GNSS address range = 0x2004_0000 to 0x2004_07FC
         end else if (abif_to_controller.htrans != HTRANS_IDLE && abif_to_controller.haddr >= 32'h2004_0000 && abif_to_controller.haddr < 32'h2004_0800) begin
             abif_to_gnss.hsel = 1'b1;
             sel_i = 2;

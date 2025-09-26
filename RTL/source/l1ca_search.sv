@@ -147,7 +147,7 @@ localparam logic [15:0] LO_RATE [0:N_DOP-1] = {
     16'd13738
 };
 
-localparam LO_SIN = 4'b0011;
+localparam LO_SIN = 4'b1100;
 localparam LO_COS = 4'b1001;
 
 logic [11:0] code_index_reg;
